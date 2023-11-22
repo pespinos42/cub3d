@@ -4,7 +4,8 @@ LIBMLX	= ./MLX42
 
 HEADERS	= -I ./include -I $(LIBMLX)/include
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
-SRCS	= main.c
+SRCS	= 	main.c \
+			libft1.c
 OBJS	= ${SRCS:.c=.o}
 
 all: libmlx $(NAME)
