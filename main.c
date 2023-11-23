@@ -2,13 +2,14 @@
 
 int main(int argc, char **argv)
 {
-	(void) argv;
+	t_data	d;
 
-	if (argc == 2 && ft_strnstr(argv[1], ".cub", ft_strlen(argv[1])))
-	{
-		printf("ABRIENDO ARCHIVO...\n");
-	}
-	else
-		printf("ERROR\tDATOS ERRONEOS\n");	
+	d.argc = argc;
+	d.argv = argv;
+	if (ft_check_parameters(&d) != 1)
+		ft_error_messages(1);
+	ft_initialize_data(&d);
+	
+
 	return (0);
 }

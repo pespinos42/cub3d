@@ -5,8 +5,14 @@ LIBMLX	= ./MLX42
 HEADERS	= -I ./include -I $(LIBMLX)/include
 LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
 SRCS	= 	main.c \
-			libft1.c
+			000libft1.c \
+			100check.c \
+			110initialize.c \
+			120errorMessages.c \
+			200gnl.c \
+			210gnlUtils.c
 OBJS	= ${SRCS:.c=.o}
+DEBUG	= -fsanitize=address
 
 all: libmlx $(NAME)
 
@@ -17,15 +23,18 @@ libmlx:
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) 
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) $(DEBUG)
+	@clear
 
 clean:
 	@rm -f $(OBJS)
 	@$(MAKE) -C $(LIBMLX) clean
+	@clear
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIBMLX) fclean
+	@clear
 
 re: clean all
 
