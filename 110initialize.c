@@ -1,4 +1,29 @@
-#include "cub3d.h"
+ #include "cub3d.h"
+
+char	*ft_strdup(char *src)
+{
+	char	*str;
+	int		pos;
+
+	pos = 0;
+	str = NULL;
+	str = (char *) malloc ((ft_strlen_n(src) + 1) * sizeof(char));
+	if (str)
+	{
+		while (src[pos] && src[pos] != '\n')
+		{
+			str[pos] = src[pos];
+			pos++;
+		}
+		str[pos] = '\0';
+	}
+	else
+	{
+		free(str);
+		return (NULL);
+	}
+	return (str);
+}
 
 void	ft_number_rows(t_data *d)
 {
@@ -44,52 +69,11 @@ void	ft_create_map(t_data *d)
 	{
 		d->map[r] = NULL;
 		str = ft_get_next_line(d->fd);
-		if (r < d->number_rows -1)
-			d->map[r] = malloc (ft_strlen(str) * sizeof (char));
-		else
-			d->map[r] = malloc ((ft_strlen(str) + 1) * sizeof (char));
-		if (!d->map[r])
-		{
-			ft_liberate_map(d);
-			exit(1);
-		}
+		d->map[r] = ft_strdup(str);
+		printf("%s\n", d->map[r]);
 		r++;
 	}
 	close(d->fd);
-}
-
-void	ft_print_map(t_data *d)
-{
-	printf("IMPRIMIENDO MAPA...\n");
-	
-	printf("%c\n", d->map[0][0]);
-}
-
-void	ft_fill_map(t_data *d)
-{
-	int		r;
-	int		i;
-	char	*str;
-
-	r = 0;
-	i = 0;
-	str = ft_get_next_line(d->fd);
-	while(r < d->number_rows)
-	{
-		printf("CADENA A COPIAR -> %s", str);
-		while (str[i] && str[i] != '\n')
-		{
-			d->map[r][i] = str[i];
-			printf("[%c]", d->map[r][i]);
-			i++;
-		}
-		i = 0;
-		printf("\n");
-		d->map[r][i] = '\0';
-		str = ft_get_next_line(d->fd);
-		r++;
-	}
-	close (d->fd);
 }
 
 void	ft_initialize_data(t_data *d)
@@ -99,7 +83,4 @@ void	ft_initialize_data(t_data *d)
 	ft_number_rows(d);
 	d->fd = open(d->argv[1], O_RDONLY);
 	ft_create_map(d);
-	d->fd = open(d->argv[1], O_RDONLY);
-	ft_fill_map(d);
-	ft_print_map(d);
 }

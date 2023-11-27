@@ -35,5 +35,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 int		ft_strlen_n(const char *s);
+int		ft_strlen_n(const char *s);
 
 #endif

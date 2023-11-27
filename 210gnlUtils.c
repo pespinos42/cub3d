@@ -62,22 +62,12 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *) s);
 }
 
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	len;
+int	ft_strlen_n(const char *s)
+{
+	size_t	len;
 
-// 	len = 0;
-// 	while (s[len])
-// 		len++;
-// 	return (len);
-// }
-
-// int	ft_strlen_n(const char *s)
-// {
-// 	size_t	len;
-
-// 	len = 0;
-// 	while (s[len] && s[len] != '\n')
-// 		len++;
-// 	return (len);
-// }
+	len = 0;
+	while (s[len] && s[len] != '\n')
+		len++;
+	return (len);
+}
