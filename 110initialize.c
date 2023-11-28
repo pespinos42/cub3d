@@ -30,6 +30,7 @@ void	ft_number_rows(t_data *d)
 	int	rows;
 	char	*str;
 
+	d->fd = open(d->argv[1], O_RDONLY);
 	rows = 0;
 	str = ft_get_next_line(d->fd);
 	while (str != NULL)
@@ -61,6 +62,7 @@ void	ft_create_map(t_data *d)
 	int		r;
 	char	*str;
 
+	d->fd = open(d->argv[1], O_RDONLY);
 	r = 0;
 	d->map = malloc (d->number_rows * sizeof (char *));
 	if (!d->map)
@@ -74,13 +76,13 @@ void	ft_create_map(t_data *d)
 		r++;
 	}
 	close(d->fd);
+	printf("MAPA CREADO CORRECTAMENTE\n");
 }
 
 void	ft_initialize_data(t_data *d)
 {
 	d->map = NULL;
-	d->fd = open(d->argv[1], O_RDONLY);
 	ft_number_rows(d);
-	d->fd = open(d->argv[1], O_RDONLY);
+	ft_check_characters(d);
 	ft_create_map(d);
 }

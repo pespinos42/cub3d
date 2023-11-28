@@ -19,11 +19,13 @@ typedef struct s_data
 	int		fd;
 }   t_data;
 
-//LIBFT1
+//000LIBFT1
 int     ft_strlen(char *str);
 char    *ft_strnstr(char *b, char *l, size_t len);
+int		ft_strchr_int(char *s, char c);
 //100CHECK
 int		ft_check_parameters(t_data *d);
+void	ft_check_characters(t_data *d);
 //110INITIALIZE
 void	ft_initialize_data(t_data *d);
 //120ERRORMESSAGES
@@ -33,8 +35,7 @@ char	*ft_get_next_line(int fd);
 //210GNLUTILS
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, unsigned int start, size_t len);
+int		ft_strlen_n(const char *s);
 char	*ft_strchr(const char *s, int c);
-int		ft_strlen_n(const char *s);
-int		ft_strlen_n(const char *s);
 
 #endif
