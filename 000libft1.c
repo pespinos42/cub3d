@@ -32,15 +32,25 @@ char    *ft_strnstr(char *b, char *l, size_t len)
 	return (NULL);
 }
 
-int	ft_strchr_int(char *s, char c)
+int	ft_allow_chars(char *s, t_data *d)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != '\n')
 	{
-		if (!s[i])
-			return (0);
+		if (d->flag_char == 0)
+		{
+			if (s[i] == 'N' || s[i] == 'S' || s[i] == 'E' || s[i] == 'W')
+				d->flag_char = 1;
+			else if (s[i] != '0' && s[i] != '1')
+				return (0);
+		}
+		else
+		{
+			if (s[i] != '0' && s[i] != '1')
+				return (0);
+		}
 		i++;
 	}
 	return (1);

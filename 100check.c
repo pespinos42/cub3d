@@ -17,22 +17,15 @@ int	ft_check_parameters(t_data *d)
 void	ft_check_characters(t_data *d)
 {
 	int		r;
-	int		i;
 	char	*str;
 
 	d->fd = open(d->argv[1], O_RDONLY);
 	r = 0;
-	i = 0;
 	while (r < d->number_rows)
 	{
 		str = ft_get_next_line(d->fd);
-		while (str[i] && str[i] != '\n')
-		{
-			if (!ft_strchr_int("01NSEW", str[i]))
-				ft_error_messages(2);
-			i++;
-		}
-		i = 0;
+		if (!ft_allow_chars(str, d))
+			ft_error_messages(2);
 		r++;
 	}
 	close(d->fd);

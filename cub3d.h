@@ -15,14 +15,14 @@ typedef struct s_data
 	char	**argv;
 	char    **map;
 	int     number_rows;
-	int     number_columns;
 	int		fd;
+	int		flag_char;
 }   t_data;
 
 //000LIBFT1
 int     ft_strlen(char *str);
 char    *ft_strnstr(char *b, char *l, size_t len);
-int		ft_strchr_int(char *s, char c);
+int		ft_allow_chars(char *s, t_data *d);
 //100CHECK
 int		ft_check_parameters(t_data *d);
 void	ft_check_characters(t_data *d);
