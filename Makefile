@@ -10,7 +10,8 @@ SRCS	= 	main.c \
 			110initialize.c \
 			120errorMessages.c \
 			200gnl.c \
-			210gnlUtils.c
+			210gnlUtils.c \
+			999free.c
 OBJS	= ${SRCS:.c=.o}
 DEBUG	= -fsanitize=address
 
@@ -23,7 +24,7 @@ libmlx:
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) 
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) $(DEBUG)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 	@clear
 
 clean:
