@@ -14,9 +14,12 @@ typedef struct s_data
 	int		argc;
 	char	**argv;
 	char    **map;
+	char	**map_flood_fill;
 	int     number_rows;
 	int		fd;
 	int		flag_char;
+	int		x_position_player;
+	int		y_position_player;
 }   t_data;
 
 //000LIBFT1
@@ -40,5 +43,11 @@ int		ft_strlen_n(const char *s);
 char	*ft_strchr(const char *s, int c);
 //999FREE
 void    ft_free_all(t_data *d);
+//PRUEBA
+void    ft_duplicate_map(t_data *d);
+void    ft_flood_fill(int x, int y, t_data *d);
+void    ft_print_map(t_data *d);
+void    ft_locate_player(t_data *d);
+void    ft_check_limits(t_data *d);
 
 #endif

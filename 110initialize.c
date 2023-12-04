@@ -61,8 +61,12 @@ void	ft_initialize_data(t_data *d)
 {
 	d->flag_char = 0;
 	d->number_rows = 0;
+	d->x_position_player = -1;
+	d->y_position_player = -1;
 	d->map = NULL;
 	ft_number_rows(d);
 	ft_check_characters(d);
 	ft_create_map(d);
+	ft_check_limits(d);
+	
 }

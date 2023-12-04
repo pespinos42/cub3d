@@ -11,7 +11,8 @@ SRCS	= 	main.c \
 			120errorMessages.c \
 			200gnl.c \
 			210gnlUtils.c \
-			999free.c
+			999free.c \
+			101checkLimits.c
 OBJS	= ${SRCS:.c=.o}
 DEBUG	= -fsanitize=address
 
