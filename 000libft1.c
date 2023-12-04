@@ -1,8 +1,8 @@
 #include "cub3d.h"
 
-int     ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (str[len])
@@ -10,10 +10,10 @@ int     ft_strlen(char *str)
 	return (len);
 }
 
-char    *ft_strnstr(char *b, char *l, size_t len)
+char	*ft_strnstr(char *b, char *l, size_t len)
 {
-	size_t  p1;
-	size_t  p2;
+	size_t	p1;
+	size_t	p2;
 
 	p1 = 0;
 	if (!*l)
@@ -32,26 +32,27 @@ char    *ft_strnstr(char *b, char *l, size_t len)
 	return (NULL);
 }
 
-int	ft_allow_chars(char *s, t_data *d)
+char	*ft_strdup(char *src)
 {
-	int	i;
+	char	*str;
+	int		pos;
 
-	i = 0;
-	while (s[i] && s[i] != '\n')
+	pos = 0;
+	str = NULL;
+	str = (char *) malloc ((ft_strlen_n(src) + 1) * sizeof(char));
+	if (str)
 	{
-		if (d->flag_char == 0)
+		while (src[pos] && src[pos] != '\n')
 		{
-			if (s[i] == 'N' || s[i] == 'S' || s[i] == 'E' || s[i] == 'W')
-				d->flag_char = 1;
-			else if (s[i] != '0' && s[i] != '1')
-				return (0);
+			str[pos] = src[pos];
+			pos++;
 		}
-		else
-		{
-			if (s[i] != '0' && s[i] != '1')
-				return (0);
-		}
-		i++;
+		str[pos] = '\0';
 	}
-	return (1);
+	else
+	{
+		free(str);
+		return (NULL);
+	}
+	return (str);
 }

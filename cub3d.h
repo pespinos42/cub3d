@@ -22,10 +22,11 @@ typedef struct s_data
 //000LIBFT1
 int     ft_strlen(char *str);
 char    *ft_strnstr(char *b, char *l, size_t len);
-int		ft_allow_chars(char *s, t_data *d);
+char	*ft_strdup(char *src);
 //100CHECK
 int		ft_check_parameters(t_data *d);
 void	ft_check_characters(t_data *d);
+int		ft_allow_chars(char *s, t_data *d);
 //110INITIALIZE
 void	ft_initialize_data(t_data *d);
 //120ERRORMESSAGES
