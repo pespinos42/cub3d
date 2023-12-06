@@ -1,17 +1,15 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 int	ft_check_parameters(t_data *d)
 {
 	if (d->argc == 2 && ft_strnstr(d->argv[1], ".cub", ft_strlen(d->argv[1])))
 	{
-		printf("ABRIENDO ARCHIVO...\n\n");
-					//--------------------------------		ELIMINAR ESTA LINEA
+		printf("ABRIENDO ARCHIVO...\n\n");//--------------------------------		ELIMINAR ESTA LINEA
 		return (1);
 	}
 	else
 	{
-		printf("ERROR\tDATOS ERRONEOS\n");
-					//--------------------------------		ELIMINAR ESTA LINEA
+		printf("ERROR\tDATOS ERRONEOS\n");//--------------------------------		ELIMINAR ESTA LINEA
 		return (-1);
 	}
 }
@@ -27,12 +25,12 @@ int	ft_allow_chars(char *s, t_data *d)
 		{
 			if (s[i] == 'N' || s[i] == 'S' || s[i] == 'E' || s[i] == 'W')
 				d->flag_char = 1;
-			else if (s[i] != '0' && s[i] != '1' && s[i] != ' ')
+			else if (s[i] != '0' && s[i] != '1' && s[i] != 32)
 				return (0);
 		}
 		else
 		{
-			if (s[i] != '0' && s[i] != '1' && s[i] != ' ')
+			if (s[i] != '0' && s[i] != '1' && s[i] != 32)
 				return (0);
 		}
 		i++;
@@ -51,9 +49,12 @@ void	ft_check_characters(t_data *d)
 	{
 		str = ft_get_next_line(d->fd);
 		if (!ft_allow_chars(str, d))
+		{
+			printf("CADENA DE ERROR -> '%s'", str);
 			ft_error_messages(2);
+		}
 		r++;
-		free(str);
+		free (str);
 	}
 	close(d->fd);
 }

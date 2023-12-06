@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void    ft_duplicate_map(t_data *d)
 {
@@ -15,14 +15,14 @@ void    ft_duplicate_map(t_data *d)
 
 void    ft_flood_fill(int x, int y, t_data *d)
 {
-    printf("FLOOD FILL posicion X->%i Y->%i VALOR->%c", x, y, d->map_flood_fill[x][y]);
+    //printf("FLOOD FILL posicion X->%i Y->%i VALOR->%c", x, y, d->map_flood_fill[x][y]);
     if (x < 0 || y < 0 || x >= d->number_rows || !d->map_flood_fill[x][y]
             || d->map_flood_fill[x][y] == '1' || d->map_flood_fill[x][y] == '#')
             {
-                printf ("\t\t CONDICION DE SALIDA\n");
+                //printf ("\t\t CONDICION DE SALIDA\n");
                 return ;
             }
-    printf("\n");
+    //printf("\n");
     
     d->map_flood_fill[x][y] = '#';
 
@@ -107,12 +107,16 @@ int     ft_check_outer_walls(t_data *d)
         y = 0;
         while (d->map_flood_fill[x][y])
         {
-            if ((x == 0 || x == d->number_rows - 1) 
-                    && d->map_flood_fill[x][y] == '#')
-                return (0);
-            if ((y == 0 || !d->map_flood_fill[x][y + 1]) 
-                    && d->map_flood_fill[x][y] == '#')
-                return (0);
+            if ((x == 0 || x == d->number_rows - 1)) 
+            {
+                if (d->map_flood_fill[x][y] == '#')
+                    return (0);
+            }
+            if ((y == 0 || !d->map_flood_fill[x][y + 1]))
+            {
+                if (d->map_flood_fill[x][y] == '#')
+                    return (0);
+            }
             y++;
         }
         x++;

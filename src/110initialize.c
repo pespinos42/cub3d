@@ -1,8 +1,8 @@
-#include "../include/cub3d.h"
+ #include "cub3d.h"
 
 void	ft_number_rows(t_data *d)
 {
-	int		rows;
+	int	rows;
 	char	*str;
 
 	d->fd = open(d->argv[1], O_RDONLY);
@@ -10,12 +10,14 @@ void	ft_number_rows(t_data *d)
 	str = ft_get_next_line(d->fd);
 	while (str != NULL)
 	{
+		//printf("STR -> %sLEN -> %i\n", str, ft_strlen(str));		//--------------------------------		ELIMINAR ESTA LINEA
 		rows++;
-		free(str);
+		free (str);
 		str = ft_get_next_line(d->fd);
 	}
-	free(str);
+	free (str);
 	d->number_rows = rows;
+	//printf("NUMERO DE FILAS -> %i\n", d->number_rows);			//--------------------------------		ELIMINAR ESTA LINEA
 	close(d->fd);
 }
 
@@ -39,18 +41,20 @@ void	ft_create_map(t_data *d)
 
 	d->fd = open(d->argv[1], O_RDONLY);
 	r = 0;
-	d->map = malloc(d->number_rows * sizeof(char *));
+	d->map = malloc (d->number_rows * sizeof (char *));
 	if (!d->map)
-		exit(1);
+		exit (1);
 	while (r < d->number_rows)
 	{
 		d->map[r] = NULL;
 		str = ft_get_next_line(d->fd);
 		d->map[r] = ft_strdup(str);
+		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
 		r++;
 		free(str);
 	}
 	close(d->fd);
+	printf("\nMAPA CREADO CORRECTAMENTE\n\n");			//--------------------------------		ELIMINAR ESTA LINEA
 }
 
 void	ft_initialize_data(t_data *d)
@@ -64,4 +68,5 @@ void	ft_initialize_data(t_data *d)
 	ft_check_characters(d);
 	ft_create_map(d);
 	ft_check_limits(d);
+	
 }

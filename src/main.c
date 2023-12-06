@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void	ft_leaks(void)
 {
@@ -7,7 +7,7 @@ void	ft_leaks(void)
 
 int main(int argc, char **argv)
 {
-	//atexit(ft_leaks);
+	atexit(ft_leaks);
 	t_data	d;
 
 	d.argc = argc;
