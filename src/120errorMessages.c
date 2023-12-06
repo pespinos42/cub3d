@@ -11,5 +11,7 @@ void	ft_error_messages(int message)
 		printf("MUROS NO CERRADOS\n\n");
 	else if (message == 4)
 		printf("NO HAY JUGADOR\n\n");
+	else if (message == 5)
+		printf("NO CARGA IMAGE\n\n");
 	exit(1);
 }

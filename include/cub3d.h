@@ -3,11 +3,19 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
-# include <fcntl.h>  //PARA OPERACIONES DE FICHEROS OPEN...
-# include <stddef.h> //PARA DEFINIR NULL
+# include <fcntl.h>   //PARA OPERACIONES DE FICHEROS OPEN...
+# include <stdbool.h> //PARA BOOLEANOS
+# include <stddef.h>  //PARA DEFINIR NULL
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h> //PARA READ
+# include <string.h>
+# include <math.h>
+# include "../MLX42/include/MLX42/MLX42.h"
+
+/* Define window size */
+# define WIDTH 1280
+# define HEIGHT 720
 
 typedef struct s_data
 {
@@ -21,6 +29,7 @@ typedef struct s_data
 	int		flag_char;
 	int		x_position_player;
 	int		y_position_player;
+	mlx_t	*mlx;
 }			t_data;
 
 // MAIN
@@ -70,5 +79,8 @@ void		ft_flood_fill(int x, int y, t_data *d);
 void		ft_print_map(t_data *d);
 void		ft_locate_player(t_data *d);
 void		ft_check_limits(t_data *d);
+
+// MAIN_GAME
+int32_t		ft_main_game(t_data *d);
 
 #endif

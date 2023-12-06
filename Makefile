@@ -24,7 +24,7 @@ LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
 
 # --- Files ---
 
-SRCS	= 	main.c \
+SRCS	= 	main.c main_game.c\
 			000libft1.c \
 			100check.c \
 			110initialize.c \
