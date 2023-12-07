@@ -40,6 +40,7 @@ typedef struct s_map
 	mlx_image_t			*img;
 	mlx_image_t			*sky_image;
 	mlx_image_t			*floor_image;
+	mlx_image_t			*bg_image;
 	uint32_t			sky_color;
 	uint32_t			floor_color;
 	const char			*title;

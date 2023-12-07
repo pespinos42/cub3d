@@ -79,6 +79,7 @@ void	ft_initialize_map(t_map *m)
 	m->py = 0;
 	m->sky_image = NULL;
 	m->floor_image = NULL;
+	m->bg_image = NULL;
 	m->sky_color = 0x87CEEB;
-	m->floor_color = 0x964B00;
+	m->floor_color = 0xFF0000;//0x964B00;
 }	
