@@ -20,7 +20,13 @@ CFLAGS	= -g -Wall -Werror -Wextra
 
 LIBMLX	= ./MLX42
 HEADERS	= -I ./include -I $(LIBMLX)/include
-LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	LIBS = -L $(LIBMLX) -lmlx42 -ldl -lm -lglfw           
+endif
+ifeq ($(UNAME_S),Darwin)
+	LIBS = -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
+endif
 
 # --- Files ---
 
