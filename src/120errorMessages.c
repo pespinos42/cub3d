@@ -12,6 +12,6 @@ void	ft_error_messages(int message)
 	else if (message == 4)
 		printf("NO HAY JUGADOR\n\n");
 	else if (message == 5)
-		printf("NO CARGA IMAGE\n\n");
+		printf("NO CARGA IMAGEN\n\n");
 	exit(1);
 }

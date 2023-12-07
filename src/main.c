@@ -9,14 +9,15 @@ int main(int argc, char **argv)
 {
 	atexit(ft_leaks);
 	t_data	d;
+	t_map	map;
 
 	d.argc = argc;
 	d.argv = argv;
 	if (ft_check_parameters(&d) != 1)
 		ft_error_messages(1);
 	ft_initialize_data(&d);
-	ft_main_game(&d);
+	ft_initialize_map(&map);
+	ft_main_game(&map);
 	ft_free_all(&d);
-
 	return (0);
 }

@@ -64,10 +64,21 @@ void	ft_initialize_data(t_data *d)
 	d->x_position_player = -1;
 	d->y_position_player = -1;
 	d->map = NULL;
-	d->mlx = NULL;
 	ft_number_rows(d);
 	ft_check_characters(d);
 	ft_create_map(d);
 	ft_check_limits(d);
-	
 }
+
+void	ft_initialize_map(t_map *m)
+{
+	m->mlx = NULL;
+	m->img = NULL;
+	m->title = "cub3d";
+	m->px = 0;
+	m->py = 0;
+	m->sky_image = NULL;
+	m->floor_image = NULL;
+	m->sky_color = 0x87CEEB;
+	m->floor_color = 0x964B00;
+}	
