@@ -68,5 +68,6 @@ void	draw_player(t_map *m)
 		}
 		i++;
 	}
-	mlx_image_to_window(m->mlx, m->img, 0, 0);
+	if (mlx_image_to_window(m->mlx, m->img, 0, 0) == -1)
+		ft_error_messages(5);
 }
