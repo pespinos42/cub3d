@@ -61,7 +61,9 @@ void    ft_locate_player(t_data *d)
                     || d->map[x][y] == 'E' || d->map[x][y] == 'W')
                     {
                         d->x_position_player = x;
+                        //printf("X -> %i\n", x);
                         d->y_position_player = y;
+                        //printf("Y -> %i\n", y);
                         return ;
                     }
             y++;

@@ -70,8 +70,9 @@ void	ft_initialize_data(t_data *d)
 	ft_check_limits(d);
 }
 
-void	ft_initialize_map(t_map *m)
+void	ft_initialize_map(t_data *data, t_map *m)
 {
+	m->data = data;
 	m->mlx = NULL;
 	m->img = NULL;
 	m->title = "cub3d";

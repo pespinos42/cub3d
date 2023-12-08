@@ -12,10 +12,11 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h> //PARA READ
+# include <float.h> //PARA FLT_MAX
 
 /* Define window size */
-# define WIDTH 750  // 1280
-# define HEIGHT 500 // 720
+# define WIDTH 1280
+# define HEIGHT 720
 # define BPP sizeof(int32_t)
 
 typedef struct s_map	t_map;
@@ -73,7 +74,7 @@ void					ft_check_limits(t_data *d);
 
 // 110INITIALIZE
 void					ft_initialize_data(t_data *d);
-void					ft_initialize_map(t_map *m);
+void					ft_initialize_map(t_data *d, t_map *m);
 
 // 120ERRORMESSAGES
 void					ft_error_messages(int message);
@@ -99,6 +100,14 @@ void					ft_check_limits(t_data *d);
 
 // MAIN_GAME
 int32_t					ft_main_game(t_map *map);
+
+// BACKGROUND
+void					background(t_map *m);
 void					map_color_background(t_map *map);
+
+
+// MINIMAP
+void					create_minimap(t_map *map);
+void					draw_player(t_map *m);
 
 #endif
