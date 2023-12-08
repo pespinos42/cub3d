@@ -9,10 +9,9 @@ int32_t	ft_main_game(t_map *map)
 	if (!map->img)
 		ft_error_messages(5);
 	mlx_set_window_title(map->mlx, map->title);
-	/* create_minimap(map);
-	draw_player(map); */
+	//background(map);  // Pintar el fondo
+	//draw_player(map); // Pintar el jugador
 	map_color_background(map);
-	//background(map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
 	return (EXIT_SUCCESS);

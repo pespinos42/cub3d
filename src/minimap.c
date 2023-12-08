@@ -51,11 +51,11 @@ void	draw_player(t_map *m)
 	int i;
 	int j;
 
-	px = m->data->x_position_player;
-	py = m->data->y_position_player;
+	px = 0;
+	py = 360; //si Height es 720, entonces 100 es 1/7 de la altura
 	dx = 10; // Tamaño del "píxel" del jugador
 	dy = 10; // Tamaño del "píxel" del jugador
-	m->img = mlx_new_image(m->mlx, 30, 30);
+	m->img = mlx_new_image(m->mlx, WIDTH, HEIGHT);
 	i = 0;
 	while (i < dx)
 	{
@@ -68,5 +68,5 @@ void	draw_player(t_map *m)
 		}
 		i++;
 	}
-	mlx_image_to_window(m->mlx, m->img, 30, 30);
+	mlx_image_to_window(m->mlx, m->img, 0, 0);
 }

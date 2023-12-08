@@ -10,14 +10,12 @@ void	ft_number_rows(t_data *d)
 	str = ft_get_next_line(d->fd);
 	while (str != NULL)
 	{
-		//printf("STR -> %sLEN -> %i\n", str, ft_strlen(str));		//--------------------------------		ELIMINAR ESTA LINEA
 		rows++;
 		free (str);
 		str = ft_get_next_line(d->fd);
 	}
 	free (str);
 	d->number_rows = rows;
-	//printf("NUMERO DE FILAS -> %i\n", d->number_rows);			//--------------------------------		ELIMINAR ESTA LINEA
 	close(d->fd);
 }
 
@@ -81,6 +79,6 @@ void	ft_initialize_map(t_data *data, t_map *m)
 	m->sky_image = NULL;
 	m->floor_image = NULL;
 	m->bg_image = NULL;
-	m->sky_color = 0x87CEEB;
-	m->floor_color = 0xFF0000;//0x964B00;
+	m->sky_color = 0x87CEEBAA;   //color del cielo
+	m->floor_color = 0xFFA07AAA; //color del suelo
 }	
