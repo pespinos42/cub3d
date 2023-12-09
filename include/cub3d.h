@@ -87,6 +87,8 @@ char					*ft_strjoin(char *s1, char *s2);
 char					*ft_substr(char *s, unsigned int start, size_t len);
 int						ft_strlen_n(const char *s);
 char					*ft_strchr(const char *s, int c);
+void					*ft_memset(void *s, int c, size_t n);
+
 
 // 999FREE
 void					ft_free_all(t_data *d);

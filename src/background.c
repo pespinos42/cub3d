@@ -2,7 +2,8 @@
 
 void	background(t_map *m)
 {
-	memset(m->img->pixels, 255, m->img->width * m->img->height * BPP);
+	m->img = mlx_new_image(m->mlx, 150, 150);
+	ft_memset(m->img->pixels, 200, m->img->width * m->img->height * BPP);
 	mlx_image_to_window(m->mlx, m->img, 0, 0);
 }
 

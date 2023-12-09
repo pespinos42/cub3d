@@ -71,3 +71,17 @@ int	ft_strlen_n(const char *s)
 		len++;
 	return (len);
 }
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*p;
+	size_t			i;
+
+	p = s;
+	i = -1;
+	while (++i < n)
+	{
+		p[i] = (unsigned char) c;
+	}
+	return (s);
+}
