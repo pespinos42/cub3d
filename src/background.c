@@ -1,12 +1,5 @@
 #include "../include/cub3d.h"
 
-void	background(t_map *m)
-{
-	m->img = mlx_new_image(m->mlx, 150, 150);
-	ft_memset(m->img->pixels, 200, m->img->width * m->img->height * BPP);
-	mlx_image_to_window(m->mlx, m->img, 0, 0);
-}
-
 void	map_color_background(t_map *map)
 {
 	uint32_t x;

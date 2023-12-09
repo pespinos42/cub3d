@@ -38,7 +38,8 @@ typedef struct s_map
 {
 	t_data				*data;
 	mlx_t				*mlx;
-	mlx_image_t			*img;
+	mlx_image_t			*mi_bg; // minimap background
+	mlx_image_t			*mini; // minimap
 	mlx_image_t			*sky_image;
 	mlx_image_t			*floor_image;
 	mlx_image_t			*bg_image;
@@ -104,11 +105,11 @@ void					ft_check_limits(t_data *d);
 int32_t					ft_main_game(t_map *map);
 
 // BACKGROUND
-void					background(t_map *m);
 void					map_color_background(t_map *map);
 
 
 // MINIMAP
+void					minimap(t_map *m);
 void					create_minimap(t_map *map);
 void					draw_player(t_map *m);
 

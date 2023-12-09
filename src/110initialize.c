@@ -72,7 +72,8 @@ void	ft_initialize_map(t_data *data, t_map *m)
 {
 	m->data = data;
 	m->mlx = NULL;
-	m->img = NULL;
+	m->mini = NULL;
+	m->mi_bg = NULL;
 	m->title = "cub3d";
 	m->px = 0;
 	m->py = 0;
