@@ -36,7 +36,7 @@ typedef struct s_data
 
 typedef struct s_map
 {
-	t_data				*data;
+	t_data				*d;
 	mlx_t				*mlx;
 	mlx_image_t			*mi_bg; // minimap background
 	mlx_image_t			*mini; // minimap
@@ -49,6 +49,37 @@ typedef struct s_map
 	int					px;
 	int					py;
 }						t_map;
+
+typedef struct s_player
+{
+	t_map				*m;
+	t_data				*d;
+	float				px;
+	float				py;
+	float				dir_x;
+	float				dir_y;
+	float				plane_x;
+	float				plane_y;
+	float				camera_x;
+	float				ray_dir_x;
+	float				ray_dir_y;
+	int					map_x;
+	int					map_y;
+	float				side_dist_x;
+	float				side_dist_y;
+	float				delta_dist_x;
+	float				delta_dist_y;
+	float				perp_wall_dist;
+	int					step_x;
+	int					step_y;
+	int					hit;
+	int					side;
+	int					line_height;
+	int					draw_start;
+	int					draw_end;
+	float				move_speed;
+	float				rot_speed;
+}						t_player;
 
 // MAIN
 void					ft_leaks(void);
@@ -74,8 +105,9 @@ void					ft_compare_maps(t_data *d);
 void					ft_check_limits(t_data *d);
 
 // 110INITIALIZE
-void					ft_initialize_data(t_data *d);
-void					ft_initialize_map(t_data *d, t_map *m);
+void					ft_number_rows(t_data *d);
+void					ft_liberate_map(t_data *d);
+void					ft_create_map(t_data *d);
 
 // 120ERRORMESSAGES
 void					ft_error_messages(int message);
@@ -101,8 +133,14 @@ void					ft_print_map(t_data *d);
 void					ft_locate_player(t_data *d);
 void					ft_check_limits(t_data *d);
 
+// UTILS_STRUCTS
+void					ft_initialize_structs(t_data *d, t_map *m, t_player *p);
+void					ft_initialize_data(t_data *d);
+void					ft_initialize_map(t_map *m);
+void					ft_initialize_player(t_player *p);
+
 // MAIN_GAME
-int32_t					ft_main_game(t_map *map);
+int32_t					ft_main_game(t_map *map, t_player *p);
 
 // BACKGROUND
 void					map_color_background(t_map *map);

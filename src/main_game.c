@@ -9,17 +9,19 @@ static void hook(void *param)
 		mlx_close_window(m->mlx);
 }
 
-int32_t	ft_main_game(t_map *map)
+int32_t	ft_main_game(t_map *m, t_player *p)
 {
-	map->mlx = mlx_init(WIDTH, HEIGHT, "cub3d", false);
-	if (!map->mlx)
+	m->mlx = mlx_init(WIDTH, HEIGHT, "cub3d", false);
+	if (!m->mlx)
 		return (EXIT_FAILURE);
-	mlx_set_window_title(map->mlx, map->title);
-	//draw_player(map); // Pintar el jugador
-	map_color_background(map); // Pintar el fondo
+	mlx_set_window_title(m->mlx, m->title);
+	//draw_player(m); // Pintar el jugador
+	printf("p->px = %f\n", p->px);
+	printf("p->py = %f\n", p->py);
+	map_color_background(m); // Pintar el fondo
 	//minimap(map);  // Pintar el minimapa
-	mlx_loop_hook(map->mlx, &hook, map);
-	mlx_loop(map->mlx);
-	mlx_terminate(map->mlx);
+	mlx_loop_hook(m->mlx, &hook, m);
+	mlx_loop(m->mlx);
+	mlx_terminate(m->mlx);
 	return (EXIT_SUCCESS);
 }

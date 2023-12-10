@@ -54,32 +54,3 @@ void	ft_create_map(t_data *d)
 	close(d->fd);
 	printf("\nMAPA CREADO CORRECTAMENTE\n\n");			//--------------------------------		ELIMINAR ESTA LINEA
 }
-
-void	ft_initialize_data(t_data *d)
-{
-	d->flag_char = 0;
-	d->number_rows = 0;
-	d->x_position_player = -1;
-	d->y_position_player = -1;
-	d->map = NULL;
-	ft_number_rows(d);
-	ft_check_characters(d);
-	ft_create_map(d);
-	ft_check_limits(d);
-}
-
-void	ft_initialize_map(t_data *data, t_map *m)
-{
-	m->data = data;
-	m->mlx = NULL;
-	m->mini = NULL;
-	m->mi_bg = NULL;
-	m->title = "cub3d";
-	m->px = 0;
-	m->py = 0;
-	m->sky_image = NULL;
-	m->floor_image = NULL;
-	m->bg_image = NULL;
-	m->sky_color = 0x87CEEBAA;   //color del cielo
-	m->floor_color = 0xFFA07AAA; //color del suelo
-}	

@@ -31,6 +31,7 @@ endif
 # --- Files ---
 
 SRCS	= 	main.c main_game.c minimap.c background.c\
+			utils_structs.c \
 			000libft1.c \
 			100check.c \
 			110initialize.c \
