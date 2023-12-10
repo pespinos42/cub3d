@@ -8,7 +8,7 @@ void	minimap(t_map *m)
 	//create_minimap(m);
 }
 
-void	create_minimap(t_map *map)
+void	create_minimap(t_map *m)
 {
 	uint32_t	x;
 	uint32_t	y;
@@ -17,14 +17,14 @@ void	create_minimap(t_map *map)
 	uint32_t	i;
 	uint32_t	j;
 
-	map->mini = mlx_new_image(map->mlx, 150, 150);
+	m->mini = mlx_new_image(m->mlx, 150, 150);
 	dx = 30;
 	dy = 30;
 	y = 0;
-	while (map->data->map[y])
+	while (m->d->map[y])
 	{
 		x = 0;
-		while (map->data->map[y][x] != '\0')
+		while (m->d->map[y][x] != '\0')
 		{
 			i = 0;
 			while (i < dx)
@@ -32,13 +32,13 @@ void	create_minimap(t_map *map)
 				j = 0;
 				while (j < dy)
 				{
-					if (map->data->map[y][x] == '1')
-						ft_memset(map->mini->pixels + ((y * dy + j)
-								* map->mini->width + x * dx + i) * BPP,
+					if (m->d->map[y][x] == '1')
+						ft_memset(m->mini->pixels + ((y * dy + j)
+								* m->mini->width + x * dx + i) * BPP,
 							0x00FFFFFF, BPP);
-					else if (map->data->map[y][x] == '0')
-						ft_memset(map->mini->pixels + ((y * dy + j)
-								* map->mini->width + x * dx + i) * BPP,
+					else if (m->d->map[y][x] == '0')
+						ft_memset(m->mini->pixels + ((y * dy + j)
+								* m->mini->width + x * dx + i) * BPP,
 							0x00000000, BPP);
 					j++;
 				}
@@ -48,7 +48,7 @@ void	create_minimap(t_map *map)
 		}
 		y++;
 	}
-	mlx_image_to_window(map->mlx, map->mini, 0, 0);
+	mlx_image_to_window(m->mlx, m->mini, 0, 0);
 }
 
 void	draw_player(t_map *m)
