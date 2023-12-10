@@ -56,8 +56,20 @@ typedef struct s_player
 	float				py;
 	float				dir_x;
 	float				dir_y;
+	float				old_dir_x;
+	float				old_dir_y;
 	float				plane_x;
 	float				plane_y;
+	float				move_speed;
+	float				rot_speed;
+	float				angle_rot;
+	float				pi;
+	int					move;
+	int					turn;
+}						t_player;
+
+typedef struct s_ray
+{
 	float				camera_x;
 	float				ray_dir_x;
 	float				ray_dir_y;
@@ -75,12 +87,11 @@ typedef struct s_player
 	int					line_height;
 	int					draw_start;
 	int					draw_end;
-	float				move_speed;
-	float				rot_speed;
-}						t_player;
+}						t_ray;
 
 // MAIN
 void					ft_leaks(void);
+void 					imprimir_variables(t_map *m, t_player *p);
 
 // 000LIBFT1
 int						ft_strlen(char *str);
@@ -135,6 +146,7 @@ void					ft_initialize_structs(t_data *d, t_map *m, t_player *p);
 void					ft_initialize_data(t_data *d);
 void					ft_initialize_map(t_map *m);
 void					ft_initialize_player(t_player *p);
+void					ft_initialize_ray(t_ray *r);
 
 // MAIN_GAME
 int32_t					ft_main_game(t_map *map, t_player *p);

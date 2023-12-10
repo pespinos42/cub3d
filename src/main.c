@@ -1,10 +1,5 @@
 #include "cub3d.h"
 
-void	ft_leaks(void)
-{
-	system("leaks -q cub3d");
-}
-
 int main(int argc, char **argv)
 {
 	//atexit(ft_leaks);

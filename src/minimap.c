@@ -10,6 +10,12 @@ void	minimap(t_map *m)
 
 void	create_minimap(t_map *m)
 {
+	//dibujar el minimapa
+	m->mini = mlx_new_image(m->mlx, 150, 150);
+	
+	mlx_image_to_window(m->mlx, m->mini, 0, 0);
+}
+/* {
 	uint32_t	x;
 	uint32_t	y;
 	uint32_t	dx;
@@ -49,7 +55,7 @@ void	create_minimap(t_map *m)
 		y++;
 	}
 	mlx_image_to_window(m->mlx, m->mini, 0, 0);
-}
+} */
 
 void	draw_player(t_map *m)
 {

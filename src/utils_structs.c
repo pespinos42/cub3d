@@ -75,8 +75,37 @@ void	ft_initialize_map(t_map *m)
  * @param py Posicion del jugador en el eje y
  * @param dir_x Direccion del jugador en el eje x
  * @param dir_y Direccion del jugador en el eje y
+ * @param old_dir_x Direccion anterior del jugador en el eje x
+ * @param old_dir_y Direccion anterior del jugador en el eje y
  * @param plane_x Plano de la camara en el eje x
  * @param plane_y Plano de la camara en el eje y
+ * @param move_speed Velocidad de movimiento en pixeles
+ * @param rot_speed Velocidad de rotacion en radianes
+ * @param move Si se esta moviendo, 0 = no se mueve, 1 = adelante y -1 = atras
+ * @param turn Si se esta girando, 0 = no se mueve, 1 = derecha y -1 = izquierda
+ * @param angle_rot Angulo de rotacion
+ */
+
+void	ft_initialize_player(t_player *p)
+{
+	p->px = p->d->x_position_player;
+	p->py = p->d->y_position_player;
+	p->dir_x = -1;
+	p->dir_y = 0;
+	p->plane_x = 0;
+	p->plane_y = 0.66;
+	p->old_dir_x = 0;
+	p->old_dir_y = 0;
+	p->move_speed = 3;
+	p->pi = acos(-1.0);
+	p->rot_speed = (p->pi / 180) * 3;
+	p->angle_rot = 0;
+	p->move = 0;
+	p->turn = 0;
+}
+
+/**
+ ** @brief Estructura del raycasting
  * @param camera_x Posicion de la camara en el eje x
  * @param ray_dir_x Direccion del rayo en el eje x
  * @param ray_dir_y Direccion del rayo en el eje y
@@ -94,35 +123,25 @@ void	ft_initialize_map(t_map *m)
  * @param line_height Altura de la linea que se va a pintar
  * @param draw_start Donde empieza a pintar la linea
  * @param draw_end Donde termina de pintar la linea
- * @param move_speed Velocidad de movimiento
- * @param rot_speed Velocidad de rotacion
  */
 
-void	ft_initialize_player(t_player *p)
+void	ft_initialize_ray(t_ray *r)
 {
-	p->px = p->d->x_position_player;
-	p->py = p->d->y_position_player;
-	p->dir_x = -1;
-	p->dir_y = 0;
-	p->plane_x = 0;
-	p->plane_y = 0.66;
-	p->camera_x = 0;
-	p->ray_dir_x = 0;
-	p->ray_dir_y = 0;
-	p->map_x = 0;
-	p->map_y = 0;
-	p->side_dist_x = 0;
-	p->side_dist_y = 0;
-	p->delta_dist_x = 0;
-	p->delta_dist_y = 0;
-	p->perp_wall_dist = 0;
-	p->step_x = 0;
-	p->step_y = 0;
-	p->hit = 0;
-	p->side = 0;
-	p->line_height = 0;
-	p->draw_start = 0;
-	p->draw_end = 0;
-	p->move_speed = 0.05;
-	p->rot_speed = 0.05;
+	r->camera_x = 0;
+	r->ray_dir_x = 0;
+	r->ray_dir_y = 0;
+	r->map_x = 0;
+	r->map_y = 0;
+	r->side_dist_x = 0;
+	r->side_dist_y = 0;
+	r->delta_dist_x = 0;
+	r->delta_dist_y = 0;
+	r->perp_wall_dist = 0;
+	r->step_x = 0;
+	r->step_y = 0;
+	r->hit = 0;
+	r->side = 0;
+	r->line_height = 0;
+	r->draw_start = 0;
+	r->draw_end = 0;
 }

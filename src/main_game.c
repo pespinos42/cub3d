@@ -16,10 +16,9 @@ int32_t	ft_main_game(t_map *m, t_player *p)
 		return (EXIT_FAILURE);
 	mlx_set_window_title(m->mlx, m->title);
 	//draw_player(m); // Pintar el jugador
-	printf("p->px = %f\n", p->px);
-	printf("p->py = %f\n", p->py);
-	map_color_background(m); // Pintar el fondo
-	//minimap(map);  // Pintar el minimapa
+	imprimir_variables(m, p);
+	//map_color_background(m); // Pintar el fondo
+	minimap(m);  // Pintar el minimapa
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);
