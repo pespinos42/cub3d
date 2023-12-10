@@ -2,10 +2,10 @@
 
 void	minimap(t_map *m)
 {
-	/* m->mi_bg = mlx_new_image(m->mlx, 150, 150);
+	m->mi_bg = mlx_new_image(m->mlx, 150, 150);
 	ft_memset(m->mi_bg->pixels, 200, m->mi_bg->width * m->mi_bg->height * BPP);
-	mlx_image_to_window(m->mlx, m->mi_bg, 0, 0); */
-	create_minimap(m);
+	mlx_image_to_window(m->mlx, m->mi_bg, 0, 0);
+	//create_minimap(m);
 }
 
 void	create_minimap(t_map *map)
