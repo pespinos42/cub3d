@@ -17,7 +17,7 @@ int32_t	ft_main_game(t_map *m, t_player *p)
 	mlx_set_window_title(m->mlx, m->title);
 	//draw_player(m); // Pintar el jugador
 	imprimir_variables(m, p);
-	//map_color_background(m); // Pintar el fondo
+	map_color_background(m); // Pintar el fondo
 	minimap(m);  // Pintar el minimapa
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
