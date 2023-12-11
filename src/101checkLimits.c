@@ -127,9 +127,9 @@ int     ft_check_outer_walls(t_data *d)
 void    ft_compare_maps(t_data *d)
 {
     if (!ft_check_inner_walls(d))
-        ft_error_messages(3);
+        ft_error_messages(3, d);
     if (!ft_check_outer_walls(d))
-        ft_error_messages(3);
+        ft_error_messages(3, d);
     printf("MUROS OK\n\n");
 }
 

@@ -13,6 +13,8 @@ void    ft_free_all(t_data *d)
             free(d->map_flood_fill[r]);
         r++;
     }
-    free (d->map);
-    free (d->map_flood_fill);
+    if (d->map)
+        free (d->map);
+    if (d->map_flood_fill)
+        free (d->map_flood_fill);
 }

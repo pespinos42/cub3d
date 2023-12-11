@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	d.argc = argc;
 	d.argv = argv;
 	if (ft_check_parameters(&d) != 1)
-		ft_error_messages(1);
+		ft_error_messages(1, &d);
 	ft_initialize_data(&d);
 	ft_free_all(&d);
 

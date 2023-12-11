@@ -10,26 +10,23 @@ void	ft_number_rows(t_data *d)
 	str = ft_get_next_line(d->fd);
 	while (str != NULL)
 	{
-		//printf("STR -> %sLEN -> %i\n", str, ft_strlen(str));		//--------------------------------		ELIMINAR ESTA LINEA
 		rows++;
 		free (str);
 		str = ft_get_next_line(d->fd);
 	}
 	free (str);
 	d->number_rows = rows;
-	//printf("NUMERO DE FILAS -> %i\n", d->number_rows);			//--------------------------------		ELIMINAR ESTA LINEA
 	close(d->fd);
 }
 
-void	ft_liberate_map(t_data *d)
+void	ft_initialize_map(t_data *d, char **map)
 {
 	int	r;
 
 	r = 0;
 	while (r < d->number_rows)
 	{
-		if (d->map[r] != NULL)
-			free(d->map[r]);
+		map[r] = NULL;
 		r++;
 	}
 }
@@ -44,10 +41,13 @@ void	ft_create_map(t_data *d)
 	d->map = malloc (d->number_rows * sizeof (char *));
 	if (!d->map)
 		exit (1);
+	ft_initialize_map(d, d->map);
 	while (r < d->number_rows)
 	{
 		d->map[r] = NULL;
 		str = ft_get_next_line(d->fd);
+		if (ft_strlen_n(str) == 0)
+			ft_error_messages(5, d);
 		d->map[r] = ft_strdup(str);
 		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
 		r++;
@@ -67,6 +67,5 @@ void	ft_initialize_data(t_data *d)
 	ft_number_rows(d);
 	ft_check_characters(d);
 	ft_create_map(d);
-	ft_check_limits(d);
-	
+	ft_check_limits(d);	
 }

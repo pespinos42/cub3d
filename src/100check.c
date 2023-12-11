@@ -49,11 +49,11 @@ void	ft_check_characters(t_data *d)
 	{
 		str = ft_get_next_line(d->fd);
 		if (!ft_allow_chars(str, d))
-			ft_error_messages(2);
+			ft_error_messages(2, d);
 		r++;
 		free (str);
 	}
 	if (d->flag_char == 0)
-		ft_error_messages(4);
+		ft_error_messages(4, d);
 	close(d->fd);
 }

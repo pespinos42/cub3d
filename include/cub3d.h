@@ -47,10 +47,13 @@ void		ft_compare_maps(t_data *d);
 void		ft_check_limits(t_data *d);
 
 // 110INITIALIZE
+void		ft_number_rows(t_data *d);
+void		ft_initialize_map(t_data *d, char **map);
+void		ft_create_map(t_data *d);
 void		ft_initialize_data(t_data *d);
 
 // 120ERRORMESSAGES
-void		ft_error_messages(int message);
+void		ft_error_messages(int message, t_data *d);
 
 // 200GNL
 char		*ft_get_next_line(int fd);
