@@ -17,6 +17,10 @@
 /* Define window size */
 # define WIDTH 1280
 # define HEIGHT 720
+# define COLOR_MURO 0xFF0000 // Rojo intenso
+# define COLOR_SUELO 0x00FF00 // Verde intenso
+# define COLOR_PERSONAJE 0x0000FF // Azul intenso
+
 # define BPP sizeof(int32_t)
 
 typedef struct s_map	t_map;

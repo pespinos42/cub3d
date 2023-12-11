@@ -25,6 +25,36 @@ void	minimap(t_map *m)
 
 void	create_minimap(t_map *m)
 {
+	for (int i = 0; i < 200; i++) 
+	{
+    	for (int j = 0; j < 200; j++) 
+		{
+			char elemento = m->d->map[i][j];
+			int indice_pixel = i * 200 + j;
+
+			if (elemento == '1') {
+				// Muro
+				m->mi_bg->pixels[indice_pixel * 4] = (COLOR_MURO >> 16) & 0xFF; // Componente R
+				m->mi_bg->pixels[indice_pixel * 4 + 1] = (COLOR_MURO >> 8) & 0xFF; // Componente G
+				m->mi_bg->pixels[indice_pixel * 4 + 2] = COLOR_MURO & 0xFF; // Componente B
+				m->mi_bg->pixels[indice_pixel * 4 + 3] = 255; // Alfa
+			} else if (elemento == '0') {
+				// Suelo
+				m->mi_bg->pixels[indice_pixel * 4] = (COLOR_SUELO >> 16) & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 1] = (COLOR_SUELO >> 8) & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 2] = COLOR_SUELO & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 3] = 255;
+			} else if (elemento == 'N') {
+				// Personaje
+				m->mi_bg->pixels[indice_pixel * 4] = (COLOR_PERSONAJE >> 16) & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 1] = (COLOR_PERSONAJE >> 8) & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 2] = COLOR_PERSONAJE & 0xFF;
+				m->mi_bg->pixels[indice_pixel * 4 + 3] = 255;
+			}
+		}
+    }
+
+/* {
 	//dibujar el minimapa
 	m->mini = mlx_new_image(m->mlx, 200, 200);
 	int dx = 10; //m->mini->width / 4; // tamaño de cada cuadro
@@ -62,7 +92,7 @@ void	create_minimap(t_map *m)
             y++;
         }
         x++;
-    }
+    } */
 	/* int dx = 10;
 	int dy = 10;
 	int x = 0;
