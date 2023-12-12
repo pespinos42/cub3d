@@ -64,6 +64,12 @@ void	ft_initialize_data(t_data *d)
 	d->x_position_player = -1;
 	d->y_position_player = -1;
 	d->map = NULL;
+	d->foundNO = 0;
+	d->foundSO = 0;
+	d->foundWE = 0;
+	d->foundEA = 0;
+	d->foundF = 0;
+	d->foundC = 0;
 	ft_number_rows(d);
 	ft_check_characters(d);
 	ft_create_map(d);

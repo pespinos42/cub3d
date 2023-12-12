@@ -21,6 +21,12 @@ typedef struct s_data
 	int		flag_char;
 	int		x_position_player;
 	int		y_position_player;
+	int		foundNO;
+	int		foundSO;
+	int		foundWE;
+	int		foundEA;
+	int		foundF;
+	int		foundC;
 }			t_data;
 
 // MAIN

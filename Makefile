@@ -32,7 +32,8 @@ SRCS	= 	main.c \
 			200gnl.c \
 			210gnlUtils.c \
 			999free.c \
-			101checkLimits.c
+			101checkLimits.c \
+			102checkContentFile.c
 OBJS	= $(addprefix obj/,$(SRCS:.c=.o))
 DEBUG	= -fsanitize=address
 

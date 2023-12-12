@@ -15,17 +15,10 @@ void    ft_duplicate_map(t_data *d)
 
 void    ft_flood_fill(int x, int y, t_data *d)
 {
-    //printf("FLOOD FILL posicion X->%i Y->%i VALOR->%c", x, y, d->map_flood_fill[x][y]);
     if (x < 0 || y < 0 || x >= d->number_rows || !d->map_flood_fill[x][y]
             || d->map_flood_fill[x][y] == '1' || d->map_flood_fill[x][y] == '#')
-            {
-                //printf ("\t\t CONDICION DE SALIDA\n");
-                return ;
-            }
-    //printf("\n");
-    
+                return ;    
     d->map_flood_fill[x][y] = '#';
-
     ft_flood_fill(x - 1, y, d);
     ft_flood_fill(x + 1, y, d);
     ft_flood_fill(x, y - 1, d);
