@@ -17,8 +17,10 @@
 /* Define window size */
 # define WIDTH 1280
 # define HEIGHT 720
-# define COLOR_MURO 0xFF0000 // Rojo intenso
-# define COLOR_SUELO 0x00FF00 // Verde intenso
+# define WIDTH_MINIMAP 200
+# define HEIGHT_MINIMAP 200
+# define COLOR_MURO 0xFF0000      // Rojo intenso
+# define COLOR_SUELO 0x00FF00     // Verde intenso
 # define COLOR_PERSONAJE 0x0000FF // Azul intenso
 
 # define BPP sizeof(int32_t)
@@ -50,6 +52,8 @@ typedef struct s_map
 	uint32_t			sky_color;
 	uint32_t			floor_color;
 	const char			*title;
+	int					block_x;
+	int					block_y;
 }						t_map;
 
 typedef struct s_player
@@ -95,7 +99,7 @@ typedef struct s_ray
 
 // MAIN
 void					ft_leaks(void);
-void 					imprimir_variables(t_map *m, t_player *p);
+void					imprimir_variables(t_map *m, t_player *p);
 
 // 000LIBFT1
 int						ft_strlen(char *str);
@@ -154,13 +158,16 @@ void					ft_initialize_ray(t_ray *r);
 
 // MAIN_GAME
 int32_t					ft_main_game(t_map *map, t_player *p);
+void					hook(void *param);
 
 // BACKGROUND
 void					map_color_background(t_map *map);
 
 // MINIMAP
-void					minimap(t_map *m);
-void					create_minimap(t_map *m);
+void					minimap(t_map *m, t_player *p);
 void					draw_player(t_map *m);
+void					player_position_map(t_player *p);
+void					draw_minimap(t_map *m, t_player *p);
+void					draw_block_wall(t_map *m, int x, int y);
 
 #endif

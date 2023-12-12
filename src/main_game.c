@@ -1,6 +1,6 @@
 #include "../include/cub3d.h"
 
-static void hook(void *param)
+void hook(void *param)
 {
 	t_map *m;
 
@@ -18,7 +18,7 @@ int32_t	ft_main_game(t_map *m, t_player *p)
 	//draw_player(m); // Pintar el jugador
 	imprimir_variables(m, p);
 	map_color_background(m); // Pintar el fondo
-	minimap(m);  // Pintar el minimapa
+	minimap(m, p);  // Pintar el minimapa
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);
