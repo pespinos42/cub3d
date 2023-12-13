@@ -47,7 +47,7 @@ void	ft_create_map(t_data *d)
 		d->map[r] = NULL;
 		str = ft_get_next_line(d->fd);
 		if (ft_strlen_n(str) == 0)
-			ft_error_messages(5, d);
+			ft_error_messages(5);
 		d->map[r] = ft_strdup(str);
 		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
 		r++;

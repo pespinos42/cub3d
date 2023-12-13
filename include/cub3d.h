@@ -59,8 +59,10 @@ void		ft_flood_fill(int x, int y, t_data *d);
 void		ft_print_map(t_data *d);
 void		ft_locate_player(t_data *d);
 int			ft_check_inner_walls(t_data *d);
+int     	ft_check_around(t_data *d, int x, int y);
 int			ft_check_outer_walls(t_data *d);
 void		ft_compare_maps(t_data *d);
+void    	ft_check_outer_chars(t_data *d);
 void		ft_check_limits(t_data *d);
 
 // 110INITIALIZE
@@ -70,7 +72,7 @@ void		ft_create_map(t_data *d);
 void		ft_initialize_data(t_data *d);
 
 // 120ERRORMESSAGES
-void		ft_error_messages(int message, t_data *d);
+void		ft_error_messages(int message);
 
 // 200GNL
 char		*ft_get_next_line(int fd);

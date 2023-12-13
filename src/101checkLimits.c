@@ -89,6 +89,14 @@ int     ft_check_inner_walls(t_data *d)
     return (1);
 }
 
+int     ft_check_around(t_data *d, int x, int y)
+{
+    if (!d->map_flood_fill[x - 1][y] || !d->map_flood_fill[x + 1][y] 
+            || !d->map_flood_fill[x][y - 1] || !d->map_flood_fill[x][y + 1])
+            return (0);
+    return (1);
+}
+
 int     ft_check_outer_walls(t_data *d)
 {
     int x;
@@ -110,6 +118,11 @@ int     ft_check_outer_walls(t_data *d)
                 if (d->map_flood_fill[x][y] == '#')
                     return (0);
             }
+            if (d->map_flood_fill[x][y] == '#')
+            {
+                if (!ft_check_around(d, x, y))
+                    return (0);
+            }
             y++;
         }
         x++;
@@ -120,10 +133,34 @@ int     ft_check_outer_walls(t_data *d)
 void    ft_compare_maps(t_data *d)
 {
     if (!ft_check_inner_walls(d))
-        ft_error_messages(3, d);
+        ft_error_messages(3);
     if (!ft_check_outer_walls(d))
-        ft_error_messages(3, d);
-    printf("MUROS OK\n\n");
+        ft_error_messages(3);
+    //printf("MUROS OK\n\n");
+}
+
+void    ft_check_outer_chars(t_data *d)
+{
+    int x;
+    int y;
+
+    x = 0;
+    while (x < d->number_rows)
+    {
+        y = 0;
+        while (d->map_flood_fill[x][y])
+        {
+            if (d->map_flood_fill[x][y] != '1'
+                    && d->map_flood_fill[x][y] != ' '
+                    && d->map_flood_fill[x][y] != '#')
+                    {
+                        printf("CARACTER ERROR -> %i\n", d->map_flood_fill[x][y]);
+                        ft_error_messages(6);
+                    }
+            y++;
+        }
+        x++;
+    }
 }
 
 void    ft_check_limits(t_data *d)
@@ -133,4 +170,5 @@ void    ft_check_limits(t_data *d)
     ft_flood_fill(d->x_position_player, d->y_position_player, d);
     ft_print_map(d);
     ft_compare_maps(d);
+    ft_check_outer_chars(d);
 }
