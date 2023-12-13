@@ -30,8 +30,9 @@ endif
 
 # --- Files ---
 
-SRCS	= 	leaks.c \
-			main.c main_game.c minimap.c background.c\
+SRCS	= 	utils_minimap.c minimap.c\
+			leaks.c \
+			main.c main_game.c background.c\
 			utils_structs.c \
 			000libft1.c \
 			100check.c \

@@ -15,11 +15,13 @@
 # include <unistd.h> //PARA READ
 
 /* Define window size */
-# define WIDTH 1280
-# define HEIGHT 720
+# define WIDTH 2000 //1280
+# define HEIGHT 1000 //720
 # define WIDTH_MINIMAP 200
 # define HEIGHT_MINIMAP 200
-# define COLOR_MURO 0xFF0000      // Rojo intenso
+# define BLOCK_SIZE 15
+# define BLOCK_PLAYER 15
+# define COLOR_MURO 0xFF00FF      // Rojo intenso
 # define COLOR_SUELO 0x00FF00     // Verde intenso
 # define COLOR_PERSONAJE 0x0000FF // Azul intenso
 
@@ -52,8 +54,9 @@ typedef struct s_map
 	uint32_t			sky_color;
 	uint32_t			floor_color;
 	const char			*title;
-	int					block_x;
-	int					block_y;
+	int					block_player;
+	int					block_floor;
+	int					block_wall;
 }						t_map;
 
 typedef struct s_player
@@ -165,9 +168,13 @@ void					map_color_background(t_map *map);
 
 // MINIMAP
 void					minimap(t_map *m, t_player *p);
-void					draw_player(t_map *m);
-void					player_position_map(t_player *p);
-void					draw_minimap(t_map *m, t_player *p);
+void					draw_position_player(t_map *m);
+void					player_position_map(t_map *m);
+
+// utils_minimap.c
+void					draw_minimap(t_map *m);
 void					draw_block_wall(t_map *m, int x, int y);
+void					draw_block_floor(t_map *m, int x, int y);
+void					draw_player(t_map *m, int x, int y);
 
 #endif
