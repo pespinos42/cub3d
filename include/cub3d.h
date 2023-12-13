@@ -29,6 +29,14 @@ typedef struct s_data
 	int		foundC;
 }			t_data;
 
+typedef struct s_split_data
+{
+	char	**result;
+	int		p;
+	int		w;
+	int		start;
+}	t_split_data;
+
 // MAIN
 void		ft_leaks(void);
 
@@ -36,6 +44,9 @@ void		ft_leaks(void);
 int			ft_strlen(char *str);
 char		*ft_strnstr(char *b, char *l, size_t len);
 char		*ft_strdup(char *src);
+
+// 001SPLIT
+char		**ft_split(char *s, char c);
 
 // 100CHECK
 int			ft_check_parameters(t_data *d);
