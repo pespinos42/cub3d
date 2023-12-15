@@ -13,168 +13,19 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h> //PARA READ
+# include "structs.h"
+# include "functions.h"
 
 /* Define window size */
-# define WIDTH 2000 //1280
-# define HEIGHT 1000 //720
+# define WIDTH 1280
+# define HEIGHT 720
 # define WIDTH_MINIMAP 200
 # define HEIGHT_MINIMAP 200
-# define BLOCK_SIZE 15
-# define BLOCK_PLAYER 15
+# define BLOCK_SIZE 50
+# define PLAYER_SIZE 0.5
 # define COLOR_MURO 0xFF00FF      // Rojo intenso
 # define COLOR_SUELO 0x00FF00     // Verde intenso
 # define COLOR_PERSONAJE 0x0000FF // Azul intenso
-
 # define BPP sizeof(int32_t)
-
-typedef struct s_map	t_map;
-typedef struct s_data
-{
-	int					argc;
-	char				**argv;
-	char				**map;
-	char				**map_flood_fill;
-	int					number_rows;
-	int					number_columns;
-	int					fd;
-	int					flag_char;
-	int					x_position_player;
-	int					y_position_player;
-}						t_data;
-
-typedef struct s_map
-{
-	t_data				*d;
-	mlx_t				*mlx;
-	mlx_image_t			*mi_bg;
-	mlx_image_t			*mini;
-	mlx_image_t			*sky_image;
-	mlx_image_t			*floor_image;
-	mlx_image_t			*bg_image;
-	uint32_t			sky_color;
-	uint32_t			floor_color;
-	const char			*title;
-	int					block_player;
-	int					block_floor;
-	int					block_wall;
-}						t_map;
-
-typedef struct s_player
-{
-	t_map				*m;
-	t_data				*d;
-	float				px;
-	float				py;
-	float				dir_x;
-	float				dir_y;
-	float				old_dir_x;
-	float				old_dir_y;
-	float				plane_x;
-	float				plane_y;
-	float				move_speed;
-	float				rot_speed;
-	float				angle_rot;
-	float				pi;
-	int					move;
-	int					turn;
-}						t_player;
-
-typedef struct s_ray
-{
-	float				camera_x;
-	float				ray_dir_x;
-	float				ray_dir_y;
-	int					map_x;
-	int					map_y;
-	float				side_dist_x;
-	float				side_dist_y;
-	float				delta_dist_x;
-	float				delta_dist_y;
-	float				perp_wall_dist;
-	int					step_x;
-	int					step_y;
-	int					hit;
-	int					side;
-	int					line_height;
-	int					draw_start;
-	int					draw_end;
-}						t_ray;
-
-// MAIN
-void					ft_leaks(void);
-void					imprimir_variables(t_map *m, t_player *p);
-
-// 000LIBFT1
-int						ft_strlen(char *str);
-char					*ft_strnstr(char *b, char *l, size_t len);
-char					*ft_strdup(char *src);
-
-// 100CHECK
-int						ft_check_parameters(t_data *d);
-void					ft_check_characters(t_data *d);
-int						ft_allow_chars(char *s, t_data *d);
-
-// 101CHECKLIMITS
-void					ft_duplicate_map(t_data *d);
-void					ft_flood_fill(int x, int y, t_data *d);
-void					ft_print_map(t_data *d);
-void					ft_locate_player(t_data *d);
-int						ft_check_inner_walls(t_data *d);
-int						ft_check_outer_walls(t_data *d);
-void					ft_compare_maps(t_data *d);
-void					ft_check_limits(t_data *d);
-
-// 110INITIALIZE
-void					ft_number_rows(t_data *d);
-void					ft_liberate_map(t_data *d);
-void					ft_create_map(t_data *d);
-
-// 120ERRORMESSAGES
-void					ft_error_messages(int message);
-
-// 200GNL
-char					*ft_get_next_line(int fd);
-
-// 210GNLUTILS
-char					*ft_strjoin(char *s1, char *s2);
-char					*ft_substr(char *s, unsigned int start, size_t len);
-int						ft_strlen_n(const char *s);
-char					*ft_strchr(const char *s, int c);
-void					*ft_memset(void *s, int c, size_t n);
-
-// 999FREE
-void					ft_free_all(t_data *d);
-
-// PRUEBA
-void					ft_duplicate_map(t_data *d);
-void					ft_flood_fill(int x, int y, t_data *d);
-void					ft_print_map(t_data *d);
-void					ft_locate_player(t_data *d);
-void					ft_check_limits(t_data *d);
-
-// UTILS_STRUCTS
-void					ft_initialize_structs(t_data *d, t_map *m, t_player *p);
-void					ft_initialize_data(t_data *d);
-void					ft_initialize_map(t_map *m);
-void					ft_initialize_player(t_player *p);
-void					ft_initialize_ray(t_ray *r);
-
-// MAIN_GAME
-int32_t					ft_main_game(t_map *map, t_player *p);
-void					hook(void *param);
-
-// BACKGROUND
-void					map_color_background(t_map *map);
-
-// MINIMAP
-void					minimap(t_map *m, t_player *p);
-void					draw_position_player(t_map *m);
-void					player_position_map(t_map *m);
-
-// utils_minimap.c
-void					draw_minimap(t_map *m);
-void					draw_block_wall(t_map *m, int x, int y);
-void					draw_block_floor(t_map *m, int x, int y);
-void					draw_player(t_map *m, int x, int y);
 
 #endif

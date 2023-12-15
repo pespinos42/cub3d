@@ -9,18 +9,19 @@ void	map_color_background(t_map *map)
 	y = 0;
 	map->sky_image = mlx_new_image(map->mlx, WIDTH, HEIGHT);
 	map->floor_image = mlx_new_image(map->mlx, WIDTH, HEIGHT);
-	while (x < WIDTH)
+	while (x++ < WIDTH)
 	{
 		y = 0;
-		while (y < HEIGHT)
+		while (y++ < HEIGHT)
 		{
-			if (y < HEIGHT / 2)
-				mlx_put_pixel(map->sky_image, x, y, map->sky_color);
-			else if (y >= HEIGHT / 2)
-				mlx_put_pixel(map->floor_image, x, HEIGHT - y, map->floor_color);
-			y++;
+			if (!(x < 200 && y < 200))
+			{
+				if (y < HEIGHT / 2)
+					mlx_put_pixel(map->sky_image, x, y, map->sky_color);
+				else if (y >= HEIGHT / 2)
+					mlx_put_pixel(map->floor_image, x, HEIGHT - y, map->floor_color);
+			}
 		}
-		x++;
 	}
 	if (mlx_image_to_window(map->mlx, map->sky_image, 0, 0) == -1)
 		ft_error_messages(5);

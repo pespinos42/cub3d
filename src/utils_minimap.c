@@ -1,6 +1,6 @@
 #include "../include/cub3d.h"
 
-void	number_colums(t_map *m)
+int	number_colums(t_map *m)
 {
 	int	y;
 
@@ -8,7 +8,7 @@ void	number_colums(t_map *m)
 	while (m->d->map[0][y])
 		y++;
 	m->d->number_columns = y;
-	printf("%d\n", m->d->number_columns);
+	return (y);
 }
 
 void	draw_minimap(t_map *m)
@@ -16,21 +16,16 @@ void	draw_minimap(t_map *m)
 	int	x;
 	int	y;
 
-	number_colums(m);
-	m->mini = mlx_new_image(m->mlx, m->d->number_columns * BLOCK_SIZE,
-			m->d->number_rows * BLOCK_SIZE);
-	x = 0;
-	while (x < m->d->number_rows)
+	centre_player(m);
+	m->mini = mlx_new_image(m->mlx, WIDTH_MINIMAP, HEIGHT_MINIMAP);
+	x = m->start_x;
+	while (x < m->start_x + WIDTH_MINIMAP / BLOCK_SIZE && x < m->d->number_rows)
 	{
-		y = 0;
-		while (y < m->d->map[x][y])
+		y = m->start_y;
+		while (y < m->start_y + HEIGHT_MINIMAP / BLOCK_SIZE
+			&& y < number_colums(m))
 		{
-			if (m->d->map[x][y] == '1')
-				draw_block_wall(m, y * BLOCK_SIZE, x * BLOCK_SIZE);
-			else if (m->d->map[x][y] == '0')
-				draw_block_floor(m, y * BLOCK_SIZE, x * BLOCK_SIZE);
-			else if (m->d->map[x][y] == 'N')
-				draw_player(m, y * BLOCK_PLAYER, x * BLOCK_PLAYER);
+			draw_blocks(m, x, y);
 			y++;
 		}
 		x++;
