@@ -15,6 +15,8 @@ typedef struct s_data
 	char	**argv;
 	char	**map;
 	char	**map_flood_fill;
+	char	**allContentN;
+	char	*allContent;
 	int		number_rows;
 	int		number_columns;
 	int		fd;

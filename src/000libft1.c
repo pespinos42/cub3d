@@ -42,10 +42,11 @@ char	*ft_strdup(char *src)
 
 	pos = 0;
 	str = NULL;
-	str = (char *) malloc ((ft_strlen_n(src) + 1) * sizeof(char));
+	//aqui antes se usaba ft_strlen_n
+	str = (char *) malloc ((ft_strlen(src) + 1) * sizeof(char));
 	if (str)
 	{
-		while (src[pos] && src[pos] != '\n')
+		while (src[pos]) //&& src[pos] != '\n'
 		{
 			str[pos] = src[pos];
 			pos++;
