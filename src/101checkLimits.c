@@ -165,10 +165,11 @@ void    ft_check_outer_chars(t_data *d)
 
 void    ft_check_limits(t_data *d)
 {
-    ft_duplicate_map(d);
-    ft_locate_player(d);
-    ft_flood_fill(d->x_position_player, d->y_position_player, d);
-    ft_print_map(d);
-    ft_compare_maps(d);
-    ft_check_outer_chars(d);
+    // ft_duplicate_map(d);
+    // ft_locate_player(d);
+    // ft_flood_fill(d->x_position_player, d->y_position_player, d);
+    // ft_print_map(d);
+    // ft_compare_maps(d);
+    // ft_check_outer_chars(d);
+    ft_check_content_file(d);
 }

@@ -65,6 +65,9 @@ void		ft_compare_maps(t_data *d);
 void    	ft_check_outer_chars(t_data *d);
 void		ft_check_limits(t_data *d);
 
+// 102CHECKCONTENTFILE
+void    	ft_check_content_file(t_data *d);
+
 // 110INITIALIZE
 void		ft_number_rows(t_data *d);
 void		ft_initialize_map(t_data *d, char **map);
@@ -75,6 +78,7 @@ void		ft_initialize_data(t_data *d);
 void		ft_error_messages(int message);
 
 // 200GNL
+char		*ft_join_free(char *buffer, char *str);
 char		*ft_get_next_line(int fd);
 
 // 210GNLUTILS
@@ -85,12 +89,5 @@ char		*ft_strchr(const char *s, int c);
 
 // 999FREE
 void		ft_free_all(t_data *d);
-
-// PRUEBA
-void		ft_duplicate_map(t_data *d);
-void		ft_flood_fill(int x, int y, t_data *d);
-void		ft_print_map(t_data *d);
-void		ft_locate_player(t_data *d);
-void		ft_check_limits(t_data *d);
 
 #endif

@@ -71,7 +71,7 @@ void	ft_initialize_data(t_data *d)
 	d->foundF = 0;
 	d->foundC = 0;
 	ft_number_rows(d);
-	ft_check_characters(d);
-	ft_create_map(d);
+	//ft_check_characters(d);
+	//ft_create_map(d);
 	ft_check_limits(d);	
 }
