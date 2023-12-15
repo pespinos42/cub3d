@@ -52,7 +52,7 @@ all: libmlx $(NAME)
 create_dir:
 	@mkdir -p obj
 
-vpath %.c src src/minimap src/parseo
+vpath %.c src src/minimap src/parseo src/main
 
 libmlx:
 	@$(MAKE) -C $(LIBMLX)
