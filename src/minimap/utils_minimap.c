@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 int	number_colums(t_map *m)
 {

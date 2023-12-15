@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void	minimap(t_map *m, t_player *p)
 {

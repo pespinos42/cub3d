@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 /**
  ** @brief Inicializa las estructuras
