@@ -52,10 +52,12 @@ all: libmlx $(NAME)
 create_dir:
 	@mkdir -p obj
 
+vpath %.c src src/minimap src/parseo
+
 libmlx:
 	@$(MAKE) -C $(LIBMLX)
 
-$(OBJS) : obj/%.o: src/%.c | create_dir
+$(OBJS) : obj/%.o: %.c | create_dir
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) 
 
 $(NAME): $(OBJS)
