@@ -1,5 +1,10 @@
 #include "cub3d.h"
 
+void	ft_window(t_map *m)
+{
+	map_color_background(m);
+}
+
 void	map_color_background(t_map *map)
 {
 	uint32_t x;
@@ -14,13 +19,13 @@ void	map_color_background(t_map *map)
 		y = 0;
 		while (y++ < HEIGHT)
 		{
-			if (!(x < 200 && y < 200))
-			{
+			// if (!(x < 200 && y < 200))
+			// {
 				if (y < HEIGHT / 2)
 					mlx_put_pixel(map->sky_image, x, y, map->sky_color);
 				else if (y >= HEIGHT / 2)
 					mlx_put_pixel(map->floor_image, x, HEIGHT - y, map->floor_color);
-			}
+			// }
 		}
 	}
 	if (mlx_image_to_window(map->mlx, map->sky_image, 0, 0) == -1)

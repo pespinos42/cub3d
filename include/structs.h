@@ -1,6 +1,7 @@
 # include "cub3d.h"
 
 typedef struct s_map	t_map;
+typedef struct s_player	t_player;
 typedef struct s_data
 {
 	int					argc;
@@ -24,6 +25,8 @@ typedef struct s_map
 	mlx_image_t			*sky_image;
 	mlx_image_t			*floor_image;
 	mlx_image_t			*bg_image;
+	mlx_image_t			*map;
+	mlx_image_t			*clear;
 	uint32_t			sky_color;
 	uint32_t			floor_color;
 	const char			*title;
@@ -32,6 +35,8 @@ typedef struct s_map
 	int					block_wall;
 	int					start_x;
 	int					start_y;
+	bool				show_map;
+	t_player			*p;
 }						t_map;
 
 typedef struct s_player

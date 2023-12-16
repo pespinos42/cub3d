@@ -23,7 +23,6 @@ void	minimap(t_map *m, t_player *p)
 		i++;
 	}
 	mlx_image_to_window(m->mlx, m->mi_bg, 0, 0);
-	// create_minimap(m);
 }
 
 void	centre_player(t_map *m)

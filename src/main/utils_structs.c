@@ -9,6 +9,7 @@
 
 void	ft_initialize_structs(t_data *d, t_map *m, t_player *p)
 {
+	m->p = p;
 	m->d = d;
 	p->m = m;
 	p->d = d;
@@ -54,6 +55,8 @@ void	ft_initialize_data(t_data *d)
  * @param floor_color Color del suelo
  * @param start_x Posicion de inicio en el eje x
  * @param start_y Posicion de inicio en el eje y
+ * @param show_map Si se muestra el mapa
+ * @param prev_m_key_state Si se ha pulsado la tecla m
  */
 
 void	ft_initialize_map(t_map *m)
@@ -61,14 +64,17 @@ void	ft_initialize_map(t_map *m)
 	m->mlx = NULL;
 	m->mini = NULL;
 	m->mi_bg = NULL;
+	m->map = NULL;
+	m->clear = NULL;
 	m->title = "cub3d";
 	m->sky_image = NULL;
 	m->floor_image = NULL;
 	m->bg_image = NULL;
-	m->sky_color = 0x87CEEBAA;   // color del cielo
+	m->sky_color = 0xFFFFFFFF;//0x87CEEBAA;   // color del cielo
 	m->floor_color = 0xFFA07AAA; // color del suelo
 	m->start_x = 0;
 	m->start_y = 0;
+	m->show_map = false;
 }
 /**
  ** @brief Inicializa la estructura del jugador

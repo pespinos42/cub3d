@@ -30,9 +30,10 @@ endif
 
 # --- Files ---
 
-SRCS	= 	utils_minimap.c minimap.c\
+SRCS	= 	utils_minimap.c minimap.c ft_map.c\
+			ft_player.c \
 			leaks.c \
-			main.c main_game.c background.c\
+			main.c main_game.c ft_windows.c\
 			utils_structs.c \
 			000libft1.c \
 			100check.c \
@@ -52,7 +53,7 @@ all: libmlx $(NAME)
 create_dir:
 	@mkdir -p obj
 
-vpath %.c src src/minimap src/parseo src/main
+vpath %.c src src/minimap src/parseo src/main src/player src/raycasting
 
 libmlx:
 	@$(MAKE) -C $(LIBMLX)

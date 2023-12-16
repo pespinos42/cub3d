@@ -21,11 +21,10 @@
 # define HEIGHT 720
 # define WIDTH_MINIMAP 200
 # define HEIGHT_MINIMAP 200
-# define BLOCK_SIZE 50
+# define BLOCK_SIZE 25
 # define PLAYER_SIZE 0.5
 # define COLOR_MURO 0xFF00FF      // Rojo intenso
 # define COLOR_SUELO 0x00FF00     // Verde intenso
 # define COLOR_PERSONAJE 0x0000FF // Azul intenso
-# define BPP sizeof(int32_t)
 
 #endif
