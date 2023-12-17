@@ -6,23 +6,7 @@ void	hook(void *param)
 
 	m = param;
 	if (mlx_is_key_down(m->mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(m->mlx);
-	/* if (mlx_is_key_down(m->mlx, MLX_KEY_M))
-	{
-		m->show_map = !m->show_map;
-		mlx_delete_image(m->mlx, m->mini);
-		if (m->show_map)
-		{
-			ft_map(m);
-			//draw_minimap(m);
-			//minimap(m, NULL);
-		}
-		else
-		{
-			mlx_delete_image(m->mlx, m->mi_bg);
-			ft_window(m);
-		}
-	} */
+		exit (0);//mlx_close_window(m->mlx);
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)
@@ -47,20 +31,22 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_REPEAT)
 		move_player(m, 0, 1);
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
-	{
-		m->show_map = !m->show_map;
+		ft_paint_map(m);
+}
+
+void ft_paint_map(t_map *m)
+{
+	m->show_map = !m->show_map;
 		
-		if (m->show_map)
-		{
-			ft_map(m);
-			//draw_minimap(m);
-			//minimap(m, NULL);
-		}
-		else
-		{
-			ft_window(m);
-		}
+	if (m->show_map)
+	{
+		ft_map(m);
+		//center_player_block(m);
+		//draw_minimap(m);
+		//minimap(m, NULL);
 	}
+	else
+		ft_window(m);
 }
 
 int32_t	ft_main_game(t_map *m, t_player *p)

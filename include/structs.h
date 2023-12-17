@@ -29,13 +29,19 @@ typedef struct s_map
 	mlx_image_t			*clear;
 	uint32_t			sky_color;
 	uint32_t			floor_color;
+	bool				show_map;
 	const char			*title;
+	float				block_center_x;
+	float				block_center_y;
+	float				player_x;
+	float				player_y;
+	int					dy;
+	int					dx;
 	int					block_player;
 	int					block_floor;
 	int					block_wall;
 	int					start_x;
 	int					start_y;
-	bool				show_map;
 	t_player			*p;
 }						t_map;
 

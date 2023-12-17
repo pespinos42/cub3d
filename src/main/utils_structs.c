@@ -57,6 +57,12 @@ void	ft_initialize_data(t_data *d)
  * @param start_y Posicion de inicio en el eje y
  * @param show_map Si se muestra el mapa
  * @param prev_m_key_state Si se ha pulsado la tecla m
+ * @param block_center_x Centro del bloque en el eje x
+ * @param block_center_y Centro del bloque en el eje y
+ * @param player_x Posicion del jugador en el eje x
+ * @param player_y Posicion del jugador en el eje y
+ * @param dx Ancho del bloque
+ * @param dy Alto del bloque
  */
 
 void	ft_initialize_map(t_map *m)
@@ -70,12 +76,19 @@ void	ft_initialize_map(t_map *m)
 	m->sky_image = NULL;
 	m->floor_image = NULL;
 	m->bg_image = NULL;
-	m->sky_color = 0xFFFFFFFF;//0x87CEEBAA;   // color del cielo
-	m->floor_color = 0xFFA07AAA; // color del suelo
+	m->sky_color = 0x87CEEBFF;   // color del cielo
+	m->floor_color = 0xFFA07AFF; // color del suelo
 	m->start_x = 0;
 	m->start_y = 0;
 	m->show_map = false;
+	m->dx = 0;
+	m->dy = 0;
+	m->block_center_x = 0;
+	m->block_center_y = 0;
+	m->player_x = 0;
+	m->player_y = 0;
 }
+
 /**
  ** @brief Inicializa la estructura del jugador
  * @param p Estructura del jugador

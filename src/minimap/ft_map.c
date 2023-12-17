@@ -30,15 +30,6 @@ void	draw_blocks_map(t_map *m, int row, int colum)
 		|| m->d->map[row][colum] == 'E' || m->d->map[row][colum] == 'W')
 		draw_player_map(m, colum * BLOCK_SIZE, row * BLOCK_SIZE);
 }
-/* {
-    if (m->d->map[x][y] == '1')
-        draw_block_wall_map(m, x * BLOCK_SIZE, y * BLOCK_SIZE);
-    else if (m->d->map[x][y] == '0')
-        draw_block_floor_map(m, x * BLOCK_SIZE, y * BLOCK_SIZE);
-    else if (m->d->map[x][y] == 'N' || m->d->map[x][y] == 'S'
-        || m->d->map[x][y] == 'E' || m->d->map[x][y] == 'W')
-        draw_player_map(m, x * BLOCK_SIZE, y * BLOCK_SIZE);
-} */
 
 void	draw_block_wall_map(t_map *m, int x, int y)
 {
@@ -81,15 +72,17 @@ void	draw_player_map(t_map *m, int x, int y)
 	int i;
 	int j;
 
+	center_player_block(m, x, y);
 	i = 0;
 	while (i < BLOCK_SIZE)
 	{
 		j = 0;
 		while (j < BLOCK_SIZE)
 		{
-			mlx_put_pixel(m->map, x + i, y + j, 0xFF0000FF);
+			mlx_put_pixel(m->map, x + i, y + j, 0x00FFFFF);
 			j++;
 		}
 		i++;
 	}
+	paint_player(m);
 }

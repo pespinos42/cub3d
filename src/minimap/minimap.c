@@ -48,3 +48,34 @@ void	draw_blocks(t_map *m, int x, int y)
 		draw_player(m, (y - m->start_y) * BLOCK_SIZE, (x - m->start_x)
 			* BLOCK_SIZE);
 }
+
+void	center_player_block(t_map *m, int x, int y)
+{
+	m->dx = 5;
+	m->dy = 5;
+	m->block_center_x = x + BLOCK_SIZE / 2.0;
+	m->block_center_y = y + BLOCK_SIZE / 2.0;
+	m->player_x = m->block_center_x - m->dx / 2.0;
+	m->player_y = m->block_center_y - m->dy / 2.0;
+	m->p->px = m->player_x;
+	m->p->py = m->player_y;
+	paint_player(m, m->player_x, m->player_y);
+}
+
+void	paint_player(t_map *m, float player_x, float player_y)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < m->dx)
+	{
+		j = 0;
+		while (j < m->dy)
+		{
+			mlx_put_pixel(m->map, player_x + i, player_y + j, 0xFF0000FF);
+			j++;
+		}
+		i++;
+	}
+}

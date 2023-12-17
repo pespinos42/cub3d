@@ -63,9 +63,12 @@ void	ft_initialize_ray(t_ray *r);
 int32_t	ft_main_game(t_map *map, t_player *p);
 void	hook(void *param);
 void	key_hook(mlx_key_data_t keydata, void *param);
+void	ft_paint_map(t_map *m);
 
 // FT_PLAYER
 void	move_player(t_map *m, int dx, int dy);
+void	clear_last_position(t_map *m);
+void	paint_new_position(t_map *m, float nx, float ny);
 
 // FT_WINDOWS
 void	ft_window(t_map *map);
@@ -75,7 +78,8 @@ void	map_color_background(t_map *map);
 void	minimap(t_map *m, t_player *p);
 void	centre_player(t_map *m);
 void	draw_blocks(t_map *m, int x, int y);
-
+void	center_player_block(t_map *m, int x, int y);
+void	paint_player(t_map *m, float player_x, float player_y);
 
 // FT_MAP
 void	ft_map(t_map *m);
