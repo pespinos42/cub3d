@@ -15,5 +15,7 @@ void	ft_error_messages(int message)
 		printf("LINEA VACIA EN EL MAPA\n\n");
 	else if (message == 6)
 		printf("CARACTERES FUERA DE LOS MUROS\n\n");
+	else if (message == 7)
+		printf("CONTENIDO DEL ARCHIVO ERRONEO\n\n");
 	exit(1);
 }

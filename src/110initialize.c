@@ -70,6 +70,7 @@ void	ft_initialize_data(t_data *d)
 	d->foundEA = 0;
 	d->foundF = 0;
 	d->foundC = 0;
+	d->foundMap = 0;
 	ft_number_rows(d);
 	//ft_check_characters(d);
 	//ft_create_map(d);

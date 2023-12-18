@@ -60,3 +60,21 @@ char	*ft_strdup(char *src)
 	}
 	return (str);
 }
+
+int	ft_strncmp(const char *lsh, const char *rhs, int count)
+{
+	int	p;
+	int		control;
+
+	p = 0;
+	control = 1;
+	while (p < count && control == 1)
+	{
+		if (lsh[p] != rhs[p])
+			return ((unsigned char) lsh[p] - (unsigned char) rhs[p]);
+		if (lsh[p] == '\0')
+			control = 0;
+		p++;
+	}
+	return (0);
+}

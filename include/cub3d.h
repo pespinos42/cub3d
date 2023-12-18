@@ -29,6 +29,7 @@ typedef struct s_data
 	int		foundEA;
 	int		foundF;
 	int		foundC;
+	int		foundMap;
 }			t_data;
 
 typedef struct s_split_data
@@ -46,6 +47,7 @@ void		ft_leaks(void);
 int			ft_strlen(char *str);
 char		*ft_strnstr(char *b, char *l, size_t len);
 char		*ft_strdup(char *src);
+int			ft_strncmp(const char *lsh, const char *rhs, int count);
 
 // 001SPLIT
 char		**ft_split(char *s, char c);

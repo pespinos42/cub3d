@@ -76,6 +76,77 @@ char    *ft_get_all_content(t_data *d)
     return (allStr);
 }
 
+void ft_check_init_row(char *content_without_space, t_data *d)
+{
+    if (!ft_strncmp(content_without_space, "NO", 2) || !ft_strncmp(content_without_space, "SO", 2)
+            || !ft_strncmp(content_without_space, "EA", 2) || !ft_strncmp(content_without_space, "WE", 2))
+            {
+                if (!ft_strncmp(content_without_space, "NO", 2) && d->foundNO == 0)
+                    d->foundNO = 1;
+                else if (!ft_strncmp(content_without_space, "NO", 2))
+                    ft_error_messages(7);
+                else if (!ft_strncmp(content_without_space, "SO", 2) && d->foundNO == 0)
+                    d->foundNO = 1;
+                else if (!ft_strncmp(content_without_space, "SO", 2))
+                    ft_error_messages(7);
+                else if (!ft_strncmp(content_without_space, "EA", 2) && d->foundNO == 0)
+                    d->foundNO = 1;
+                else if (!ft_strncmp(content_without_space, "EA", 2))
+                    ft_error_messages(7);
+                else if (!ft_strncmp(content_without_space, "WE", 2) && d->foundNO == 0)
+                    d->foundNO = 1;
+                else if (!ft_strncmp(content_without_space, "WE", 2))
+                    ft_error_messages(7);
+            }
+    else if (!ft_strncmp(content_without_space, "F", 1) 
+            || !ft_strncmp(content_without_space, "C", 1))
+            {
+                if (!ft_strncmp(content_without_space, "F", 1) && d->foundF == 0)
+                    d->foundF = 1;
+                else if (!ft_strncmp(content_without_space, "F", 1))
+                    ft_error_messages(7);
+                else if (!ft_strncmp(content_without_space, "C", 1) && d->foundF == 0)
+                    d->foundF = 1;
+                else if (!ft_strncmp(content_without_space, "C", 1))
+                    ft_error_messages(7);                
+            }
+    else if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1 
+            && d->foundWE == 1 && d->foundF == 1 && d->foundC == 1)
+            {
+                printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
+            }
+    else
+        ft_error_messages(7);
+}
+
+void ft_check_start_row(char *row_n_content, t_data *d)
+{
+    char    **content_without_space;
+    int     r;
+
+    r = 0;
+    if (!row_n_content)
+        ft_error_messages(7);
+    content_without_space = ft_split(row_n_content, ' ');
+    while (content_without_space[r])    
+    {
+        ft_check_init_row(content_without_space[r], d);
+        r++;
+    }
+}
+
+int   ft_check_data_file(t_data *d)
+{
+    int r;
+
+    r = 0;
+    while (d->allContentN[r])
+    {
+        ft_check_start_row(d->allContentN[r], d);
+    }
+    return (1);
+}
+
 void    ft_check_content_file(t_data *d)
 {
     d->allContent = ft_get_all_content(d);
@@ -83,7 +154,7 @@ void    ft_check_content_file(t_data *d)
     d->allContentN = ft_split(d->allContent, '\n');
     printf("\nContenido d->allContentN\n");
     ft_print_matrix(d->allContentN);
-    
-
+    // if (ft_check_data_file(d))
+    //     printf("DATOS CORRECTOS EN EL MAPA")
     free(d->allContent);
 }
