@@ -93,5 +93,6 @@ char		*ft_strchr(const char *s, int c);
 
 // 999FREE
 void		ft_free_all(t_data *d);
+void    	ft_free_matrix(char **matrix);
 
 #endif
