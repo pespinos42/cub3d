@@ -45,6 +45,8 @@ typedef struct s_map
 	int					block_wall;
 	int					start_x;
 	int					start_y;
+	int					map_x;
+	int					map_y;
 	t_player			*p;
 	t_bresenham			*b;
 }						t_map;
@@ -87,6 +89,8 @@ typedef struct s_bresenham
 
 typedef struct s_ray
 {
+	t_player			*p;
+	t_map				*m;
 	float				camera_x;
 	float				ray_dir_x;
 	float				ray_dir_y;

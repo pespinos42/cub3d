@@ -53,17 +53,17 @@ void	ft_locate_player(t_data *d);
 void	ft_check_limits(t_data *d);
 
 // UTILS_STRUCTS
-void	ft_initialize_structs(t_data *d, t_map *m, t_player *p, t_bresenham *b);
+void	init_struct_data_map(t_data *d, t_map *m);
 void	ft_initialize_data(t_data *d);
 void	ft_initialize_map(t_map *m);
-void	ft_initialize_player(t_player *p);
-void	ft_initialize_ray(t_ray *r);
+void	ft_initialize_player(t_map *m, t_player *p);
+void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r);
 
 // UTILS_STRUCTS2
-void	ft_bresenham(t_bresenham *b);
+void	ft_bresenham(t_map *m, t_bresenham *b);
 
 // MAIN_GAME
-int32_t	ft_main_game(t_map *map, t_player *p);
+int32_t	ft_main_game(t_map *map);
 void	hook(void *param);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	ft_paint_map(t_map *m);
@@ -71,13 +71,12 @@ void	ft_paint_map(t_map *m);
 // FT_PLAYER
 void	move_player(t_map *m, int move, int turn);
 void	clear_last_position(t_map *m);
-
-// FT_WINDOWS
-void	ft_window(t_map *map);
-void	map_color_background(t_map *map);
+void	paint_direction(t_map *m, t_bresenham *b);
+void	draw_line(t_map *m, t_bresenham *b);
+void	draw_direction_line(t_map *m, t_bresenham *b);
 
 // MINIMAP
-void	minimap(t_map *m, t_player *p);
+void	minimap(t_map *m);
 void	centre_player(t_map *m);
 void	draw_blocks(t_map *m, int x, int y);
 void	center_player_block(t_map *m, int x, int y);
@@ -90,9 +89,11 @@ void	draw_block_wall_map(t_map *m, int x, int y);
 void	draw_block_floor_map(t_map *m, int x, int y);
 void	draw_player_map(t_map *m, int row, int colum);
 
-// utils_minimap.c
+// UTILS_MAP
 int		number_colums(t_map *m);
 void	draw_minimap(t_map *m);
 void	draw_block_wall(t_map *m, int x, int y);
 void	draw_block_floor(t_map *m, int x, int y);
 void	draw_player(t_map *m, int x, int y);
+
+

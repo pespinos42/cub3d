@@ -4,20 +4,18 @@
  ** @brief Inicializa las estructuras
  * @param d Estructura de los datos
  * @param m Estructura del mapa
- * @param p Estructura del jugador
  */
 
-void	ft_initialize_structs(t_data *d, t_map *m, t_player *p, t_bresenham *b)
+void	init_struct_data_map(t_data *d, t_map *m)
 {
-	m->b = b;
-	m->p = p;
+	//m->b = b;
+	//m->p = p;
 	m->d = d;
-	p->m = m;
-	p->d = d;
+	//p->m = m;
+	//p->d = d;
 	ft_initialize_data(d);
 	ft_initialize_map(m);
-	ft_initialize_player(p);
-	ft_bresenham(b);
+	//ft_bresenham(b);
 }
 
 /**
@@ -65,6 +63,8 @@ void	ft_initialize_data(t_data *d)
  * @param player_y Posicion del jugador en el eje y
  * @param dx Ancho del bloque
  * @param dy Alto del bloque
+ * @param map_x Posicion del jugador en el mapa en el eje x
+ * @param map_y Posicion del jugador en el mapa en el eje y
  */
 
 void	ft_initialize_map(t_map *m)
@@ -89,6 +89,8 @@ void	ft_initialize_map(t_map *m)
 	m->block_center_y = 0;
 	m->player_x = 0;
 	m->player_y = 0;
+	m->map_x = 0;
+	m->map_y = 0;
 }
 
 /**
@@ -111,8 +113,11 @@ void	ft_initialize_map(t_map *m)
  * @param angle_rot Angulo de rotacion
  */
 
-void	ft_initialize_player(t_player *p)
+void	ft_initialize_player(t_map *m, t_player *p)
 {
+	m->p = p;
+	p->m = m;
+	p->d = m->d;
 	p->px = p->d->x_position_player;
 	p->py = p->d->y_position_player;
 	p->dir_x = -1;
@@ -127,5 +132,4 @@ void	ft_initialize_player(t_player *p)
 	p->angle_rot = 0;
 	p->move = 0;
 	p->turn = 0;
-	
 }

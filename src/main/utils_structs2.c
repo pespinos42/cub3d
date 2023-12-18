@@ -17,8 +17,9 @@
  * @param y1 Posicion final en el eje y de la linea de direccion
 */
 
-void	ft_bresenham(t_bresenham *b)
+void	ft_bresenham(t_map *m, t_bresenham *b)
 {
+	m->b = b;
 	b->end_x = 0;
 	b->end_y = 0;
 	b->dx = 0;
@@ -38,8 +39,8 @@ void	ft_bresenham(t_bresenham *b)
  * @param camera_x Posicion de la camara en el eje x
  * @param ray_dir_x Direccion del rayo en el eje x
  * @param ray_dir_y Direccion del rayo en el eje y
- * @param map_x Posicion del mapa en el eje x
- * @param map_y Posicion del mapa en el eje y
+ * @param map_x Posicion del rayo en el mapa en el eje x
+ * @param map_y Posicion del rayo en el mapa en el eje y
  * @param side_dist_x Distancia del rayo en el eje x
  * @param side_dist_y Distancia del rayo en el eje y
  * @param delta_dist_x Distancia del rayo en el eje x
@@ -54,8 +55,10 @@ void	ft_bresenham(t_bresenham *b)
  * @param draw_end Donde termina de pintar la linea
  */
 
-void	ft_initialize_ray(t_ray *r)
+void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r)
 {
+	r->p = p;
+	r->m = m;
 	r->camera_x = 0;
 	r->ray_dir_x = 0;
 	r->ray_dir_y = 0;

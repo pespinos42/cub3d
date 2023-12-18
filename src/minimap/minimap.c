@@ -1,11 +1,10 @@
 #include "cub3d.h"
 
-void	minimap(t_map *m, t_player *p)
+void	minimap(t_map *m)
 {
 	int	i;
 	int	j;
 
-	(void)p;
 	m->mi_bg = mlx_new_image(m->mlx, WIDTH_MINIMAP, HEIGHT_MINIMAP);
 	i = 0;
 	j = 0;

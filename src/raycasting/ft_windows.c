@@ -1,8 +1,12 @@
 #include "cub3d.h"
 
-void	ft_window(t_map *m)
+void	ft_window(t_map *m, t_player *p)
 {
+	t_ray	r;
+
+	ft_initialize_ray(m, p, &r);
 	map_color_background(m);
+	//draw_walls(&r);
 }
 
 void	map_color_background(t_map *map)
@@ -32,4 +36,40 @@ void	map_color_background(t_map *map)
 		ft_error_messages(5);
 	if (mlx_image_to_window(map->mlx, map->floor_image, 0, HEIGHT / 2) == -1)
 		ft_error_messages(5);
+}
+
+void	draw_walls(t_ray *r)
+{
+	int x;
+
+    x = 0;
+    while (x < WIDTH)
+    {
+        // 1. Lanza un rayo desde la posición del jugador
+        r = cast_ray(r, x);
+		(void)r;
+
+        // 2. Calcula la distancia hasta el primer muro
+        /* float wall_dist = calculate_wall_dist(m, &ray);
+
+        // 3. Calcula la altura del muro en la pantalla
+        int wall_height = calculate_wall_height(wall_dist);
+
+        // 4. Dibuja el muro en la pantalla
+        draw_wall_column(m, x, wall_height); */
+
+        x++;
+    }
+}
+
+t_ray	*cast_ray(t_ray *r, int x)
+{
+    // Calcula la dirección del rayo en base a la posición del jugador y la columna de píxeles
+    r->ray_dir_x = r->p->dir_x + r->p->plane_x * (2 * x / (double)WIDTH - 1);
+    r->ray_dir_y = r->p->dir_y + r->p->plane_y * (2 * x / (double)WIDTH - 1);
+
+    // Inicializa la posición del rayo a la posición del jugador
+    r->map_x = (int)r->p->px;
+    r->map_y = (int)r->p->py;
+    return (r);
 }

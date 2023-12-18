@@ -42,20 +42,23 @@ void	ft_paint_map(t_map *m)
 	}
 	else
 	{
-		printf("player: %f, %f\n", m->p->px, m->p->py);
-		ft_window(m);
+		ft_window(m, m->p);
 	}
 }
 
-int32_t	ft_main_game(t_map *m, t_player *p)
+int32_t	ft_main_game(t_map *m)
 {
-	(void)p;
+	t_player	p;
+	t_bresenham	b;
+
+	ft_initialize_player(m, &p);
+	ft_bresenham(m, &b);
 	m->mlx = mlx_init(WIDTH, HEIGHT, "cub3d", false);
 	if (!m->mlx)
 		return (EXIT_FAILURE);
 	mlx_set_window_title(m->mlx, m->title);
 	mlx_key_hook(m->mlx, &key_hook, m);
-	ft_window(m);
+	ft_window(m, &p);
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);

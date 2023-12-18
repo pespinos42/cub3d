@@ -15,6 +15,7 @@
 # include <unistd.h> //PARA READ
 # include "structs.h"
 # include "functions.h"
+# include "raycasting.h"
 
 /* Define window size */
 # define WIDTH 1280
