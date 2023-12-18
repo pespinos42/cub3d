@@ -34,7 +34,7 @@ SRCS	= 	utils_minimap.c minimap.c ft_map.c\
 			ft_player.c \
 			leaks.c \
 			main.c main_game.c ft_windows.c\
-			utils_structs.c \
+			utils_structs.c utils_structs2.c\
 			000libft1.c \
 			100check.c \
 			110initialize.c \

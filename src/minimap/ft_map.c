@@ -84,5 +84,5 @@ void	draw_player_map(t_map *m, int x, int y)
 		}
 		i++;
 	}
-	paint_player(m);
+	paint_player(m, m->player_x, m->player_y);
 }

@@ -7,8 +7,9 @@
  * @param p Estructura del jugador
  */
 
-void	ft_initialize_structs(t_data *d, t_map *m, t_player *p)
+void	ft_initialize_structs(t_data *d, t_map *m, t_player *p, t_bresenham *b)
 {
+	m->b = b;
 	m->p = p;
 	m->d = d;
 	p->m = m;
@@ -16,6 +17,7 @@ void	ft_initialize_structs(t_data *d, t_map *m, t_player *p)
 	ft_initialize_data(d);
 	ft_initialize_map(m);
 	ft_initialize_player(p);
+	ft_bresenham(b);
 }
 
 /**
@@ -125,46 +127,5 @@ void	ft_initialize_player(t_player *p)
 	p->angle_rot = 0;
 	p->move = 0;
 	p->turn = 0;
-}
-
-/**
- ** @brief Estructura del raycasting
- * @param camera_x Posicion de la camara en el eje x
- * @param ray_dir_x Direccion del rayo en el eje x
- * @param ray_dir_y Direccion del rayo en el eje y
- * @param map_x Posicion del mapa en el eje x
- * @param map_y Posicion del mapa en el eje y
- * @param side_dist_x Distancia del rayo en el eje x
- * @param side_dist_y Distancia del rayo en el eje y
- * @param delta_dist_x Distancia del rayo en el eje x
- * @param delta_dist_y Distancia del rayo en el eje y
- * @param perp_wall_dist Distancia de la pared perpendicular
- * @param step_x Paso del rayo en el eje x
- * @param step_y Paso del rayo en el eje y
- * @param hit Si el rayo ha chocado con una pared
- * @param side Si el rayo ha chocado con una pared en el eje x o en el eje y
- * @param line_height Altura de la linea que se va a pintar
- * @param draw_start Donde empieza a pintar la linea
- * @param draw_end Donde termina de pintar la linea
- */
-
-void	ft_initialize_ray(t_ray *r)
-{
-	r->camera_x = 0;
-	r->ray_dir_x = 0;
-	r->ray_dir_y = 0;
-	r->map_x = 0;
-	r->map_y = 0;
-	r->side_dist_x = 0;
-	r->side_dist_y = 0;
-	r->delta_dist_x = 0;
-	r->delta_dist_y = 0;
-	r->perp_wall_dist = 0;
-	r->step_x = 0;
-	r->step_y = 0;
-	r->hit = 0;
-	r->side = 0;
-	r->line_height = 0;
-	r->draw_start = 0;
-	r->draw_end = 0;
+	
 }

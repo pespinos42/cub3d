@@ -53,11 +53,14 @@ void	ft_locate_player(t_data *d);
 void	ft_check_limits(t_data *d);
 
 // UTILS_STRUCTS
-void	ft_initialize_structs(t_data *d, t_map *m, t_player *p);
+void	ft_initialize_structs(t_data *d, t_map *m, t_player *p, t_bresenham *b);
 void	ft_initialize_data(t_data *d);
 void	ft_initialize_map(t_map *m);
 void	ft_initialize_player(t_player *p);
 void	ft_initialize_ray(t_ray *r);
+
+// UTILS_STRUCTS2
+void	ft_bresenham(t_bresenham *b);
 
 // MAIN_GAME
 int32_t	ft_main_game(t_map *map, t_player *p);
@@ -66,9 +69,8 @@ void	key_hook(mlx_key_data_t keydata, void *param);
 void	ft_paint_map(t_map *m);
 
 // FT_PLAYER
-void	move_player(t_map *m, int dx, int dy);
+void	move_player(t_map *m, int move, int turn);
 void	clear_last_position(t_map *m);
-void	paint_new_position(t_map *m, float nx, float ny);
 
 // FT_WINDOWS
 void	ft_window(t_map *map);

@@ -2,6 +2,9 @@
 
 typedef struct s_map	t_map;
 typedef struct s_player	t_player;
+typedef struct s_bresenham	t_bresenham;
+typedef struct s_ray	t_ray;
+
 typedef struct s_data
 {
 	int					argc;
@@ -43,6 +46,7 @@ typedef struct s_map
 	int					start_x;
 	int					start_y;
 	t_player			*p;
+	t_bresenham			*b;
 }						t_map;
 
 typedef struct s_player
@@ -64,6 +68,22 @@ typedef struct s_player
 	int					move;
 	int					turn;
 }						t_player;
+
+typedef struct s_bresenham
+{
+	int					end_x;
+	int					end_y;
+	int					dx;
+	int					dy;
+	int					sx;
+	int					sy;
+	int					err;
+	int					e2;
+	int					x0;
+	int					y0;
+	int					x1;
+	int					y1;
+}						t_bresenham;
 
 typedef struct s_ray
 {
