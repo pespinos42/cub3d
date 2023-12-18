@@ -6,7 +6,44 @@ void	ft_window(t_map *m, t_player *p)
 
 	ft_initialize_ray(m, p, &r);
 	map_color_background(m);
+	raycasting(&r);
 	//draw_walls(&r);
+}
+
+void	raycasting(t_ray *r)
+{
+	while (1)
+	{
+		//! ... lógica del raycasting
+		for (int x = 0; x < w; x++) {
+			// ... cálculos del rayo ...
+			// ... lógica DDA ...
+			// ... cálculos de distancia y altura de línea ...
+			// ... dibujo en pantalla ...
+		}
+		//! ... manejo de entrada
+		//! ... lógica de movimiento y rotación
+		if (keyDown(SDLK_UP)) {
+		// ... movimiento hacia adelante ...
+		}
+
+		if (keyDown(SDLK_DOWN)) {
+		// ... movimiento hacia atrás ...
+		}
+
+		if (keyDown(SDLK_RIGHT)) {
+		// ... rotación a la derecha ...
+		}
+
+		if (keyDown(SDLK_LEFT)) {
+		// ... rotación a la izquierda ...
+		}
+		//! ... lógica de temporización
+		double time = 0;
+		double oldTime = 0;
+
+		// ... cálculos de tiempo y velocidad ...
+	}
 }
 
 void	map_color_background(t_map *map)
@@ -67,6 +104,8 @@ t_ray	*cast_ray(t_ray *r, int x)
     // Calcula la dirección del rayo en base a la posición del jugador y la columna de píxeles
     r->ray_dir_x = r->p->dir_x + r->p->plane_x * (2 * x / (double)WIDTH - 1);
     r->ray_dir_y = r->p->dir_y + r->p->plane_y * (2 * x / (double)WIDTH - 1);
+	/* printf("ray_dir_x: %f, ray_dir_y: %f\n", r->ray_dir_x, r->ray_dir_y);
+	printf("p->dir_x: %f, p->dir_y: %f\n", r->p->dir_x, r->p->dir_y); */
 
     // Inicializa la posición del rayo a la posición del jugador
     r->map_x = (int)r->p->px;
