@@ -76,97 +76,75 @@ char    *ft_get_all_content(t_data *d)
     return (allStr);
 }
 
-void    ft_print_control_data(t_data *d)
+void ft_check_init_row(char *content_without_space, char *path, t_data *d)
 {
-    printf("FOUNDNO -> %i\n", d->foundNO);
-    printf("FOUNDSO -> %i\n", d->foundSO);
-    printf("FOUNDEA -> %i\n", d->foundEA);
-    printf("FOUNDWE -> %i\n", d->foundWE);
-    printf("FOUNDF  -> %i\n", d->foundF);
-    printf("FOUNDC  -> %i\n", d->foundC);
-    printf("FOUNDMAP -> %i\n", d->foundMap);
-}
-
-void ft_check_init_row(char *content_without_space, t_data *d)
-{
-    ft_print_control_data(d);
+    char    **rgb;
     if (!ft_strncmp(content_without_space, "NO", 2) || !ft_strncmp(content_without_space, "SO", 2)
             || !ft_strncmp(content_without_space, "EA", 2) || !ft_strncmp(content_without_space, "WE", 2))
             {
                 if (!ft_strncmp(content_without_space, "NO", 2) && d->foundNO == 0)
                 {
-                    printf("NO Y FOUNDNO = 0\n");
                     d->foundNO = 1;
+                    d->pathNO = ft_strdup(path);
                 }
                 else if (!ft_strncmp(content_without_space, "NO", 2))
-                {
-                    printf("NO Y FOUNDNO = 1\n");
                     ft_error_messages(7);
-                }
                 else if (!ft_strncmp(content_without_space, "SO", 2) && d->foundSO == 0)
                 {
-                    printf("SO Y FOUNDSO = 0\n");
                     d->foundSO = 1;
+                    d->pathSO = ft_strdup(path);
                 }
                 else if (!ft_strncmp(content_without_space, "SO", 2))
-                {
-                    printf("SO Y FOUNDSO = 1\n");
                     ft_error_messages(7);
-                }
                 else if (!ft_strncmp(content_without_space, "EA", 2) && d->foundEA == 0)
                 {
-                    printf("EA Y FOUNDEA = 1\n");
                     d->foundEA = 1;
+                    d->pathEA = ft_strdup(path);
                 }
                 else if (!ft_strncmp(content_without_space, "EA", 2))
-                {
-                    printf("EA Y FOUNDEA = 0\n");
                     ft_error_messages(7);
-                }
                 else if (!ft_strncmp(content_without_space, "WE", 2) && d->foundWE == 0)
                 {
-                    printf("WE Y FOUNDWE = 0\n");
                     d->foundWE = 1;
+                    d->pathWE = ft_strdup(path);
                 }
                 else if (!ft_strncmp(content_without_space, "WE", 2))
-                {
-                    printf("WE Y FOUNDWE = 1\n");
                     ft_error_messages(7);
-                }
             }
     else if (!ft_strncmp(content_without_space, "F", 1) 
             || !ft_strncmp(content_without_space, "C", 1))
             {
                 if (!ft_strncmp(content_without_space, "F", 1) && d->foundF == 0)
                 {
-                    printf("F Y FOUNDF = 0\n");
                     d->foundF = 1;
+                    rgb = ft_split(path, ',');
+                    d->fR = ft_atoi(rgb[0]);
+                    d->fG = ft_atoi(rgb[1]);
+                    d->fB = ft_atoi(rgb[2]);
+                    ft_free_matrix(rgb);
                 }
                 else if (!ft_strncmp(content_without_space, "F", 1))
-                {
-                    printf("F Y FOUNDF = 1\n");
                     ft_error_messages(7);
-                }
                 else if (!ft_strncmp(content_without_space, "C", 1) && d->foundC == 0)
                 {
-                    printf("C Y FOUNDC = 0\n");
                     d->foundC = 1;
+                    rgb = ft_split(path, ',');
+                    d->cR = ft_atoi(rgb[0]);
+                    d->cG = ft_atoi(rgb[1]);
+                    d->cB = ft_atoi(rgb[2]);
+                    ft_free_matrix(rgb);
                 }
                 else if (!ft_strncmp(content_without_space, "C", 1))
-                {
-                    printf("C Y FOUNDC = 1\n");
-                    ft_error_messages(7);                
-                }
+                    ft_error_messages(7);
             }
     else if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1 
             && d->foundWE == 1 && d->foundF == 1 && d->foundC == 1)
             {
-                printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
+                //printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
                 d->foundMap = 1;
             }
     else
         ft_error_messages(7);
-    printf("FINAL DEL COMPROBADOR\n");
 }
 
 void ft_check_start_row(char *row_n_content, t_data *d)
@@ -176,7 +154,7 @@ void ft_check_start_row(char *row_n_content, t_data *d)
     if (!row_n_content)
         ft_error_messages(7);
     content_without_space = ft_split(row_n_content, ' ');
-    ft_check_init_row(content_without_space[0], d);
+    ft_check_init_row(content_without_space[0], content_without_space[1], d);
     ft_free_matrix(content_without_space);
 }
 
@@ -187,7 +165,6 @@ int   ft_check_data_file(t_data *d)
     r = 0;
     while (d->allContentN[r])
     {
-        printf("COMPROBANDO FILA -> %i\n", r);
         ft_check_start_row(d->allContentN[r], d);
         r++;
     }
@@ -211,5 +188,14 @@ void    ft_check_content_file(t_data *d)
     ft_print_matrix(d->allContentN);
     if (ft_check_data_file(d))
         printf("DATOS CORRECTOS EN EL MAPA");
+    printf("LAS RUTAS DE LOS FICHEROS SON LAS SIGUIENTES:\n");
+    printf("PATH NO -> %s\n", d->pathNO);
+    printf("PATH SO -> %s\n", d->pathSO);
+    printf("PATH EA -> %s\n", d->pathEA);
+    printf("PATH WE -> %s\n", d->pathWE);
+    printf("RGB DEL SUELO\n");
+    printf("R->%i\tG->%i\tB->%i\n", d->fR, d->fG, d->fB);
+    printf("RGB DEL TECHO\n");
+    printf("R->%i\tG->%i\tB->%i\n", d->cR, d->cG, d->cB);
     free(d->allContent);
 }

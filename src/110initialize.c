@@ -65,11 +65,17 @@ void	ft_initialize_data(t_data *d)
 	d->y_position_player = -1;
 	d->map = NULL;
 	d->foundNO = 0;
+	d->pathNO = NULL;
 	d->foundSO = 0;
+	d->pathSO = NULL;
 	d->foundWE = 0;
+	d->pathWE = NULL;
 	d->foundEA = 0;
+	d->pathEA = NULL;
 	d->foundF = 0;
+	d->pathF = NULL;
 	d->foundC = 0;
+	d->pathC = NULL;
 	d->foundMap = 0;
 	ft_number_rows(d);
 	//ft_check_characters(d);

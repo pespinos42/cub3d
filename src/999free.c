@@ -31,4 +31,8 @@ void    ft_free_all(t_data *d)
     // if (d->map_flood_fill)
     //     free (d->map_flood_fill);
     ft_free_matrix(d->allContentN);
+    free (d->pathNO);
+    free (d->pathSO);
+    free (d->pathEA);
+    free (d->pathWE);
 }

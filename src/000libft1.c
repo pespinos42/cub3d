@@ -78,3 +78,32 @@ int	ft_strncmp(const char *lsh, const char *rhs, int count)
 	}
 	return (0);
 }
+
+int	ft_atoi(const char *str)
+{
+	t_atoi_data	data;
+
+	data.result = 0;
+	data.sign = 1;
+	data.s = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+')
+	{
+		data.s++;
+		str++;
+	}
+	if (*str == '-' && data.s == 0)
+	{
+		data.sign = -1;
+		str++;
+	}
+	if (*str == '-' && data.s == 1)
+		data.sign = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		data.result = data.result * 10 + (*str - 48);
+		str++;
+	}
+	return (data.result * data.sign);
+}

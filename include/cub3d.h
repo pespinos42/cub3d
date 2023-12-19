@@ -9,6 +9,13 @@
 # include <stdlib.h>
 # include <unistd.h> //PARA READ
 
+typedef struct s_atoi_data
+{
+	int	result;
+	int	sign;
+	int	s;
+}	t_atoi_data;
+
 typedef struct s_data
 {
 	int		argc;
@@ -24,12 +31,24 @@ typedef struct s_data
 	int		x_position_player;
 	int		y_position_player;
 	int		foundNO;
+	char	*pathNO;
 	int		foundSO;
+	char	*pathSO;
 	int		foundWE;
+	char	*pathWE;
 	int		foundEA;
+	char	*pathEA;
 	int		foundF;
+	char	*pathF;
 	int		foundC;
+	char	*pathC;
 	int		foundMap;
+	int		fR;
+	int		fG;
+	int		fB;
+	int		cR;
+	int		cG;
+	int		cB;
 }			t_data;
 
 typedef struct s_split_data
@@ -48,6 +67,7 @@ int			ft_strlen(char *str);
 char		*ft_strnstr(char *b, char *l, size_t len);
 char		*ft_strdup(char *src);
 int			ft_strncmp(const char *lsh, const char *rhs, int count);
+int			ft_atoi(const char *str);
 
 // 001SPLIT
 char		**ft_split(char *s, char c);
