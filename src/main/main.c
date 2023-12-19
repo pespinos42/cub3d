@@ -2,7 +2,7 @@
 
 int	main(int argc, char **argv)
 {
-	// atexit(ft_leaks);
+	//atexit(ft_leaks);
 	t_data d;
 	t_map m;
 

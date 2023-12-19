@@ -23,6 +23,7 @@ void paint_direction(t_map *m, t_bresenham *b)
 
 void draw_line(t_map *m, t_bresenham *b)
 {
+	// ft_memset(m->map->pixels, 0, m->map->width * m->map->height * 4);
 	b->dx = abs(b->x1 - b->x0);
 	b->dy = abs(b->y1 - b->y0);
 	if (b->x0 < b->x1)

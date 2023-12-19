@@ -33,7 +33,8 @@ endif
 SRCS	= 	utils_minimap.c minimap.c ft_map.c\
 			ft_player.c \
 			leaks.c \
-			main.c main_game.c ft_windows.c\
+			main.c main_game.c\
+			ft_windows.c raycast.c\
 			utils_structs.c utils_structs2.c\
 			000libft1.c \
 			100check.c \

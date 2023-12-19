@@ -6,22 +6,28 @@ void	ft_window(t_map *m, t_player *p)
 
 	ft_initialize_ray(m, p, &r);
 	map_color_background(m);
-	raycasting(&r);
+	//raycasting(&r);
 	//draw_walls(&r);
 }
 
-void	raycasting(t_ray *r)
+/* void	raycasting(t_ray *r)
 {
-	while (1)
+	int	x;
+
+	x = 0;
+	while (x < number_columns(r->m))
 	{
 		//! ... lógica del raycasting
-		for (int x = 0; x < w; x++) {
-			// ... cálculos del rayo ...
-			// ... lógica DDA ...
-			// ... cálculos de distancia y altura de línea ...
-			// ... dibujo en pantalla ...
-		}
-		//! ... manejo de entrada
+		
+		
+		// ... lógica DDA ...
+		// ... cálculos de distancia y altura de línea ...
+		// ... dibujo en pantalla ...
+
+		x++; 
+	}
+} */
+		/* //! ... manejo de entrada
 		//! ... lógica de movimiento y rotación
 		if (keyDown(SDLK_UP)) {
 		// ... movimiento hacia adelante ...
@@ -42,9 +48,7 @@ void	raycasting(t_ray *r)
 		double time = 0;
 		double oldTime = 0;
 
-		// ... cálculos de tiempo y velocidad ...
-	}
-}
+		// ... cálculos de tiempo y velocidad ... */
 
 void	map_color_background(t_map *map)
 {

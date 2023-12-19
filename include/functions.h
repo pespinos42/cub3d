@@ -56,10 +56,10 @@ void	ft_check_limits(t_data *d);
 void	init_struct_data_map(t_data *d, t_map *m);
 void	ft_initialize_data(t_data *d);
 void	ft_initialize_map(t_map *m);
-void	ft_initialize_player(t_map *m, t_player *p);
-void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r);
 
 // UTILS_STRUCTS2
+void	ft_initialize_player(t_map *m, t_player *p);
+void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r);
 void	ft_bresenham(t_map *m, t_bresenham *b);
 
 // MAIN_GAME

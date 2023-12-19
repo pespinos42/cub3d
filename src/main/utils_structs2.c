@@ -1,37 +1,44 @@
 #include "cub3d.h"
 
 /**
- * @brief Inicializa la estructura de bresenham
- * @param b Estructura de bresenham
- * @param end_x Posicion final en el eje x de la linea de direccion
- * @param end_y Posicion final en el eje y de la linea de direccion
- * @param dx diferencia absoluta en el eje x entre el punto inicial y el final
- * @param dy diferencia absoluta en el eje y entre el punto inicial y el final
- * @param sx Signo de la diferencia en el eje x
- * @param sy Signo de la diferencia en el eje y
- * @param err Error
- * @param e2 Error 2 temporal
- * @param x0 Posicion inicial en el eje x de la linea de direccion
- * @param y0 Posicion inicial en el eje y de la linea de direccion
- * @param x1 Posicion final en el eje x de la linea de direccion
- * @param y1 Posicion final en el eje y de la linea de direccion
-*/
+ ** @brief Inicializa la estructura del jugador
+ * @param p Estructura del jugador
+ * @param d Estructura de los datos
+ * @param m Estructura del mapa
+ * @param px Posicion del jugador en el eje x
+ * @param py Posicion del jugador en el eje y
+ * @param dir_x Direccion del jugador en el eje x
+ * @param dir_y Direccion del jugador en el eje y
+ * @param old_dir_x Direccion anterior del jugador en el eje x
+ * @param old_dir_y Direccion anterior del jugador en el eje y
+ * @param plane_x Plano de la camara en el eje x
+ * @param plane_y Plano de la camara en el eje y
+ * @param move_speed Velocidad de movimiento en pixeles
+ * @param rot_speed Velocidad de rotacion en radianes
+ * @param move Si se esta moviendo, 0 = no se mueve, 1 = adelante y -1 = atras
+ * @param turn Si se esta girando, 0 = no se mueve, 1 = derecha y -1 = izquierda
+ * @param angle_rot Angulo de rotacion
+ */
 
-void	ft_bresenham(t_map *m, t_bresenham *b)
+void	ft_initialize_player(t_map *m, t_player *p)
 {
-	m->b = b;
-	b->end_x = 0;
-	b->end_y = 0;
-	b->dx = 0;
-	b->dy = 0;
-	b->sx = 0;
-	b->sy = 0;
-	b->err = 0;
-	b->e2 = 0;
-	b->x0 = 0;
-	b->y0 = 0;
-	b->x1 = 0;
-	b->y1 = 0;
+	m->p = p;
+	p->m = m;
+	p->d = m->d;
+	p->px = p->d->x_position_player;
+	p->py = p->d->y_position_player;
+	p->dir_x = -1;
+	p->dir_y = 0;
+	p->plane_x = 0;
+	p->plane_y = 0.66;
+	p->old_dir_x = 0;
+	p->old_dir_y = 0;
+	p->move_speed = 3;
+	p->pi = acos(-1.0);
+	p->rot_speed = (p->pi / 180) * 3;
+	p->angle_rot = 0;
+	p->move = 0;
+	p->turn = 0;
 }
 
 /**
@@ -76,4 +83,38 @@ void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r)
 	r->line_height = 0;
 	r->draw_start = 0;
 	r->draw_end = 0;
+}
+
+/**
+ * @brief Inicializa la estructura de bresenham
+ * @param b Estructura de bresenham
+ * @param end_x Posicion final en el eje x de la linea de direccion
+ * @param end_y Posicion final en el eje y de la linea de direccion
+ * @param dx diferencia absoluta en el eje x entre el punto inicial y el final
+ * @param dy diferencia absoluta en el eje y entre el punto inicial y el final
+ * @param sx Signo de la diferencia en el eje x
+ * @param sy Signo de la diferencia en el eje y
+ * @param err Error
+ * @param e2 Error 2 temporal
+ * @param x0 Posicion inicial en el eje x de la linea de direccion
+ * @param y0 Posicion inicial en el eje y de la linea de direccion
+ * @param x1 Posicion final en el eje x de la linea de direccion
+ * @param y1 Posicion final en el eje y de la linea de direccion
+*/
+
+void	ft_bresenham(t_map *m, t_bresenham *b)
+{
+	m->b = b;
+	b->end_x = 0;
+	b->end_y = 0;
+	b->dx = 0;
+	b->dy = 0;
+	b->sx = 0;
+	b->sy = 0;
+	b->err = 0;
+	b->e2 = 0;
+	b->x0 = 0;
+	b->y0 = 0;
+	b->x1 = 0;
+	b->y1 = 0;
 }
