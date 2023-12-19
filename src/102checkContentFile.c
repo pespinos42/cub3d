@@ -118,6 +118,8 @@ void ft_check_init_row(char *content_without_space, char *path, t_data *d)
                 {
                     d->foundF = 1;
                     rgb = ft_split(path, ',');
+                    if (!rgb[0] || !rgb[1] || !rgb[2])
+                        ft_error_messages(7);
                     d->fR = ft_atoi(rgb[0]);
                     d->fG = ft_atoi(rgb[1]);
                     d->fB = ft_atoi(rgb[2]);
@@ -129,6 +131,8 @@ void ft_check_init_row(char *content_without_space, char *path, t_data *d)
                 {
                     d->foundC = 1;
                     rgb = ft_split(path, ',');
+                    if (!rgb[0] || !rgb[1] || !rgb[2])
+                        ft_error_messages(7);
                     d->cR = ft_atoi(rgb[0]);
                     d->cG = ft_atoi(rgb[1]);
                     d->cB = ft_atoi(rgb[2]);
