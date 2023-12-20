@@ -85,28 +85,40 @@ void ft_check_init_row(char *content_without_space, char *path, t_data *d)
                 if (!ft_strncmp(content_without_space, "NO", 2) && d->foundNO == 0)
                 {
                     d->foundNO = 1;
-                    d->pathNO = ft_strdup(path);
+                    if (path)
+                        d->pathNO = ft_strdup(path);
+                    else
+                        ft_error_messages(7);
                 }
                 else if (!ft_strncmp(content_without_space, "NO", 2))
                     ft_error_messages(7);
                 else if (!ft_strncmp(content_without_space, "SO", 2) && d->foundSO == 0)
                 {
                     d->foundSO = 1;
-                    d->pathSO = ft_strdup(path);
+                    if (path)
+                        d->pathSO = ft_strdup(path);
+                    else
+                        ft_error_messages(7);
                 }
                 else if (!ft_strncmp(content_without_space, "SO", 2))
                     ft_error_messages(7);
                 else if (!ft_strncmp(content_without_space, "EA", 2) && d->foundEA == 0)
                 {
                     d->foundEA = 1;
-                    d->pathEA = ft_strdup(path);
+                    if (path)
+                        d->pathEA = ft_strdup(path);
+                    else
+                        ft_error_messages(7);
                 }
                 else if (!ft_strncmp(content_without_space, "EA", 2))
                     ft_error_messages(7);
                 else if (!ft_strncmp(content_without_space, "WE", 2) && d->foundWE == 0)
                 {
                     d->foundWE = 1;
-                    d->pathWE = ft_strdup(path);
+                    if (path)
+                        d->pathWE = ft_strdup(path);
+                    else
+                        ft_error_messages(7);
                 }
                 else if (!ft_strncmp(content_without_space, "WE", 2))
                     ft_error_messages(7);
