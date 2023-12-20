@@ -66,15 +66,18 @@ void	paint_player(t_map *m, float player_x, float player_y)
 	int i;
 	int j;
 
+	m->player = mlx_new_image(m->mlx, m->dx, m->dy);
 	i = 0;
 	while (i < m->dx)
 	{
 		j = 0;
 		while (j < m->dy)
 		{
-			mlx_put_pixel(m->map, player_x + i, player_y + j, 0xFF0000FF);
+			mlx_put_pixel(m->player, player_x + i, player_y + j, 0xFF0000FF);
 			j++;
 		}
 		i++;
 	}
+	if (mlx_image_to_window(m->mlx, m->player, 0, 0) == -1)
+		ft_error_messages(5);
 }

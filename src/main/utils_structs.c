@@ -50,7 +50,6 @@ void	ft_initialize_data(t_data *d)
  * @param title Titulo de la ventana
  * @param sky_image Imagen del cielo
  * @param floor_image Imagen del suelo
- * @param bg_image Imagen del fondo
  * @param sky_color Color del cielo
  * @param floor_color Color del suelo
  * @param start_x Posicion de inicio en el eje x
@@ -77,7 +76,6 @@ void	ft_initialize_map(t_map *m)
 	m->title = "cub3d";
 	m->sky_image = NULL;
 	m->floor_image = NULL;
-	m->bg_image = NULL;
 	m->sky_color = 0x87CEEBFF;   // color del cielo
 	m->floor_color = 0xFFA07AFF; // color del suelo
 	m->start_x = 0;

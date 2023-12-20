@@ -23,12 +23,12 @@ typedef struct s_map
 {
 	t_data				*d;
 	mlx_t				*mlx;
-	mlx_image_t			*mi_bg;
 	mlx_image_t			*mini;
 	mlx_image_t			*sky_image;
 	mlx_image_t			*floor_image;
-	mlx_image_t			*bg_image;
+	mlx_image_t			*mi_bg;
 	mlx_image_t			*map;
+	mlx_image_t			*player;
 	mlx_image_t			*clear;
 	uint32_t			sky_color;
 	uint32_t			floor_color;

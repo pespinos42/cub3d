@@ -65,6 +65,7 @@ int32_t	ft_main_game(t_map *m)
 	ft_window(m, &p);
 	ft_map(m);
 	m->map->enabled = 0;
+	paint_player(m, m->p->px, m->p->py);
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);
