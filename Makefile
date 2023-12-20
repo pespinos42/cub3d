@@ -31,7 +31,7 @@ endif
 # --- Files ---
 
 SRCS	= 	utils_minimap.c minimap.c ft_map.c\
-			ft_player.c \
+			ft_player.c utils_player.c\
 			leaks.c \
 			main.c main_game.c\
 			ft_windows.c raycast.c\

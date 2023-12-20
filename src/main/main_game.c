@@ -14,41 +14,34 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	t_map	*m;
 
 	m = param;
-	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_player(m, 0, 1);
-	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_player(m, 0, -1);
-	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_player(m, 1, 0);
-	if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_player(m, -1, 0);
-	// if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
-	// 	ft_paint_map(m);
+	move_player_map(keydata, m);
+	turn_player_map(keydata, m);
 	if (keydata.key == MLX_KEY_L && keydata.action == MLX_PRESS)
+	{
 		m->map->enabled = 0;
+		m->player->enabled = 0;
+	}
 	if (keydata.key == MLX_KEY_K && keydata.action == MLX_PRESS)
+	{
 		m->map->enabled = 1;
+		m->player->enabled = 1;
+	}
 }
 
-// void	ft_paint_map(t_map *m)
-// {
-// 	m->show_map = !m->show_map;
-// 	if (m->show_map)
-// 	{
-// 		ft_map(m);
-// 		// center_player_block(m);
-// 		// draw_minimap(m);
-// 		//minimap(m, NULL);
-// 	}
-// 	else
-// 	{
-// 		ft_window(m, m->p);
-// 	}
-// }
+
+void	ft_paint_map(t_map *m)
+{
+	ft_map(m);
+	m->map->enabled = 0;
+	//ft_print_player(m);
+	paint_player(m, m->p->px, m->p->py);
+	m->player->enabled = 0;
+	/* ft_map(m);
+	center_player_block(m);
+	draw_minimap(m);
+	minimap(m, NULL);
+	ft_window(m, m->p); */
+}
 
 int32_t	ft_main_game(t_map *m)
 {
@@ -63,9 +56,7 @@ int32_t	ft_main_game(t_map *m)
 	mlx_set_window_title(m->mlx, m->title);
 	mlx_key_hook(m->mlx, &key_hook, m);
 	ft_window(m, &p);
-	ft_map(m);
-	m->map->enabled = 0;
-	paint_player(m, m->p->px, m->p->py);
+	ft_paint_map(m);
 	mlx_loop_hook(m->mlx, &hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);

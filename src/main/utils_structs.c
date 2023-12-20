@@ -81,8 +81,8 @@ void	ft_initialize_map(t_map *m)
 	m->start_x = 0;
 	m->start_y = 0;
 	m->show_map = false;
-	m->dx = 0;
-	m->dy = 0;
+	m->dx = 5;
+	m->dy = 5;
 	m->block_center_x = 0;
 	m->block_center_y = 0;
 	m->player_x = 0;

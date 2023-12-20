@@ -2,7 +2,6 @@
 
 // MAIN
 void	ft_leaks(void);
-void	imprimir_variables(t_map *m, t_player *p);
 
 // 000LIBFT1
 int		ft_strlen(char *str);
@@ -70,17 +69,20 @@ void	ft_paint_map(t_map *m);
 
 // FT_PLAYER
 void	move_player(t_map *m, int move, int turn);
-void	clear_last_position(t_map *m);
-void	paint_direction(t_map *m, t_bresenham *b);
-void	draw_line(t_map *m, t_bresenham *b);
 void	draw_direction_line(t_map *m, t_bresenham *b);
+void	ft_print_player(t_map *m);
+
+// UTILS_PLAYER
+//void	clear_last_position(t_map *m);
+void	paint_player(t_map *m, float player_x, float player_y);
+void	move_player_map(mlx_key_data_t keydata, t_map *m);
+void	turn_player_map(mlx_key_data_t keydata, t_map *m);
 
 // MINIMAP
 void	minimap(t_map *m);
 void	centre_player(t_map *m);
 void	draw_blocks(t_map *m, int x, int y);
 void	center_player_block(t_map *m, int x, int y);
-void	paint_player(t_map *m, float player_x, float player_y);
 
 // FT_MAP
 void	ft_map(t_map *m);

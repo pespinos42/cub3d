@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void paint_direction(t_map *m, t_bresenham *b)
+static void paint_direction(t_map *m, t_bresenham *b)
 {
 	while (1)
 	{
@@ -21,7 +21,7 @@ void paint_direction(t_map *m, t_bresenham *b)
 	}
 }
 
-void draw_line(t_map *m, t_bresenham *b)
+static void draw_line(t_map *m, t_bresenham *b)
 {
 	// ft_memset(m->map->pixels, 0, m->map->width * m->map->height * 4);
 	b->dx = abs(b->x1 - b->x0);
@@ -52,25 +52,7 @@ void draw_direction_line(t_map *m, t_bresenham *b)
 	draw_line(m, b);
 }
 
-void	clear_last_position(t_map *m)
-{
-	int	i;
-	int	j;
 
-	printf("posicion: %f, %f\n", m->p->px, m->p->py);
-	printf("dx: %d, dy: %d\n", m->dx, m->dy);
-	i = m->p->px - m->dx / 2.0;
-	while (i < m->p->px + m->dx / 2.0 + 5)
-	{
-		j = m->p->py - m->dy / 2.0;
-		while (j < m->p->py + m->dy / 2.0 + 5)
-		{
-			mlx_put_pixel(m->map, i, j, 0x00FFFF);
-			j++;
-		}
-		i++;
-	}
-}
 
 void	move_player(t_map *m, int move, int turn)
 {
@@ -79,7 +61,7 @@ void	move_player(t_map *m, int move, int turn)
 
 	m->p->move = move;
 	m->p->turn = turn;
-	clear_last_position(m);
+	//clear_last_position(m);
 	// giramos
 	m->p->angle_rot += m->p->turn * m->p->rot_speed;
 	// actualizamos la dirección
@@ -99,4 +81,5 @@ void	move_player(t_map *m, int move, int turn)
 	printf("posicion: %f, %f\n", m->p->px, m->p->py);
 	printf("angulo rotacion: %f\n", m->p->angle_rot);
 	paint_player(m, nx, ny);
+	//ft_print_player(m);
 }
