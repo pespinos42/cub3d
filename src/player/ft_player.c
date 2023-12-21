@@ -78,8 +78,8 @@ void	move_player(t_map *m, int move, int turn)
 		m->p->px = nx;
 		m->p->py = ny;
 	}
-	printf("posicion: %f, %f\n", m->p->px, m->p->py);
+	printf("posicion X: %f, Posicion Y: %f\n", m->p->px, m->p->py);
 	printf("angulo rotacion: %f\n", m->p->angle_rot);
-	paint_player(m, nx, ny);
+	paint_player(m, m->p->px, m->p->py);
 	//ft_print_player(m);
 }

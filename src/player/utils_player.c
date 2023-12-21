@@ -64,7 +64,7 @@ void	paint_player(t_map *m, float player_x, float player_y)
 		j = 0;
 		while (j < 5)
 		{
-			mlx_put_pixel(m->player, j, i, 0xFF0000FF);
+			mlx_put_pixel(m->player, i, j, 0xFF0000FF);
 			j++;
 		}
 		i++;
@@ -72,7 +72,7 @@ void	paint_player(t_map *m, float player_x, float player_y)
 	i = 0;
 }
 
-void	ft_print_player(t_map *m)
+/* void	ft_print_player(t_map *m)
 {
 	int	*pointer;
 	int	p;
@@ -82,3 +82,4 @@ void	ft_print_player(t_map *m)
 	while ((unsigned int)p < m->player->width * m->player->height)
 		pointer[p++] = 0xFF0000FF;
 }
+ */

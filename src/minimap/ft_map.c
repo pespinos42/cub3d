@@ -20,6 +20,7 @@ void ft_map(t_map *m)
 	if (mlx_image_to_window(m->mlx, m->map, 0, 0) == -1)
 		ft_error_messages(5);
 }
+
 void	draw_blocks_map(t_map *m, int row, int colum)
 {
 	if (m->d->map[row][colum] == '1')
