@@ -153,12 +153,12 @@ void ft_check_init_row(char *content_without_space, char *path, t_data *d)
                 else if (!ft_strncmp(content_without_space, "C", 1))
                     ft_error_messages(7);
             }
-    else if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1 
-            && d->foundWE == 1 && d->foundF == 1 && d->foundC == 1)
-            {
-                //printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
-                d->foundMap = 1;
-            }
+    // else if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1 
+    //         && d->foundWE == 1 && d->foundF == 1 && d->foundC == 1)
+    //         {
+    //             //printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
+    //             d->foundMap = 1;
+    //         }
     else
         ft_error_messages(7);
 }
@@ -174,6 +174,13 @@ void ft_check_start_row(char *row_n_content, t_data *d)
     ft_free_matrix(content_without_space);
 }
 
+void    ft_add_row_list(t_data *d, char *str)
+{
+    if (!d->foundMap)
+        d->foundMap = 1;
+    ft_lstadd_back(&d->row_list, ft_lstnew(str));
+}
+
 int   ft_check_data_file(t_data *d)
 {
     int r;
@@ -181,7 +188,14 @@ int   ft_check_data_file(t_data *d)
     r = 0;
     while (d->allContentN[r])
     {
-        ft_check_start_row(d->allContentN[r], d);
+        if (d->foundNO && d->foundSO && d->foundEA && d->foundWE && d->foundF
+            && d->foundC)
+            {
+                d->number_rows++;
+                ft_add_row_list(d, d->allContentN[r]);
+            }
+        else
+            ft_check_start_row(d->allContentN[r], d);
         r++;
     }
     if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1
@@ -213,5 +227,9 @@ void    ft_check_content_file(t_data *d)
     printf("R->%i\tG->%i\tB->%i\n", d->fR, d->fG, d->fB);
     printf("RGB DEL TECHO\n");
     printf("R->%i\tG->%i\tB->%i\n", d->cR, d->cG, d->cB);
+    printf("\n");
+    printf("CONTENIDO DE LA LISTA:\n");
+    ft_lstprint(d->row_list);
+    printf("\nNUMERO DE FILAS DEL MAPA -> %i\n\n", d->number_rows);
     free(d->allContent);
 }

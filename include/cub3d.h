@@ -9,6 +9,12 @@
 # include <stdlib.h>
 # include <unistd.h> //PARA READ
 
+typedef struct s_list
+{
+    struct s_list   *next;
+    char            *content;
+}   t_list;
+
 typedef struct s_atoi_data
 {
 	int	result;
@@ -49,6 +55,7 @@ typedef struct s_data
 	int		cR;
 	int		cG;
 	int		cB;
+	t_list	*row_list;
 }			t_data;
 
 typedef struct s_split_data
@@ -71,6 +78,12 @@ int			ft_atoi(const char *str);
 
 // 001SPLIT
 char		**ft_split(char *s, char c);
+
+// 002LISTS
+t_list		*ft_lstnew(char *content);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstprint(t_list *lst);
 
 // 100CHECK
 int			ft_check_parameters(t_data *d);
