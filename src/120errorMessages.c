@@ -17,5 +17,7 @@ void	ft_error_messages(int message)
 		printf("CARACTERES FUERA DE LOS MUROS\n\n");
 	else if (message == 7)
 		printf("CONTENIDO DEL ARCHIVO ERRONEO\n\n");
+	else if (message == 8)
+		printf("PROBLEMA AL RESERVAR MEMORIA\n\n");
 	exit(1);
 }

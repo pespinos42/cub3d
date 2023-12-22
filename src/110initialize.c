@@ -31,31 +31,31 @@ void	ft_initialize_map(t_data *d, char **map)
 	}
 }
 
-void	ft_create_map(t_data *d)
-{
-	int		r;
-	char	*str;
+// void	ft_create_map(t_data *d)
+// {
+// 	int		r;
+// 	char	*str;
 
-	d->fd = open(d->argv[1], O_RDONLY);
-	r = 0;
-	d->map = malloc (d->number_rows * sizeof (char *));
-	if (!d->map)
-		exit (1);
-	ft_initialize_map(d, d->map);
-	while (r < d->number_rows)
-	{
-		d->map[r] = NULL;
-		str = ft_get_next_line(d->fd);
-		if (ft_strlen_n(str) == 0)
-			ft_error_messages(5);
-		d->map[r] = ft_strdup(str);
-		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
-		r++;
-		free(str);
-	}
-	close(d->fd);
-	printf("\nMAPA CREADO CORRECTAMENTE\n\n");			//--------------------------------		ELIMINAR ESTA LINEA
-}
+// 	d->fd = open(d->argv[1], O_RDONLY);
+// 	r = 0;
+// 	d->map = malloc (d->number_rows * sizeof (char *));
+// 	if (!d->map)
+// 		exit (1);
+// 	ft_initialize_map(d, d->map);
+// 	while (r < d->number_rows)
+// 	{
+// 		d->map[r] = NULL;
+// 		str = ft_get_next_line(d->fd);
+// 		if (ft_strlen_n(str) == 0)
+// 			ft_error_messages(5);
+// 		d->map[r] = ft_strdup(str);
+// 		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
+// 		r++;
+// 		free(str);
+// 	}
+// 	close(d->fd);
+// 	printf("\nMAPA CREADO CORRECTAMENTE\n\n");			//--------------------------------		ELIMINAR ESTA LINEA
+// }
 
 void	ft_initialize_data(t_data *d)
 {

@@ -209,6 +209,42 @@ int   ft_check_data_file(t_data *d)
     }
 }
 
+// void    ft_free_list(t_list *list)
+// {
+//     t_list  *tmp;
+//     t_list  *next;
+
+//     tmp = list;
+//     while (tmp)
+//     {
+//         next = tmp->next;
+//         free (tmp);
+//         tmp = next;
+//     }
+// }
+
+char **	ft_my_create_map(t_data *d)
+{
+    char    **matrix;
+	int		r;
+    t_list  *tmp;
+
+    tmp = d->row_list;
+	r = 0;
+	matrix = malloc (d->number_rows * sizeof (char *));
+	if (!matrix)
+		ft_error_messages(8);
+	while (r < d->number_rows)
+	{
+		matrix[r] = NULL;
+        matrix[r] = ft_strdup(tmp->content);
+        tmp = tmp->next;
+		r++;
+	}
+	printf("\nMAPA CREADO CORRECTAMENTE\n\n");
+    return (matrix);
+}
+
 void    ft_check_content_file(t_data *d)
 {
     d->allContent = ft_get_all_content(d);
@@ -231,5 +267,5 @@ void    ft_check_content_file(t_data *d)
     printf("CONTENIDO DE LA LISTA:\n");
     ft_lstprint(d->row_list);
     printf("\nNUMERO DE FILAS DEL MAPA -> %i\n\n", d->number_rows);
-    free(d->allContent);
+    d->map = ft_my_create_map(d);
 }
