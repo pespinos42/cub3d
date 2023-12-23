@@ -29,23 +29,23 @@ void    ft_free_matrix(char **matrix)
 
 void    ft_free_all(t_data *d)
 {
-    // int r;
+    int r;
 
-    // r = 0;
-    // while (r < d->number_rows)
-    // {
-    //     if (d->map[r])
-    //         free(d->map[r]);
-    //     if (d->map_flood_fill[r])
-    //         free(d->map_flood_fill[r]);
-    //     r++;
-    // }
-    // if (d->map)
-    //     free (d->map);
+    r = 0;
+    while (r < d->number_rows)
+    {
+        if (d->map[r])
+            free(d->map[r]);
+        // if (d->map_flood_fill[r])
+        //     free(d->map_flood_fill[r]);
+        r++;
+    }
+    if (d->map)
+        free (d->map);
     // if (d->map_flood_fill)
     //     free (d->map_flood_fill);
     ft_free_matrix(d->allContentN);
-    ft_free_matrix(d->map);
+    // ft_free_matrix(d->map);
     ft_free_list(d->row_list);
     free (d->pathNO);
     free (d->pathSO);
