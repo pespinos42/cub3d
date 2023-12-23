@@ -41,17 +41,13 @@ int	ft_allow_chars(char *s, t_data *d)
 void	ft_check_characters(t_data *d)
 {
 	int		r;
-	char	*str;
 
-	d->fd = open(d->argv[1], O_RDONLY);
 	r = 0;
 	while (r < d->number_rows)
 	{
-		str = ft_get_next_line(d->fd);
-		if (!ft_allow_chars(str, d))
+		if (!ft_allow_chars(d->map[r], d))
 			ft_error_messages(2);
 		r++;
-		free (str);
 	}
 	if (d->flag_char == 0)
 		ft_error_messages(4);

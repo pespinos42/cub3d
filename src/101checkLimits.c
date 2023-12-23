@@ -11,6 +11,7 @@ void    ft_duplicate_map(t_data *d)
         d->map_flood_fill[r] = ft_strdup(d->map[r]);
         r++;        
     }
+    printf("MAPA DUPLICADO CORRECTAMENTE\n");
 }
 
 void    ft_flood_fill(int x, int y, t_data *d)
@@ -55,6 +56,7 @@ void    ft_locate_player(t_data *d)
                     {
                         d->x_position_player = x;
                         d->y_position_player = y;
+                        printf("JUGADOR UBICADO CORRECTAMENTE\n");
                         return ;
                     }
             y++;
@@ -62,6 +64,7 @@ void    ft_locate_player(t_data *d)
         y = 0;
         x++;
     }
+    ft_error_messages(9);
 }
 
 int     ft_check_inner_walls(t_data *d)
@@ -92,8 +95,12 @@ int     ft_check_inner_walls(t_data *d)
 int     ft_check_around(t_data *d, int x, int y)
 {
     if (!d->map_flood_fill[x - 1][y] || !d->map_flood_fill[x + 1][y] 
-            || !d->map_flood_fill[x][y - 1] || !d->map_flood_fill[x][y + 1])
-            return (0);
+            || !d->map_flood_fill[x][y - 1] || !d->map_flood_fill[x][y + 1]
+            || y > ft_strlen(d->map_flood_fill[x - 1]))
+            {
+                printf("POSICION ERRONEA -> [%i][%i]\n", x, y);
+                return (0);
+            }
     return (1);
 }
 
@@ -165,11 +172,15 @@ void    ft_check_outer_chars(t_data *d)
 
 void    ft_check_limits(t_data *d)
 {
-    // ft_duplicate_map(d);
-    // ft_locate_player(d);
-    // ft_flood_fill(d->x_position_player, d->y_position_player, d);
-    // ft_print_map(d);
-    // ft_compare_maps(d);
-    // ft_check_outer_chars(d);
     ft_check_content_file(d);
+    ft_duplicate_map(d);
+    ft_locate_player(d);
+    ft_flood_fill(d->x_position_player, d->y_position_player, d);
+    printf("FLOOD FILL REALIZADO CORRECTAMENTE\n");
+    ft_compare_maps(d);
+    printf("MAPA CORRECTO\n");
+    ft_check_outer_chars(d);
+    printf("NO HAY CARACTERES EXTRA MUROS\n");
+    ft_print_map(d);
+    // ft_print_map(d);
 }

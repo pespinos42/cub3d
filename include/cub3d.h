@@ -103,12 +103,19 @@ void    	ft_check_outer_chars(t_data *d);
 void		ft_check_limits(t_data *d);
 
 // 102CHECKCONTENTFILE
-void    	ft_check_content_file(t_data *d);
+void    	ft_print_matrix(char **matrix);
+char		*ft_my_strjoin(char **str1, char **str2);
+char    	*ft_get_all_content(t_data *d);
+void 		ft_check_init_row(char *content_without_space, char *path, t_data *d);
+void 		ft_check_start_row(char *row_n_content, t_data *d);
+void    	ft_add_row_list(t_data *d, char *str);
+int   		ft_check_data_file(t_data *d);
+char		**ft_create_map(t_data *d);
+void		ft_check_content_file(t_data *d);
 
 // 110INITIALIZE
 void		ft_number_rows(t_data *d);
 void		ft_initialize_map(t_data *d, char **map);
-void		ft_create_map(t_data *d);
 void		ft_initialize_data(t_data *d);
 
 // 120ERRORMESSAGES

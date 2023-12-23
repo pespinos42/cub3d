@@ -153,12 +153,6 @@ void ft_check_init_row(char *content_without_space, char *path, t_data *d)
                 else if (!ft_strncmp(content_without_space, "C", 1))
                     ft_error_messages(7);
             }
-    // else if (d->foundNO == 1 && d->foundSO == 1 && d->foundEA == 1 
-    //         && d->foundWE == 1 && d->foundF == 1 && d->foundC == 1)
-    //         {
-    //             //printf("TODO LO QUE VIENE AHORA ES EL MAPA\n");
-    //             d->foundMap = 1;
-    //         }
     else
         ft_error_messages(7);
 }
@@ -209,21 +203,7 @@ int   ft_check_data_file(t_data *d)
     }
 }
 
-// void    ft_free_list(t_list *list)
-// {
-//     t_list  *tmp;
-//     t_list  *next;
-
-//     tmp = list;
-//     while (tmp)
-//     {
-//         next = tmp->next;
-//         free (tmp);
-//         tmp = next;
-//     }
-// }
-
-char **	ft_my_create_map(t_data *d)
+char    **ft_create_map(t_data *d)
 {
     char    **matrix;
 	int		r;
@@ -267,5 +247,6 @@ void    ft_check_content_file(t_data *d)
     printf("CONTENIDO DE LA LISTA:\n");
     ft_lstprint(d->row_list);
     printf("\nNUMERO DE FILAS DEL MAPA -> %i\n\n", d->number_rows);
-    d->map = ft_my_create_map(d);
+    d->map = ft_create_map(d);
+    ft_check_characters(d);
 }

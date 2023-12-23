@@ -19,5 +19,7 @@ void	ft_error_messages(int message)
 		printf("CONTENIDO DEL ARCHIVO ERRONEO\n\n");
 	else if (message == 8)
 		printf("PROBLEMA AL RESERVAR MEMORIA\n\n");
+	else if (message == 9)
+		printf("NO EXISTE JUGADOR EN EL MAPA");
 	exit(1);
 }
