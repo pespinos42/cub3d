@@ -96,7 +96,8 @@ int     ft_check_around(t_data *d, int x, int y)
 {
     if (!d->map_flood_fill[x - 1][y] || !d->map_flood_fill[x + 1][y] 
             || !d->map_flood_fill[x][y - 1] || !d->map_flood_fill[x][y + 1]
-            || y > ft_strlen(d->map_flood_fill[x - 1]))
+            || y > ft_strlen(d->map_flood_fill[x - 1])
+            || y > ft_strlen(d->map_flood_fill[x + 1]))
             {
                 printf("POSICION ERRONEA -> [%i][%i]\n", x, y);
                 return (0);
