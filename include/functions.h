@@ -70,7 +70,7 @@ void	ft_paint_map(t_map *m);
 // FT_PLAYER
 void	move_player(t_map *m, int move, int turn);
 void	draw_direction_line(t_map *m, t_bresenham *b);
-void	ft_print_player(t_map *m);
+//void	ft_print_player(t_map *m);
 
 // UTILS_PLAYER
 //void	clear_last_position(t_map *m);

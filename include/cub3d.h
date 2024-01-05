@@ -23,5 +23,6 @@
 # define WIDTH_MINIMAP 200
 # define HEIGHT_MINIMAP 200
 # define BLOCK_SIZE 35
+# define INFINITE	1e30
 
 #endif

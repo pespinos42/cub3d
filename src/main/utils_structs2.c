@@ -60,12 +60,14 @@ void	ft_initialize_player(t_map *m, t_player *p)
  * @param line_height Altura de la linea que se va a pintar
  * @param draw_start Donde empieza a pintar la linea
  * @param draw_end Donde termina de pintar la linea
+ * @param wall_x Posicion de la pared en el eje x
  */
 
 void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r)
 {
 	r->p = p;
 	r->m = m;
+	r->wall = NULL;
 	r->camera_x = 0;
 	r->ray_dir_x = 0;
 	r->ray_dir_y = 0;
@@ -83,6 +85,8 @@ void	ft_initialize_ray(t_map *m, t_player *p, t_ray *r)
 	r->line_height = 0;
 	r->draw_start = 0;
 	r->draw_end = 0;
+	r->columns = number_colums(m);
+	r->wall_x = 0;
 }
 
 /**
