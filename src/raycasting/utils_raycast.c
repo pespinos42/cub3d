@@ -29,7 +29,6 @@ void	verline(t_ray *r, int x)
 	r->wall_x -= floor((r->wall_x));
 	printf("px: %f, py: %f\n", r->p->px, r->p->py);
 	printf("wall_x: %f\n", r->wall_x);
-	printf("*************************************************************\n");
 	//check_side(r);
 	print_lines(r, x);
 }
@@ -50,13 +49,44 @@ void	print_lines(t_ray *r, int x)
 {
 	int		y;
 
-	r->wall = mlx_new_image(r->m->mlx, WIDTH, HEIGHT);
+	printf("x: %d\n", x);
+	printf("*************************************************************\n");
 	y = r->draw_start;
 	while (y < r->draw_end)
 	{
-		mlx_put_pixel(r->wall, x, y, 0x00FFFF00);
+		mlx_put_pixel(r->wall, x, y, 0x00FFFFFF);
 		y++;
 	}
-	if (mlx_image_to_window(r->m->mlx, r->wall, 0, 0) == -1)
-		ft_error_messages(5);
+}
+
+void	player_orientation(t_map *m, t_player *p)
+{
+	if (m->d->player_orientation == 'N')
+	{
+		p->dir_x = 0;
+		p->dir_y = 1;
+		p->plane_x = 0;
+		p->plane_y = 0.66;
+	}
+	else if (m->d->player_orientation == 'S')
+	{
+		p->dir_x = 0;
+		p->dir_y = -1;
+		p->plane_x = 0;
+		p->plane_y = -0.66;
+	}
+	else if (m->d->player_orientation == 'E')
+	{
+		p->dir_x = 1;
+		p->dir_y = 0;
+		p->plane_x = 0.66;
+		p->plane_y = 0;
+	}
+	else if (m->d->player_orientation == 'W')
+	{
+		p->dir_x = -1;
+		p->dir_y = 0;
+		p->plane_x = -0.66;
+		p->plane_y = 0;
+	}
 }

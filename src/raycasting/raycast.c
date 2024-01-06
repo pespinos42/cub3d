@@ -9,6 +9,16 @@ void	position_direcction_ray(t_ray *r, int x)
 	r->camera_x = 2 * x / (double)WIDTH - 1;
 	r->ray_dir_x = r->p->dir_x + r->p->plane_x * r->camera_x;
 	r->ray_dir_y = r->p->dir_y + r->p->plane_y * r->camera_x;
+	if (r->p->dir_x > 0 && r->p->dir_y == 0)
+    printf("El jugador está mirando al Este.\n");
+	else if (r->p->dir_x < 0 && r->p->dir_y == 0)
+		printf("El jugador está mirando al Oeste.\n");
+	else if (r->p->dir_x == 0 && r->p->dir_y > 0)
+		printf("El jugador está mirando al Norte.\n");
+	else if (r->p->dir_x == 0 && r->p->dir_y < 0)
+		printf("El jugador está mirando al Sur.\n");
+	else
+		printf("El jugador está mirando en una dirección no cardinal.\n");
 	printf("ray_dir_x: %f, ray_dir_y: %f\n", r->ray_dir_x, r->ray_dir_y);
 	printf("camera_x: %f\n", r->camera_x);
 }
@@ -92,27 +102,29 @@ void	perform_dda(t_ray *r)
 void	per_wall_dist(t_ray *r)
 {
 	/* if (r->side == 0)
-        r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
-    else
-        r->perp_wall_dist = r->side_dist_y - r->delta_dist_y;
-
-    // Verificar si perpWallDist es cero para evitar dividir por cero
-    if (r->perp_wall_dist == 0)
+		r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
+	else
+		r->perp_wall_dist = r->side_dist_y - r->delta_dist_y; */
+	if (r->side == 0)
     {
-        // Manejar el caso cuando perpWallDist es cero
-        // Puedes asignar un valor predeterminado o tomar alguna otra acción
-        r->line_height = 0; // Establecer un valor predeterminado
+        if (r->side_dist_x - r->delta_dist_x > 0)
+            r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
+        else
+            r->perp_wall_dist = r->delta_dist_x;
     }
     else
     {
-        // Calcular la altura de la línea normalmente
+        if (r->side_dist_y - r->delta_dist_y > 0)
+            r->perp_wall_dist = r->side_dist_y - r->delta_dist_y;
+        else
+            r->perp_wall_dist = r->delta_dist_y;
+    }
+
+    if (r->perp_wall_dist > 0)
         r->line_height = (int)(HEIGHT / r->perp_wall_dist);
-    } */
-	if (r->side == 0)
-		r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
-	else
-		r->perp_wall_dist = r->side_dist_y - r->delta_dist_y;
-	r->line_height = (int)(HEIGHT / r->perp_wall_dist);
+    else
+        r->line_height = 0;
+	//r->line_height = (int)(HEIGHT / r->perp_wall_dist);
     printf("perp_wall_dist: %f\n", r->perp_wall_dist);
     printf("line_height: %d\n", r->line_height);
 }

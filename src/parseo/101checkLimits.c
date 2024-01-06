@@ -64,6 +64,7 @@ void    ft_locate_player(t_data *d)
                         //printf("X -> %i\n", x);
                         d->y_position_player = y;
                         //printf("Y -> %i\n", y);
+                        d->player_orientation = d->map[x][y];
                         return ;
                     }
             y++;

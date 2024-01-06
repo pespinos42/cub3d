@@ -17,6 +17,7 @@ typedef struct s_data
 	int					flag_char;
 	int					x_position_player;
 	int					y_position_player;
+	char				player_orientation;
 }						t_data;
 
 typedef struct s_map

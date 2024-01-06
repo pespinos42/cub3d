@@ -5,7 +5,8 @@ void	ft_window(t_map *m, t_player *p)
 	t_ray	r;
 
 	ft_initialize_ray(m, p, &r);
-	map_color_background(m);
+	player_orientation(m, p);
+	//map_color_background(m);
 	raycasting(&r);
 }
 
@@ -14,18 +15,19 @@ void	raycasting(t_ray *r)
 	int	x;
 
 	x = 0;
-	/* r->wall = mlx_new_image(r->m->mlx, WIDTH, HEIGHT);
-	ft_memset(r->wall->pixels, 0, WIDTH * HEIGHT * 4);
+	r->wall = mlx_new_image(r->m->mlx, WIDTH, HEIGHT);
+	//ft_memset(r->wall->pixels, 255, WIDTH * HEIGHT * 4);
 	if (mlx_image_to_window(r->m->mlx, r->wall, 0, 0) == -1)
-		ft_error_messages(5); */
+		ft_error_messages(5);
+	print_lines(r, 0);
 	while (x < WIDTH)
 	{
 		//! ... lógica del raycasting
 		// Posicion y direccion del rayo
 		position_direcction_ray(r, x);
 		// Posicion del jugador en el mapa
-		r->map_x = (int)r->m->d->x_position_player;
-		r->map_y = (int)r->m->d->y_position_player;
+		r->map_x = (int)r->p->px;
+		r->map_y = (int)r->p->py;
 		printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);
 		// Calcula la distancia que recorre el rayo desde una celda a la siguiente
 		delta_dist(r);

@@ -26,6 +26,7 @@ void	init_struct_data_map(t_data *d, t_map *m)
  * @param x_position_player Posicion del jugador en el eje x
  * @param y_position_player Posicion del jugador en el eje y
  * @param map Mapa
+ * @param player_orientation Orientacion del jugador
  */
 
 void	ft_initialize_data(t_data *d)
@@ -35,6 +36,7 @@ void	ft_initialize_data(t_data *d)
 	d->x_position_player = -1;
 	d->y_position_player = -1;
 	d->map = NULL;
+	d->player_orientation = '\0';
 	ft_number_rows(d);
 	ft_check_characters(d);
 	ft_create_map(d);
