@@ -15,7 +15,7 @@ t_list	*ft_lstnew(char *content)
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
-		return(NULL);
+		return (NULL);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
@@ -36,12 +36,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstprint(t_list *lst)
 {
-    if (lst)
-    {
-        while (lst)
-        {
-            printf("VALOR DEL NODO -> %s\n", lst->content);
-            lst = lst->next;
-        }
-    }
+	if (lst)
+	{
+		while (lst)
+		{
+			printf("VALOR DEL NODO -> %s\n", lst->content);
+			lst = lst->next;
+		}
+	}
 }

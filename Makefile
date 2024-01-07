@@ -32,7 +32,8 @@ SRCS	= 	main.c \
 			200gnl.c \
 			210gnlUtils.c \
 			999free.c \
-			101checkLimits.c \
+			101-1checkLimits.c \
+			101-2checkLimits.c \
 			102checkContentFile.c \
 			001split.c \
 			002lists.c

@@ -6,7 +6,6 @@ int	ft_strlen(char *str)
 
 	if (!str)
 		return (0);
-
 	len = 0;
 	while (str[len])
 		len++;
@@ -42,11 +41,10 @@ char	*ft_strdup(char *src)
 
 	pos = 0;
 	str = NULL;
-	//aqui antes se usaba ft_strlen_n
 	str = (char *) malloc ((ft_strlen(src) + 1) * sizeof(char));
 	if (str)
 	{
-		while (src[pos]) //&& src[pos] != '\n'
+		while (src[pos])
 		{
 			str[pos] = src[pos];
 			pos++;
@@ -64,7 +62,7 @@ char	*ft_strdup(char *src)
 int	ft_strncmp(const char *lsh, const char *rhs, int count)
 {
 	int	p;
-	int		control;
+	int	control;
 
 	p = 0;
 	control = 1;

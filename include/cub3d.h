@@ -90,12 +90,14 @@ int			ft_check_parameters(t_data *d);
 void		ft_check_characters(t_data *d);
 int			ft_allow_chars(char *s, t_data *d);
 
-// 101CHECKLIMITS
+// 101-1CHECKLIMITS
 void		ft_duplicate_map(t_data *d);
 void		ft_flood_fill(int x, int y, t_data *d);
 void		ft_print_map(t_data *d);
 void		ft_locate_player(t_data *d);
 int			ft_check_inner_walls(t_data *d);
+
+// 101-2CHECKLIMITS
 int     	ft_check_around(t_data *d, int x, int y);
 int			ft_check_outer_walls(t_data *d);
 void		ft_compare_maps(t_data *d);
