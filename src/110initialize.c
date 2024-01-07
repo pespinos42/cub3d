@@ -2,7 +2,7 @@
 
 void	ft_number_rows(t_data *d)
 {
-	int	rows;
+	int		rows;
 	char	*str;
 
 	d->fd = open(d->argv[1], O_RDONLY);
@@ -52,7 +52,5 @@ void	ft_initialize_data(t_data *d)
 	d->pathC = NULL;
 	d->foundMap = 0;
 	d->row_list = NULL;
-	//ft_number_rows(d);
-	ft_check_limits(d);	
-	//ft_check_characters(d);
+	ft_check_limits(d);
 }
