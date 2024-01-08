@@ -6,7 +6,7 @@ void	ft_window(t_map *m, t_player *p)
 
 	ft_initialize_ray(m, p, &r);
 	player_orientation(m, p);
-	//map_color_background(m);
+	map_color_background(m);
 	raycasting(&r);
 }
 
@@ -19,13 +19,14 @@ void	raycasting(t_ray *r)
 	//ft_memset(r->wall->pixels, 255, WIDTH * HEIGHT * 4);
 	if (mlx_image_to_window(r->m->mlx, r->wall, 0, 0) == -1)
 		ft_error_messages(5);
-	print_lines(r, 0);
+	//print_lines(r, 0);
 	while (x < WIDTH)
 	{
 		//! ... lógica del raycasting
 		// Posicion y direccion del rayo
 		position_direcction_ray(r, x);
 		// Posicion del jugador en el mapa
+		//position_player_pixel(r->p);
 		r->map_x = (int)r->p->px;
 		r->map_y = (int)r->p->py;
 		printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);

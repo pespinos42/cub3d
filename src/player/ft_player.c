@@ -54,7 +54,7 @@ void draw_direction_line(t_map *m, t_bresenham *b)
 
 
 
-void	move_player(t_map *m, int move, int turn)
+/* void	move_player(t_map *m, int move, int turn)
 {
 	int	nx;
 	int	ny;
@@ -82,4 +82,4 @@ void	move_player(t_map *m, int move, int turn)
 	printf("angulo rotacion: %f\n", m->p->angle_rot);
 	paint_player(m, m->p->px, m->p->py);
 	//ft_print_player(m);
-}
+} */

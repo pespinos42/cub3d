@@ -1,5 +1,7 @@
 #include "cub3d.h"
 
+/************************* RAYCAST *******************************/
+
 // FT_WINDOW
 void	ft_window(t_map *m, t_player *p);
 void	map_color_background(t_map *map);

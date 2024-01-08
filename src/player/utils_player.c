@@ -72,6 +72,14 @@ void	paint_player(t_map *m, float player_x, float player_y)
 	i = 0;
 }
 
+void	position_player_pixel(t_player *p)
+{
+	printf("player px: %f, player py: %f\n", p->px, p->py);
+	p->m->player_x = p->px * BLOCK_SIZE / 2;
+	p->m->player_y = p->py * BLOCK_SIZE / 2;
+	printf("player mx: %f, player my: %f\n", p->m->player_x, p->m->player_y);
+}
+
 /* void	ft_print_player(t_map *m)
 {
 	int	*pointer;

@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void	hook(void *param)
+void	exit_hook(void *param)
 {
 	t_map	*m;
 
@@ -26,6 +26,25 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		m->map->enabled = 1;
 		m->player->enabled = 1;
 	}
+}
+
+void	move_hook(mlx_key_data_t keydata, void *param)
+{
+	t_map	*m;
+
+	m = param;
+	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
+		move_player(m, 1, 0);
+	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
+		move_player(m, 1, 0);
+	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
+		move_player(m, 1, 0);
+	if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS
+			|| keydata.action == MLX_REPEAT))
+		move_player(m, 1, 0);
 }
 
 
@@ -54,10 +73,11 @@ int32_t	ft_main_game(t_map *m)
 	if (!m->mlx)
 		return (EXIT_FAILURE);
 	mlx_set_window_title(m->mlx, m->title);
-	mlx_key_hook(m->mlx, &key_hook, m);
+	mlx_key_hook(m->mlx, &move_hook, m);
 	ft_window(m, &p);
-	ft_paint_map(m);
-	mlx_loop_hook(m->mlx, &hook, m);
+	/* ft_paint_map(m);
+	mlx_key_hook(m->mlx, &key_hook, m); */
+	mlx_loop_hook(m->mlx, &exit_hook, m);
 	mlx_loop(m->mlx);
 	mlx_terminate(m->mlx);
 	return (EXIT_SUCCESS);

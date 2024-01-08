@@ -1,7 +1,6 @@
 #include "cub3d.h"
 
-// MAIN
-void	ft_leaks(void);
+/************************* PARSER *******************************/
 
 // 000LIBFT1
 int		ft_strlen(char *str);
@@ -51,6 +50,11 @@ void	ft_print_map(t_data *d);
 void	ft_locate_player(t_data *d);
 void	ft_check_limits(t_data *d);
 
+/************************* MAIN *******************************/
+
+// LEAKS.C
+void	ft_leaks(void);
+
 // UTILS_STRUCTS
 void	init_struct_data_map(t_data *d, t_map *m);
 void	ft_initialize_data(t_data *d);
@@ -63,9 +67,12 @@ void	ft_bresenham(t_map *m, t_bresenham *b);
 
 // MAIN_GAME
 int32_t	ft_main_game(t_map *map);
-void	hook(void *param);
+void	exit_hook(void *param);
 void	key_hook(mlx_key_data_t keydata, void *param);
+void	move_hook(mlx_key_data_t keydata, void *param);
 void	ft_paint_map(t_map *m);
+
+/************************* PLAYER *******************************/
 
 // FT_PLAYER
 void	move_player(t_map *m, int move, int turn);
@@ -77,6 +84,9 @@ void	draw_direction_line(t_map *m, t_bresenham *b);
 void	paint_player(t_map *m, float player_x, float player_y);
 void	move_player_map(mlx_key_data_t keydata, t_map *m);
 void	turn_player_map(mlx_key_data_t keydata, t_map *m);
+void	position_player_pixel(t_player *p);
+
+/************************* MINIMAP *******************************/
 
 // MINIMAP
 void	minimap(t_map *m);
