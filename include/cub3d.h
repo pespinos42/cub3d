@@ -45,6 +45,7 @@ typedef struct s_data
 	int		flag_char;
 	int		x_position_player;
 	int		y_position_player;
+	char	player_orientation;
 	int		found_no;
 	char	*path_no;
 	int		found_so;
