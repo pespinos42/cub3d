@@ -20,11 +20,22 @@ CFLAGS	= -g -Wall -Werror -Wextra
 
 LIBMLX	= ./MLX42
 HEADERS	= -I ./include -I $(LIBMLX)/include
-LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	LIBS = -L $(LIBMLX) -lmlx42 -ldl -lm -lglfw           
+endif
+ifeq ($(UNAME_S),Darwin)
+	LIBS = -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a
+endif
 
 # --- Files ---
 
-SRCS	= 	main.c \
+SRCS	= 	utils_minimap.c minimap.c ft_map.c\
+			ft_player.c utils_player.c move_player.c\
+			leaks.c \
+			main.c main_game.c\
+			ft_windows.c raycast.c utils_raycast.c\
+			utils_structs.c utils_structs2.c\
 			000libft1.c \
 			100check.c \
 			110initialize.c \
@@ -43,10 +54,12 @@ all: libmlx $(NAME)
 create_dir:
 	@mkdir -p obj
 
+vpath %.c src src/minimap src/parseo src/main src/player src/raycasting
+
 libmlx:
 	@$(MAKE) -C $(LIBMLX)
 
-$(OBJS) : obj/%.o: src/%.c | create_dir
+$(OBJS) : obj/%.o: %.c | create_dir
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) 
 
 $(NAME): $(OBJS)
