@@ -21,5 +21,7 @@ void	ft_error_messages(int message)
 		printf("PROBLEMA AL RESERVAR MEMORIA\n\n");
 	else if (message == 9)
 		printf("NO EXISTE JUGADOR EN EL MAPA");
+	else if (message == 10)
+		printf("ERROR EN LOS LIMITES RGB\n\n");
 	exit(1);
 }

@@ -44,11 +44,11 @@ void	ft_free_all(t_data *d)
 		free (d->map);
 	if (d->map_flood_fill)
 		free (d->map_flood_fill);
-	ft_free_matrix(d->allContentN);
+	ft_free_matrix(d->all_content_n);
 	ft_free_list(d->row_list);
-	free (d->pathNO);
-	free (d->pathSO);
-	free (d->pathEA);
-	free (d->pathWE);
-	free(d->allContent);
+	free (d->path_no);
+	free (d->path_so);
+	free (d->path_ea);
+	free (d->path_we);
+	free(d->all_content);
 }
