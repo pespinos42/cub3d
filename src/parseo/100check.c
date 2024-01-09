@@ -1,15 +1,12 @@
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 int	ft_check_parameters(t_data *d)
 {
 	if (d->argc == 2 && ft_strnstr(d->argv[1], ".cub", ft_strlen(d->argv[1])))
-	{
-		printf("ABRIENDO ARCHIVO...\n\n");//--------------------------------		ELIMINAR ESTA LINEA
 		return (1);
-	}
 	else
 	{
-		printf("ERROR\tDATOS ERRONEOS\n");//--------------------------------		ELIMINAR ESTA LINEA
+		ft_error_messages(1);
 		return (-1);
 	}
 }
@@ -41,19 +38,15 @@ int	ft_allow_chars(char *s, t_data *d)
 void	ft_check_characters(t_data *d)
 {
 	int		r;
-	char	*str;
 
-	d->fd = open(d->argv[1], O_RDONLY);
 	r = 0;
 	while (r < d->number_rows)
 	{
-		str = ft_get_next_line(d->fd);
-		if (!ft_allow_chars(str, d))
-			ft_error_messages(2, d);
+		if (!ft_allow_chars(d->map[r], d))
+			ft_error_messages(2);
 		r++;
-		free (str);
 	}
 	if (d->flag_char == 0)
-		ft_error_messages(4, d);
+		ft_error_messages(4);
 	close(d->fd);
 }

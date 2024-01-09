@@ -1,8 +1,8 @@
- #include "cub3d.h"
+#include "../include/cub3d.h"
 
 void	ft_number_rows(t_data *d)
 {
-	int	rows;
+	int		rows;
 	char	*str;
 
 	d->fd = open(d->argv[1], O_RDONLY);
@@ -31,28 +31,26 @@ void	ft_initialize_map(t_data *d, char **map)
 	}
 }
 
-void	ft_create_map(t_data *d)
+void	ft_initialize_data(t_data *d)
 {
-	int		r;
-	char	*str;
-
-	d->fd = open(d->argv[1], O_RDONLY);
-	r = 0;
-	d->map = malloc (d->number_rows * sizeof (char *));
-	if (!d->map)
-		exit (1);
-	ft_initialize_map(d, d->map);
-	while (r < d->number_rows)
-	{
-		d->map[r] = NULL;
-		str = ft_get_next_line(d->fd);
-		if (ft_strlen_n(str) == 0)
-			ft_error_messages(5, d);
-		d->map[r] = ft_strdup(str);
-		printf("%s\n", d->map[r]);					//--------------------------------		ELIMINAR ESTA LINEA
-		r++;
-		free(str);
-	}
-	close(d->fd);
-	printf("\nMAPA CREADO CORRECTAMENTE\n\n");			//--------------------------------		ELIMINAR ESTA LINEA
+	d->flag_char = 0;
+	d->number_rows = 0;
+	d->x_position_player = -1;
+	d->y_position_player = -1;
+	d->map = NULL;
+	d->found_no = 0;
+	d->path_no = NULL;
+	d->found_so = 0;
+	d->path_so = NULL;
+	d->found_we = 0;
+	d->path_we = NULL;
+	d->found_ea = 0;
+	d->path_ea = NULL;
+	d->found_f = 0;
+	d->path_f = NULL;
+	d->found_c = 0;
+	d->path_c = NULL;
+	d->found_map = 0;
+	d->row_list = NULL;
+	ft_check_limits(d);
 }

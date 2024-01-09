@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -70,18 +70,4 @@ int	ft_strlen_n(const char *s)
 	while (s[len] && s[len] != '\n')
 		len++;
 	return (len);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*p;
-	size_t			i;
-
-	p = s;
-	i = -1;
-	while (++i < n)
-	{
-		p[i] = (unsigned char) c;
-	}
-	return (s);
 }
