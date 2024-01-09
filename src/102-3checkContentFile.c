@@ -64,32 +64,15 @@ char	**ft_create_map(t_data *d)
 		tmp = tmp->next;
 		r++;
 	}
-	printf("\nMAPA CREADO CORRECTAMENTE\n\n");
 	return (matrix);
 }
 
 void	ft_check_content_file(t_data *d)
 {
 	d->all_content = ft_get_all_content(d);
-	printf("CONTENIDO all_content -> %s\n", d->all_content);
 	d->all_content_n = ft_split(d->all_content, '\n');
-	printf("\nContenido d->all_content_n\n");
-	ft_print_matrix(d->all_content_n);
-	if (ft_check_data_file(d))
-		printf("DATOS CORRECTOS EN EL MAPA");
-	printf("LAS RUTAS DE LOS FICHEROS SON LAS SIGUIENTES:\n");
-	printf("PATH NO -> %s\n", d->path_no);
-	printf("PATH SO -> %s\n", d->path_so);
-	printf("PATH EA -> %s\n", d->path_ea);
-	printf("PATH WE -> %s\n", d->path_we);
-	printf("RGB DEL SUELO\n");
-	printf("R->%i\tG->%i\tB->%i\n", d->f_r, d->f_g, d->f_b);
-	printf("RGB DEL TECHO\n");
-	printf("R->%i\tG->%i\tB->%i\n", d->c_r, d->c_g, d->c_b);
-	printf("\n");
-	printf("CONTENIDO DE LA LISTA:\n");
+	ft_check_data_file(d);
 	ft_lstprint(d->row_list);
-	printf("\nNUMERO DE FILAS DEL MAPA -> %i\n\n", d->number_rows);
 	d->map = ft_create_map(d);
 	ft_check_characters(d);
 }

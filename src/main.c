@@ -16,6 +16,6 @@ int	main(int argc, char **argv)
 		ft_error_messages(1);
 	ft_initialize_data(&d);
 	ft_free_all(&d);
-	printf("\n\nTODO OK\n\n");
+	// printf("\n\nTODO OK\n\n");
 	return (0);
 }
