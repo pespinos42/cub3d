@@ -6,6 +6,7 @@
 void	ft_window(t_map *m, t_player *p);
 void	map_color_background(t_map *map);
 void	raycasting(t_ray *r);
+int		get_rgba(int r, int g, int b, int a);
 
 // RAYCAST
 void	position_direcction_ray(t_ray *r, int x);
