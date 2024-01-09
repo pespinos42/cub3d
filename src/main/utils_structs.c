@@ -13,8 +13,8 @@ void	init_struct_data_map(t_data *d, t_map *m)
 	m->d = d;
 	//p->m = m;
 	//p->d = d;
-	ft_initialize_data(d);
-	ft_initialize_map(m);
+	initialize_data(d);
+	initialize_map(m);
 	//ft_bresenham(b);
 }
 
@@ -27,9 +27,23 @@ void	init_struct_data_map(t_data *d, t_map *m)
  * @param y_position_player Posicion del jugador en el eje y
  * @param map Mapa
  * @param player_orientation Orientacion del jugador
+ * @param found_no Flag para saber si se ha encontrado la textura norte
+ * @param path_no Path de la textura norte
+ * @param found_so Flag para saber si se ha encontrado la textura sur
+ * @param path_so Path de la textura sur
+ * @param found_we Flag para saber si se ha encontrado la textura oeste
+ * @param path_we Path de la textura oeste
+ * @param found_ea Flag para saber si se ha encontrado la textura este
+ * @param path_ea Path de la textura este
+ * @param found_f Flag para saber si se ha encontrado el color del suelo
+ * @param path_f Path del color del suelo
+ * @param found_c Flag para saber si se ha encontrado el color del cielo
+ * @param path_c Path del color del cielo
+ * @param found_map Flag para saber si se ha encontrado el mapa
+ * @param row_list Lista de filas
  */
 
-void	ft_initialize_data(t_data *d)
+void	initialize_data(t_data *d)
 {
 	d->flag_char = 0;
 	d->number_rows = 0;
@@ -37,9 +51,23 @@ void	ft_initialize_data(t_data *d)
 	d->y_position_player = -1;
 	d->map = NULL;
 	d->player_orientation = '\0';
-	ft_number_rows(d);
-	ft_check_characters(d);
-	ft_create_map(d);
+	d->found_no = 0;
+	d->path_no = NULL;
+	d->found_so = 0;
+	d->path_so = NULL;
+	d->found_we = 0;
+	d->path_we = NULL;
+	d->found_ea = 0;
+	d->path_ea = NULL;
+	d->found_f = 0;
+	d->path_f = NULL;
+	d->found_c = 0;
+	d->path_c = NULL;
+	d->found_map = 0;
+	d->row_list = NULL;
+	//ft_number_rows(d);
+	//ft_check_characters(d);
+	//ft_create_map(d);
 	ft_check_limits(d);
 }
 
@@ -68,7 +96,7 @@ void	ft_initialize_data(t_data *d)
  * @param map_y Posicion del jugador en el mapa en el eje y
  */
 
-void	ft_initialize_map(t_map *m)
+void	initialize_map(t_map *m)
 {
 	m->mlx = NULL;
 	m->mini = NULL;

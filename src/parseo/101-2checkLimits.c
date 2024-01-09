@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 int	ft_check_around(t_data *d, int x, int y)
 {

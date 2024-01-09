@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void	ft_check_init_row1(char *c_w_space, char *path, t_data *d)
 {

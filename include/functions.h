@@ -85,8 +85,8 @@ void	ft_leaks(void);
 
 // UTILS_STRUCTS
 void	init_struct_data_map(t_data *d, t_map *m);
-void	ft_initialize_data(t_data *d);
-void	ft_initialize_map(t_map *m);
+void	initialize_data(t_data *d);
+void	initialize_map(t_map *m);
 
 // UTILS_STRUCTS2
 void	ft_initialize_player(t_map *m, t_player *p);

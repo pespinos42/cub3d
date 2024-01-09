@@ -9,7 +9,6 @@
 # include "structs.h"
 # include "functions.h"
 # include "raycasting.h"
-# include "funcions_pespinos.h"
 # include <stdio.h>
 # include <fcntl.h> //PARA OPERACIONES DE FICHEROS OPEN...
 # include <float.h> //PARA FLT_MAX

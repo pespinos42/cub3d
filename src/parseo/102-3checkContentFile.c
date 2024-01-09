@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void	ft_check_start_row(char *row_n_content, t_data *d)
 {
