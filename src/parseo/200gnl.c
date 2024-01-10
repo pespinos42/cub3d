@@ -1,4 +1,4 @@
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 char	*ft_join_free(char *buffer, char *str)
 {

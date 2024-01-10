@@ -65,6 +65,7 @@ void	initialize_data(t_data *d)
 	d->path_c = NULL;
 	d->found_map = 0;
 	d->row_list = NULL;
+	ft_check_limits(d);
 }
 
 /**
@@ -102,8 +103,8 @@ void	initialize_map(t_map *m)
 	m->title = "cub3d";
 	m->sky_image = NULL;
 	m->floor_image = NULL;
-	m->sky_color = get_rgba(m->d->c_r, m->d->c_g, m->d->c_b, 0);//0x87CEEBFF;   // color del cielo
-	m->floor_color = get_rgba(m->d->f_r, m->d->f_g, m->d->f_b, 0);//0xFFA07AFF; // color del suelo
+	m->sky_color = get_rgba(m->d->c_r, m->d->c_g, m->d->c_b, 255);//0x87CEEBFF;   // color del cielo
+	m->floor_color = get_rgba(m->d->f_r, m->d->f_g, m->d->f_b, 255);//0xFFA07AFF; // color del suelo
 	m->start_x = 0;
 	m->start_y = 0;
 	m->show_map = false;
