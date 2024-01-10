@@ -41,7 +41,7 @@ char	*ft_strdup(char *src)
 
 	pos = 0;
 	str = NULL;
-	str = (char *) malloc ((ft_strlen(src) + 1) * sizeof(char));
+	str = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
 	if (str)
 	{
 		while (src[pos])
@@ -69,7 +69,7 @@ int	ft_strncmp(const char *lsh, const char *rhs, int count)
 	while (p < count && control == 1)
 	{
 		if (lsh[p] != rhs[p])
-			return ((unsigned char) lsh[p] - (unsigned char) rhs[p]);
+			return ((unsigned char)lsh[p] - (unsigned char)rhs[p]);
 		if (lsh[p] == '\0')
 			control = 0;
 		p++;

@@ -1,11 +1,11 @@
 #include "cub3d.h"
 
-void	ft_print_matrix(char **matrix)
+void	ft_print_matrix(char **matrix, t_data *d)
 {
 	int	x;
 
 	x = 0;
-	while (matrix[x])
+	while (x < d->number_rows)
 	{
 		printf("%s\n", matrix[x]);
 		x++;

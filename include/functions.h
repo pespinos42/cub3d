@@ -38,10 +38,15 @@ int			ft_check_around(t_data *d, int x, int y);
 int			ft_check_outer_walls(t_data *d);
 void		ft_compare_maps(t_data *d);
 void		ft_check_outer_chars(t_data *d);
+void		ft_fill_islands(t_data *d);
+
+// 101-3CHECKLIMITS
 void		ft_check_limits(t_data *d);
 
+
+
 // 102-1CHECKCONTENTFILE
-void		ft_print_matrix(char **matrix);
+void		ft_print_matrix(char **matrix, t_data *d);
 void		ft_my_strjoin_operations(t_my_strjoin_data *d);
 char		*ft_my_strjoin(char **str1, char **str2);
 char		*ft_get_all_content(t_data *d);
@@ -59,7 +64,6 @@ void		ft_check_content_file(t_data *d);
 // 110INITIALIZE
 void		ft_number_rows(t_data *d);
 void		ft_initialize_map(t_data *d, char **map);
-void		ft_initialize_data(t_data *d);
 
 // 120ERRORMESSAGES
 void		ft_error_messages(int message);

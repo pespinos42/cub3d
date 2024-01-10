@@ -54,7 +54,7 @@ char	**ft_create_map(t_data *d)
 
 	tmp = d->row_list;
 	r = 0;
-	matrix = malloc (d->number_rows * sizeof (char *));
+	matrix = malloc(d->number_rows * sizeof(char *));
 	if (!matrix)
 		ft_error_messages(8);
 	while (r < d->number_rows)
