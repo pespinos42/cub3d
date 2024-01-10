@@ -17,28 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h> //PARA READ
 
-typedef struct s_list
-{
-	struct s_list	*next;
-	char			*content;
-}	t_list;
-
-typedef struct s_atoi_data
-{
-	int	result;
-	int	sign;
-	int	s;
-}	t_atoi_data;
-
-typedef struct s_my_strjoin_data
-{
-	char	*str;
-	char	*s1;
-	char	*s2;
-	int		p;
-	int		q;
-}	t_my_strjoin_data;
-
 /* Define window size */
 # define WIDTH 1280
 # define HEIGHT 720
