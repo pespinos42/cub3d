@@ -16,17 +16,17 @@ void	raycasting(t_ray *r)
 
 	x = 0;
 	r->wall = mlx_new_image(r->m->mlx, WIDTH, HEIGHT);
-	//ft_memset(r->wall->pixels, 255, WIDTH * HEIGHT * 4);
+	// ft_memset(r->wall->pixels, 255, WIDTH * HEIGHT * 4);
 	if (mlx_image_to_window(r->m->mlx, r->wall, 0, 0) == -1)
 		ft_error_messages(5);
-	//print_lines(r, 0);
+	// print_lines(r, 0);
 	while (x < WIDTH)
 	{
 		//! ... lógica del raycasting
 		// Posicion y direccion del rayo
 		position_direcction_ray(r, x);
 		// Posicion del jugador en el mapa
-		//position_player_pixel(r->p);
+		// position_player_pixel(r->p);
 		r->map_x = (int)r->p->px;
 		r->map_y = (int)r->p->py;
 		printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);
@@ -73,4 +73,9 @@ void	map_color_background(t_map *map)
 		ft_error_messages(5);
 	if (mlx_image_to_window(map->mlx, map->floor_image, 0, HEIGHT / 2) == -1)
 		ft_error_messages(5);
+}
+
+int	get_rgba(int r, int g, int b, int a)
+{
+	return (r << 24 | g << 16 | b << 8 | a);
 }
