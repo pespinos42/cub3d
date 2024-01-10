@@ -39,9 +39,6 @@ void	ft_lstprint(t_list *lst)
 	if (lst)
 	{
 		while (lst)
-		{
-			printf("VALOR DEL NODO -> %s\n", lst->content);
 			lst = lst->next;
-		}
 	}
 }

@@ -34,7 +34,9 @@ SRCS	= 	main.c \
 			999free.c \
 			101-1checkLimits.c \
 			101-2checkLimits.c \
-			102checkContentFile.c \
+			102-1checkContentFile.c \
+			102-2checkContentFile.c \
+			102-3checkContentFile.c \
 			001split.c \
 			002lists.c
 OBJS	= $(addprefix obj/,$(SRCS:.c=.o))

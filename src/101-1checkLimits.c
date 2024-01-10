@@ -11,7 +11,6 @@ void	ft_duplicate_map(t_data *d)
 		d->map_flood_fill[r] = ft_strdup(d->map[r]);
 		r++;
 	}
-	printf("MAPA DUPLICADO CORRECTAMENTE\n");
 }
 
 void	ft_flood_fill(int x, int y, t_data *d)
@@ -56,7 +55,7 @@ void	ft_locate_player(t_data *d)
 			{
 				d->x_position_player = x;
 				d->y_position_player = y;
-				printf("JUGADOR UBICADO CORRECTAMENTE\n");
+				d->player_orientation = d->map[x][y];
 				return ;
 			}
 			y++;

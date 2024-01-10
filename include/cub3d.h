@@ -11,9 +11,9 @@
 
 typedef struct s_list
 {
-    struct s_list   *next;
-    char            *content;
-}   t_list;
+	struct s_list	*next;
+	char			*content;
+}	t_list;
 
 typedef struct s_atoi_data
 {
@@ -22,41 +22,51 @@ typedef struct s_atoi_data
 	int	s;
 }	t_atoi_data;
 
+typedef struct s_my_strjoin_data
+{
+	char	*str;
+	char	*s1;
+	char	*s2;
+	int		p;
+	int		q;
+}	t_my_strjoin_data;
+
 typedef struct s_data
 {
 	int		argc;
 	char	**argv;
 	char	**map;
 	char	**map_flood_fill;
-	char	**allContentN;
-	char	*allContent;
+	char	**all_content_n;
+	char	*all_content;
 	int		number_rows;
 	int		number_columns;
 	int		fd;
 	int		flag_char;
 	int		x_position_player;
 	int		y_position_player;
-	int		foundNO;
-	char	*pathNO;
-	int		foundSO;
-	char	*pathSO;
-	int		foundWE;
-	char	*pathWE;
-	int		foundEA;
-	char	*pathEA;
-	int		foundF;
-	char	*pathF;
-	int		foundC;
-	char	*pathC;
-	int		foundMap;
-	int		fR;
-	int		fG;
-	int		fB;
-	int		cR;
-	int		cG;
-	int		cB;
+	char	player_orientation;
+	int		found_no;
+	char	*path_no;
+	int		found_so;
+	char	*path_so;
+	int		found_we;
+	char	*path_we;
+	int		found_ea;
+	char	*path_ea;
+	int		found_f;
+	char	*path_f;
+	int		found_c;
+	char	*path_c;
+	int		found_map;
+	int		f_r;
+	int		f_g;
+	int		f_b;
+	int		c_r;
+	int		c_g;
+	int		c_b;
 	t_list	*row_list;
-}			t_data;
+}	t_data;
 
 typedef struct s_split_data
 {
@@ -98,20 +108,25 @@ void		ft_locate_player(t_data *d);
 int			ft_check_inner_walls(t_data *d);
 
 // 101-2CHECKLIMITS
-int     	ft_check_around(t_data *d, int x, int y);
+int			ft_check_around(t_data *d, int x, int y);
 int			ft_check_outer_walls(t_data *d);
 void		ft_compare_maps(t_data *d);
-void    	ft_check_outer_chars(t_data *d);
+void		ft_check_outer_chars(t_data *d);
 void		ft_check_limits(t_data *d);
 
-// 102CHECKCONTENTFILE
-void    	ft_print_matrix(char **matrix);
+// 102-1CHECKCONTENTFILE
+void		ft_print_matrix(char **matrix);
+void		ft_my_strjoin_operations(t_my_strjoin_data *d);
 char		*ft_my_strjoin(char **str1, char **str2);
-char    	*ft_get_all_content(t_data *d);
-void 		ft_check_init_row(char *content_without_space, char *path, t_data *d);
-void 		ft_check_start_row(char *row_n_content, t_data *d);
-void    	ft_add_row_list(t_data *d, char *str);
-int   		ft_check_data_file(t_data *d);
+char		*ft_get_all_content(t_data *d);
+
+// 102-2CHECKCONTENTFILE
+void		ft_check_init_row(char *c_w_space, char *path, t_data *d);
+
+// 102-3CHECKCONTENTFILE
+void		ft_check_start_row(char *row_n_content, t_data *d);
+void		ft_add_row_list(t_data *d, char *str);
+int			ft_check_data_file(t_data *d);
 char		**ft_create_map(t_data *d);
 void		ft_check_content_file(t_data *d);
 
@@ -135,6 +150,6 @@ char		*ft_strchr(const char *s, int c);
 
 // 999FREE
 void		ft_free_all(t_data *d);
-void    	ft_free_matrix(char **matrix);
+void		ft_free_matrix(char **matrix);
 
 #endif

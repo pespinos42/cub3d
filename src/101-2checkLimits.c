@@ -7,7 +7,6 @@ int	ft_check_around(t_data *d, int x, int y)
 			|| y > ft_strlen(d->map_flood_fill[x - 1])
 			|| y > ft_strlen(d->map_flood_fill[x + 1]))
 	{
-		printf("POSICION ERRONEA -> [%i][%i]\n", x, y);
 		return (0);
 	}
 	return (1);
@@ -63,7 +62,6 @@ void	ft_check_outer_chars(t_data *d)
 					&& d->map_flood_fill[x][y] != ' '
 					&& d->map_flood_fill[x][y] != '#')
 			{
-				printf("CARACTER ERROR -> %i\n", d->map_flood_fill[x][y]);
 				ft_error_messages(6);
 			}
 			y++;
@@ -78,10 +76,6 @@ void	ft_check_limits(t_data *d)
 	ft_duplicate_map(d);
 	ft_locate_player(d);
 	ft_flood_fill(d->x_position_player, d->y_position_player, d);
-	printf("FLOOD FILL REALIZADO CORRECTAMENTE\n");
 	ft_compare_maps(d);
-	printf("MAPA CORRECTO\n");
 	ft_check_outer_chars(d);
-	printf("NO HAY CARACTERES EXTRA MUROS\n");
-	ft_print_map(d);
 }
