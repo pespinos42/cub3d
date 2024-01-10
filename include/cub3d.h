@@ -112,7 +112,6 @@ int			ft_check_around(t_data *d, int x, int y);
 int			ft_check_outer_walls(t_data *d);
 void		ft_compare_maps(t_data *d);
 void		ft_fill_islands(t_data *d);
-void		ft_check_outer_chars(t_data *d);
 
 // 101-3CHECKLIMITS
 void		ft_check_limits(t_data *d);
