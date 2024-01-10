@@ -47,7 +47,7 @@ void	ft_compare_maps(t_data *d)
 		ft_error_messages(3);
 }
 
-void	ft_check_outer_chars(t_data *d)
+void	ft_fill_islands(t_data *d)
 {
 	int	x;
 	int	y;
@@ -59,23 +59,12 @@ void	ft_check_outer_chars(t_data *d)
 		while (d->map_flood_fill[x][y])
 		{
 			if (d->map_flood_fill[x][y] != '1'
-					&& d->map_flood_fill[x][y] != ' '
-					&& d->map_flood_fill[x][y] != '#')
+					&& d->map_flood_fill[x][y] != ' ')
 			{
-				ft_error_messages(6);
+				ft_flood_fill(x, y, d);
 			}
 			y++;
 		}
 		x++;
 	}
-}
-
-void	ft_check_limits(t_data *d)
-{
-	ft_check_content_file(d);
-	ft_duplicate_map(d);
-	ft_locate_player(d);
-	ft_flood_fill(d->x_position_player, d->y_position_player, d);
-	ft_compare_maps(d);
-	ft_check_outer_chars(d);
 }
