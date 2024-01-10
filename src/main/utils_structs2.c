@@ -25,8 +25,8 @@ void	ft_initialize_player(t_map *m, t_player *p)
 	m->p = p;
 	p->m = m;
 	p->d = m->d;
-	p->px = p->d->x_position_player;
-	p->py = p->d->y_position_player;
+	p->px = p->d->x_position_player + 0.5;
+	p->py = p->d->y_position_player + 0.5;
 	p->dir_x = -1;
 	p->dir_y = 0;
 	p->plane_x = 0;

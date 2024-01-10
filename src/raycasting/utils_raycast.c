@@ -66,14 +66,14 @@ void	player_orientation(t_map *m, t_player *p)
 		p->dir_x = -1;
 		p->dir_y = 0;
 		p->plane_x = 0;
-		p->plane_y = -0.66;
+		p->plane_y = 0.66;
 	}
 	else if (m->d->player_orientation == 'S')
 	{
 		p->dir_x = 1;
 		p->dir_y = 0;
 		p->plane_x = 0;
-		p->plane_y = 0.66;
+		p->plane_y = -0.66;
 	}
 	else if (m->d->player_orientation == 'E')
 	{
