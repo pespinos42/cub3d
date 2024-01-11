@@ -4,25 +4,23 @@
 #  define BUFFER_SIZE 10
 # endif
 # include <string.h>
-# include <stddef.h>  //PARA DEFINIR NULL
+# include <stddef.h>
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "structs.h"
-# include "functions.h"
+# include "main.h"
+# include "parser.h"
+# include "player.h"
 # include "raycasting.h"
 # include <stdio.h>
-# include <fcntl.h> //PARA OPERACIONES DE FICHEROS OPEN...
-# include <float.h> //PARA FLT_MAX
+# include <fcntl.h>
+# include <float.h>
 # include <math.h>
-# include <stdbool.h> //PARA BOOLEANOS
+# include <stdbool.h>
 # include <stdlib.h>
-# include <unistd.h> //PARA READ
+# include <unistd.h>
 
-/* Define window size */
 # define WIDTH 1280
 # define HEIGHT 720
-# define WIDTH_MINIMAP 200
-# define HEIGHT_MINIMAP 200
-# define BLOCK_SIZE 35
-# define INFINITE	1e30
+# define INFINITE 1e30
 
 #endif

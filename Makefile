@@ -30,12 +30,11 @@ endif
 
 # --- Files ---
 
-SRCS	= 	utils_minimap.c minimap.c ft_map.c\
-			ft_player.c utils_player.c move_player.c\
+SRCS	= 	ft_player.c utils_player.c move_player.c\
 			leaks.c \
-			main.c main_game.c\
+			main.c start_game.c\
 			ft_windows.c raycast.c utils_raycast.c\
-			utils_structs.c utils_structs2.c\
+			init_structs.c\
 			000libft1.c 001split.c 002lists.c 100check.c 101-1checkLimits.c \
 			101-2checkLimits.c 102-1checkContentFile.c 102-2checkContentFile.c 102-3checkContentFile.c 110initialize.c \
 			120errorMessages.c 200gnl.c 210gnlUtils.c 999free.c 101-3checkLimits.c\

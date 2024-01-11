@@ -6,16 +6,11 @@
  * @param m Estructura del mapa
  */
 
-void	init_struct_data_map(t_data *d, t_map *m)
+void	init_structs(t_data *d, t_map *m)
 {
-	//m->b = b;
-	//m->p = p;
 	m->d = d;
-	//p->m = m;
-	//p->d = d;
-	initialize_data(d);
-	initialize_map(m);
-	//ft_bresenham(b);
+	init_struct_data(d);
+	init_struct_map(m);
 }
 
 /**
@@ -43,7 +38,7 @@ void	init_struct_data_map(t_data *d, t_map *m)
  * @param row_list Lista de filas
  */
 
-void	initialize_data(t_data *d)
+void	init_struct_data(t_data *d)
 {
 	d->flag_char = 0;
 	d->number_rows = 0;
@@ -93,7 +88,7 @@ void	initialize_data(t_data *d)
  * @param map_y Posicion del jugador en el mapa en el eje y
  */
 
-void	initialize_map(t_map *m)
+void	init_struct_map(t_map *m)
 {
 	m->mlx = NULL;
 	m->mini = NULL;
@@ -103,8 +98,8 @@ void	initialize_map(t_map *m)
 	m->title = "cub3d";
 	m->sky_image = NULL;
 	m->floor_image = NULL;
-	m->sky_color = get_rgba(m->d->c_r, m->d->c_g, m->d->c_b, 255);//0x87CEEBFF;   // color del cielo
-	m->floor_color = get_rgba(m->d->f_r, m->d->f_g, m->d->f_b, 255);//0xFFA07AFF; // color del suelo
+	m->sky_color = get_rgba(m->d->c_r, m->d->c_g, m->d->c_b, 255);
+	m->floor_color = get_rgba(m->d->f_r, m->d->f_g, m->d->f_b, 255);
 	m->start_x = 0;
 	m->start_y = 0;
 	m->show_map = false;
@@ -116,4 +111,92 @@ void	initialize_map(t_map *m)
 	m->player_y = 0;
 	m->map_x = 0;
 	m->map_y = 0;
+}
+
+/**
+ ** @brief Inicializa la estructura del jugador
+ * @param p Estructura del jugador
+ * @param d Estructura de los datos
+ * @param m Estructura del mapa
+ * @param px Posicion del jugador en el eje x
+ * @param py Posicion del jugador en el eje y
+ * @param dir_x Direccion del jugador en el eje x
+ * @param dir_y Direccion del jugador en el eje y
+ * @param old_dir_x Direccion anterior del jugador en el eje x
+ * @param old_dir_y Direccion anterior del jugador en el eje y
+ * @param plane_x Plano de la camara en el eje x
+ * @param plane_y Plano de la camara en el eje y
+ * @param move_speed Velocidad de movimiento en pixeles
+ * @param rot_speed Velocidad de rotacion en radianes
+ * @param move Si se esta moviendo, 0 = no se mueve, 1 = adelante y -1 = atras
+ * @param turn Si se esta girando, 0 = no se mueve, 1 = derecha y -1 = izquierda
+ * @param angle_rot Angulo de rotacion
+ */
+
+void	init_struct_player(t_map *m, t_player *p)
+{
+	m->p = p;
+	p->m = m;
+	p->d = m->d;
+	p->px = p->d->x_position_player + 0.5;
+	p->py = p->d->y_position_player + 0.5;
+	p->dir_x = -1;
+	p->dir_y = 0;
+	p->plane_x = 0;
+	p->plane_y = 0.66;
+	p->old_dir_x = 0;
+	p->old_dir_y = 0;
+	p->move_speed = 3;
+	p->pi = acos(-1.0);
+	p->rot_speed = (p->pi / 180) * 3;
+	p->angle_rot = 0;
+	p->move = 0;
+	p->turn = 0;
+}
+
+/**
+ ** @brief Estructura del raycasting
+ * @param camera_x Posicion de la camara en el eje x
+ * @param ray_dir_x Direccion del rayo en el eje x
+ * @param ray_dir_y Direccion del rayo en el eje y
+ * @param map_x Posicion del rayo en el mapa en el eje x
+ * @param map_y Posicion del rayo en el mapa en el eje y
+ * @param side_dist_x Distancia del rayo en el eje x
+ * @param side_dist_y Distancia del rayo en el eje y
+ * @param delta_dist_x Distancia del rayo en el eje x
+ * @param delta_dist_y Distancia del rayo en el eje y
+ * @param perp_wall_dist Distancia de la pared perpendicular
+ * @param step_x Paso del rayo en el eje x
+ * @param step_y Paso del rayo en el eje y
+ * @param hit Si el rayo ha chocado con una pared
+ * @param side Si el rayo ha chocado con una pared en el eje x o en el eje y
+ * @param line_height Altura de la linea que se va a pintar
+ * @param draw_start Donde empieza a pintar la linea
+ * @param draw_end Donde termina de pintar la linea
+ * @param wall_x Posicion de la pared en el eje x
+ */
+
+void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
+{
+	r->p = p;
+	r->m = m;
+	r->wall = NULL;
+	r->camera_x = 0;
+	r->ray_dir_x = 0;
+	r->ray_dir_y = 0;
+	r->map_x = 0;
+	r->map_y = 0;
+	r->side_dist_x = 0;
+	r->side_dist_y = 0;
+	r->delta_dist_x = 0;
+	r->delta_dist_y = 0;
+	r->perp_wall_dist = 0;
+	r->step_x = 0;
+	r->step_y = 0;
+	r->hit = 0;
+	r->side = 0;
+	r->line_height = 0;
+	r->draw_start = 0;
+	r->draw_end = 0;
+	r->wall_x = 0;
 }
