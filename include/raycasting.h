@@ -1,7 +1,7 @@
 #include "cub3d.h"
 
 // FT_WINDOW
-void	ft_window(t_map *m, t_player *p);
+void	ft_window(t_map *m, t_ray *r);
 void	map_color_background(t_map *map);
 void	raycasting(t_ray *r);
 int		get_rgba(int r, int g, int b, int a);

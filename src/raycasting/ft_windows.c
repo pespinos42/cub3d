@@ -1,13 +1,10 @@
 #include "cub3d.h"
 
-void	ft_window(t_map *m, t_player *p)
+void	ft_window(t_map *m, t_ray *r)
 {
-	t_ray	r;
-
-	init_struct_ray(m, p, &r);
+	(void)r;
 	map_color_background(m);
-	mlx_key_hook(m->mlx, &move_hook, &r);
-	raycasting(&r);
+	raycasting(r);
 }
 
 void	raycasting(t_ray *r)
