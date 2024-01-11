@@ -6,6 +6,7 @@ void	ft_window(t_map *m, t_player *p)
 
 	init_struct_ray(m, p, &r);
 	map_color_background(m);
+	mlx_key_hook(m->mlx, &move_hook, &r);
 	raycasting(&r);
 }
 

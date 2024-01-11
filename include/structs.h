@@ -74,6 +74,7 @@ typedef struct s_data
 typedef struct s_map
 {
 	t_data					*d;
+	t_player				*p;
 	mlx_t					*mlx;
 	mlx_image_t				*mini;
 	mlx_image_t				*sky_image;
@@ -99,7 +100,6 @@ typedef struct s_map
 	int						start_y;
 	int						map_x;
 	int						map_y;
-	t_player				*p;
 }							t_map;
 
 typedef struct s_player

@@ -30,9 +30,9 @@ endif
 
 # --- Files ---
 
-SRCS	= 	ft_player.c utils_player.c move_player.c\
+SRCS	= 	utils_player.c move_player.c\
 			leaks.c \
-			main.c start_game.c\
+			main.c \
 			ft_windows.c raycast.c utils_raycast.c\
 			init_structs.c\
 			000libft1.c 001split.c 002lists.c 100check.c 101-1checkLimits.c \

@@ -140,10 +140,10 @@ void	init_struct_player(t_map *m, t_player *p)
 	p->d = m->d;
 	p->px = p->d->x_position_player + 0.5;
 	p->py = p->d->y_position_player + 0.5;
-	p->dir_x = -1;
+	p->dir_x = 0;
 	p->dir_y = 0;
 	p->plane_x = 0;
-	p->plane_y = 0.66;
+	p->plane_y = 0;
 	p->old_dir_x = 0;
 	p->old_dir_y = 0;
 	p->move_speed = 3;
