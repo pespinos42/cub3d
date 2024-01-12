@@ -126,6 +126,8 @@ void	init_struct_map(t_map *m)
  * @param old_dir_y Direccion anterior del jugador en el eje y
  * @param plane_x Plano de la camara en el eje x
  * @param plane_y Plano de la camara en el eje y
+ * @param old_plane_x Plano anterior de la camara en el eje x
+ * @param old_plane_y Plano anterior de la camara en el eje y
  * @param move_speed Velocidad de movimiento en pixeles
  * @param rot_speed Velocidad de rotacion en radianes
  * @param move Si se esta moviendo, 0 = no se mueve, 1 = adelante y -1 = atras
@@ -142,13 +144,14 @@ void	init_struct_player(t_map *m, t_player *p)
 	p->py = p->d->y_position_player + 0.5;
 	p->dir_x = 0;
 	p->dir_y = 0;
-	p->plane_x = 0;
-	p->plane_y = 0;
 	p->old_dir_x = 0;
 	p->old_dir_y = 0;
-	p->move_speed = 3;
-	p->pi = acos(-1.0);
-	p->rot_speed = (p->pi / 180) * 3;
+	p->plane_x = 0;
+	p->plane_y = 0;
+	p->old_plane_x = 0;
+	p->old_plane_y = 0;
+	p->move_speed = 0.3;
+	p->rot_speed = 0.05;
 	p->angle_rot = 0;
 	p->move = 0;
 	p->turn = 0;

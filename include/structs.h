@@ -114,10 +114,11 @@ typedef struct s_player
 	float					old_dir_y;
 	float					plane_x;
 	float					plane_y;
+	float					old_plane_x;
+	float					old_plane_y;
 	float					move_speed;
 	float					rot_speed;
 	float					angle_rot;
-	float					pi;
 	int						move;
 	int						turn;
 }							t_player;

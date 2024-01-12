@@ -4,6 +4,7 @@ void	ft_window(t_map *m, t_ray *r)
 {
 	(void)r;
 	map_color_background(m);
+	player_orientation(r->m, r->p);
 	raycasting(r);
 }
 
@@ -15,13 +16,12 @@ void	raycasting(t_ray *r)
 	r->wall = mlx_new_image(r->m->mlx, WIDTH, HEIGHT);
 	if (mlx_image_to_window(r->m->mlx, r->wall, 0, 0) == -1)
 		ft_error_messages(5);
-	player_orientation(r->m, r->p);
 	while (x < WIDTH)
 	{
 		position_direcction_ray(r, x);
 		r->map_x = (int)r->p->px;
 		r->map_y = (int)r->p->py;
-		printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);
+		//printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);
 		delta_dist(r);
 		side_dist(r);
 		perform_dda(r);
