@@ -15,7 +15,7 @@ void	move_player_map(t_ray *r)
 {
 	if (mlx_is_key_down(r->m->mlx, MLX_KEY_W))
 		move_player(r, 1, 0);
-	if (mlx_is_key_down(r->m->mlx ,MLX_KEY_S))
+	if (mlx_is_key_down(r->m->mlx, MLX_KEY_S))
 		move_player(r, -1, 0);
 	if (mlx_is_key_down(r->m->mlx, MLX_KEY_D))
 		move_player(r, 0, 1);

@@ -40,6 +40,10 @@ void	print_lines(t_ray *r, int x)
 	}
 }
 
+/**
+ * @brief Calcular la direccion de la camara
+ */
+
 void	player_orientation(t_map *m, t_player *p)
 {
 	if (m->d->player_orientation == 'N')

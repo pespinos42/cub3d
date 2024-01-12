@@ -2,10 +2,10 @@
 
 int	main(int argc, char **argv)
 {
-	t_data d;
-	t_map m;
+	t_data	d;
+	t_map	m;
 
-	//atexit(ft_leaks);
+	// atexit(ft_leaks);
 	d.argc = argc;
 	d.argv = argv;
 	if (ft_check_parameters(&d) != 1)
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 int32_t	start_game(t_map *m)
 {
 	t_player	p;
-	t_ray	r;
+	t_ray		r;
 
 	init_struct_player(m, &p);
 	init_struct_ray(m, m->p, &r);
@@ -37,7 +37,7 @@ int32_t	start_game(t_map *m)
 
 void	exit_hook(void *param)
 {
-	t_map	*m;
+	t_map *m;
 
 	m = param;
 	if (mlx_is_key_down(m->mlx, MLX_KEY_ESCAPE))
