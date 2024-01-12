@@ -1,23 +1,25 @@
 #include "cub3d.h"
 
-void move_player(t_ray *r, int x, int y)
+void	move_player(t_ray *r, int x, int y)
 {
-    if (x == 1 && y == 0)
-        update_position(r, r->p->dir_x, r->p->dir_y);
-    else if (x == -1 && y == 0)
-        update_position(r, -r->p->dir_x, -r->p->dir_y);
-    else if (x == 0 && y == 1)
-        update_position(r, r->p->dir_y, -r->p->dir_x);
-    else if (x == 0 && y == -1)
-        update_position(r, -r->p->dir_y, r->p->dir_x);
+	if (x == 1 && y == 0)
+		update_position(r, r->p->dir_x, r->p->dir_y);
+	else if (x == -1 && y == 0)
+		update_position(r, -r->p->dir_x, -r->p->dir_y);
+	else if (x == 0 && y == 1)
+		update_position(r, r->p->dir_y, -r->p->dir_x);
+	else if (x == 0 && y == -1)
+		update_position(r, -r->p->dir_y, r->p->dir_x);
 }
 
-void update_position(t_ray *r, double dir_x, double dir_y)
+void	update_position(t_ray *r, double dir_x, double dir_y)
 {
-    if (r->m->d->map[(int)(r->p->px + dir_x * r->p->move_speed)][(int)r->p->py] != '1')
-        r->p->px += dir_x * r->p->move_speed;
-    if (r->m->d->map[(int)r->p->px][(int)(r->p->py + dir_y * r->p->move_speed)] != '1')
-        r->p->py += dir_y * r->p->move_speed;
+	if (r->m->d->map[(int)(r->p->px + dir_x
+			* r->p->move_speed)][(int)r->p->py] != '1')
+		r->p->px += dir_x * r->p->move_speed;
+	if (r->m->d->map[(int)r->p->px][(int)(r->p->py + dir_y
+			* r->p->move_speed)] != '1')
+		r->p->py += dir_y * r->p->move_speed;
 }
 
 void	turn_player(t_ray *r, int turn)

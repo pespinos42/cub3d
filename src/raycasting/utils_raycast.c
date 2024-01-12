@@ -12,7 +12,6 @@ void	draw_start_end(t_ray *r)
 	r->draw_end = r->line_height / 2 + HEIGHT / 2;
 	if (r->draw_end >= HEIGHT)
 		r->draw_end = HEIGHT - 1;
-	//printf("draw_start: %d, draw_end: %d\n", r->draw_start, r->draw_end);
 }
 
 /**
@@ -21,36 +20,18 @@ void	draw_start_end(t_ray *r)
 
 void	verline(t_ray *r, int x)
 {
-
 	if (r->side == 0)
 		r->wall_x = r->p->py + r->perp_wall_dist * r->ray_dir_y;
 	else
 		r->wall_x = r->p->px + r->perp_wall_dist * r->ray_dir_x;
 	r->wall_x -= floor((r->wall_x));
-	/* printf("px: %f, py: %f\n", r->p->px, r->p->py);
-	printf("wall_x: %f\n", r->wall_x); */
-	//check_side(r);
 	print_lines(r, x);
-}
-
-/**
- * @brief Calcular el lado de la pared
- */
-
-void	check_side(t_ray *r)
-{
-	if (r->side == 0 && (r->map_x - r->p->px) >= 0)
-		r->side += 2;
-	if (r->side == 1 && (r->map_y - r->p->py) >= 0)
-		r->side += 2;
 }
 
 void	print_lines(t_ray *r, int x)
 {
-	int		y;
+	int	y;
 
-	/* printf("x: %d\n", x);
-	printf("*************************************************************\n"); */
 	y = r->draw_start;
 	while (y < r->draw_end)
 	{

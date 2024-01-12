@@ -16,6 +16,5 @@ void	per_wall_dist(t_ray *r);
 // UTILS_RAYCAST
 void	draw_start_end(t_ray *r);
 void	verline(t_ray *r, int x);
-void	check_side(t_ray *r);
 void	print_lines(t_ray *r, int x);
 void	player_orientation(t_map *m, t_player *p);

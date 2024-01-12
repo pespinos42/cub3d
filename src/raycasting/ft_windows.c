@@ -5,6 +5,7 @@ void	ft_window(t_map *m, t_ray *r)
 	(void)r;
 	map_color_background(m);
 	player_orientation(r->m, r->p);
+	m->d->map[(int)r->p->px][(int)r->p->py] = '0';
 	raycasting(r);
 }
 
@@ -21,7 +22,6 @@ void	raycasting(t_ray *r)
 		position_direcction_ray(r, x);
 		r->map_x = (int)r->p->px;
 		r->map_y = (int)r->p->py;
-		//printf("map_x: %d, map_y: %d\n", r->map_x, r->map_y);
 		delta_dist(r);
 		side_dist(r);
 		perform_dda(r);
