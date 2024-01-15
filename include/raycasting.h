@@ -23,3 +23,4 @@ void	player_orientation(t_map *m, t_player *p);
 void	load_textures(t_ray *r);
 void	clear_texture(t_ray *r);
 void	coordinate_texture(t_ray *r);
+void	check_side(t_ray *r);

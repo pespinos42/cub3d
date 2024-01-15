@@ -21,6 +21,7 @@ void	draw_start_end(t_ray *r)
 void	verline(t_ray *r, int x)
 {
 	coordinate_texture(r);
+	check_side(r);
 	print_lines(r, x);
 }
 
