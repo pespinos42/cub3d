@@ -18,3 +18,8 @@ void	draw_start_end(t_ray *r);
 void	verline(t_ray *r, int x);
 void	print_lines(t_ray *r, int x);
 void	player_orientation(t_map *m, t_player *p);
+
+// TEXTURES
+void	load_textures(t_ray *r);
+void	clear_texture(t_ray *r);
+void	coordinate_texture(t_ray *r);

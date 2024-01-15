@@ -176,7 +176,20 @@ void	init_struct_player(t_map *m, t_player *p)
  * @param line_height Altura de la linea que se va a pintar
  * @param draw_start Donde empieza a pintar la linea
  * @param draw_end Donde termina de pintar la linea
- * @param wall_x Posicion de la pared en el eje x
+ * @param text_coord Posicion de la pared en el eje x
+ * @param text_ea Textura este
+ * @param text_no Textura norte
+ * @param text_so Textura sur
+ * @param text_we Textura oeste
+ * @param text_ea_t Textura este en formato mlx_texture_t
+ * @param text_no_t Textura norte en formato mlx_texture_t
+ * @param text_so_t Textura sur en formato mlx_texture_t
+ * @param text_we_t Textura oeste en formato mlx_texture_t
+ * @param tx Posicion de la textura en el eje x
+ * @param ty Posicion de la textura en el eje y
+ * @param tpos Posicion de la textura
+ * @param step Paso de la textura
+ * @param color Color de la textura
  */
 
 void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
@@ -201,5 +214,19 @@ void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
 	r->line_height = 0;
 	r->draw_start = 0;
 	r->draw_end = 0;
-	r->wall_x = 0;
+	r->text_coord = 0;
+	r->img_ea = NULL;
+	r->img_no = NULL;
+	r->img_so = NULL;
+	r->img_we = NULL;
+	r->text_ea = NULL;
+	r->text_no = NULL;
+	r->text_so = NULL;
+	r->text_we = NULL;
+	r->tx = 0;
+	r->ty = 0;
+	r->tpos = 0;
+	r->step = 0;
+	r->side = 0;
+	r->color = 0;
 }

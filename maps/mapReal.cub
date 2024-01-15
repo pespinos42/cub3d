@@ -1,7 +1,7 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./textures/NO/tex3.png
+SO ./textures/SO/tex1.png
+WE ./textures/WE/tex6.png
+EA ./textures/EA/tex5.png
 F 220,100,0
 C 225,30,0
         1111111111111111111111111

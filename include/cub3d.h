@@ -21,6 +21,8 @@
 
 # define WIDTH 1280
 # define HEIGHT 720
+# define TEXWIDTH 300
+# define TEXHEIGHT 300
 # define INFINITE 1e30
 
 #endif
