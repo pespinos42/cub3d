@@ -21,6 +21,7 @@ void	player_orientation(t_map *m, t_player *p);
 
 // TEXTURES
 void	load_textures(t_ray *r);
-void	clear_texture(t_ray *r);
-void	coordinate_texture(t_ray *r);
+void	wall_face(t_ray *r);
+void	coordinate_wall_x(t_ray *r);
 void	check_side(t_ray *r);
+void	init_position_texture(t_ray *r);

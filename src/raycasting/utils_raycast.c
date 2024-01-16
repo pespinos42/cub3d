@@ -20,8 +20,12 @@ void	draw_start_end(t_ray *r)
 
 void	verline(t_ray *r, int x)
 {
-	coordinate_texture(r);
+	coordinate_wall_x(r);
+	printf("side: %d\n", r->side);
+	wall_face(r);
+	printf("side: %d\n", r->side);
 	check_side(r);
+	init_position_texture(r);
 	print_lines(r, x);
 }
 
@@ -29,23 +33,18 @@ void	print_lines(t_ray *r, int x)
 {
 	int		y;
 	uint8_t	*p;
-	int		side;
 
-	side = r->side;
-	r->tx = (int)(r->text_coord * (double)r->texs[side]->width);
-	r->tx = r->texs[side]->width - r->tx - 1;
-	r->step = 1.0 * r->texs[side]->height / r->line_height;
-	r->tpos = (r->draw_start - HEIGHT / 2 + r->line_height / 2) * r->step;
 	y = r->draw_start;
 	while (y < r->draw_end)
 	{
-		r->ty = (int)r->tpos;
+		r->ty = (int)r->tpos & (TEXHEIGHT - 1);
 		r->tpos += r->step;
-		p = &r->texs[side]->pixels[r->texs[r->side]->width * r->ty * 4 + r->tx * 4];
+		p = &r->texs[r->side]->pixels[r->texs[r->side]->width * r->ty * 4 + r->tx * 4];
 		r->color = (p[0] << 24 | p[1] << 16 | p[2] << 8 | p[3]);
 		mlx_put_pixel(r->wall, x, y, r->color);
 		y++;
 	}
+	
 	/* int	y;
 
 	y = r->draw_start;

@@ -144,7 +144,8 @@ typedef struct s_ray
 	float					delta_dist_x;
 	float					delta_dist_y;
 	float					perp_wall_dist;
-	float					text_coord;
+	float					wall_x;
+	int						tex_num;
 	int						map_x;
 	int						map_y;
 	int						step_x;
@@ -155,6 +156,7 @@ typedef struct s_ray
 	int						draw_start;
 	int						draw_end;
 	int						columns;
+	int						tex_x;
 	int						tx;
 	int						ty;
 	float					step;

@@ -176,7 +176,7 @@ void	init_struct_player(t_map *m, t_player *p)
  * @param line_height Altura de la linea que se va a pintar
  * @param draw_start Donde empieza a pintar la linea
  * @param draw_end Donde termina de pintar la linea
- * @param text_coord Posicion de la pared en el eje x
+ * @param wall_x Posicion de la pared en el eje x
  * @param text_ea Textura este
  * @param text_no Textura norte
  * @param text_so Textura sur
@@ -214,7 +214,7 @@ void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
 	r->line_height = 0;
 	r->draw_start = 0;
 	r->draw_end = 0;
-	r->text_coord = 0;
+	r->wall_x = 0;
 	r->img_ea = NULL;
 	r->img_no = NULL;
 	r->img_so = NULL;
@@ -223,6 +223,8 @@ void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
 	r->text_no = NULL;
 	r->text_so = NULL;
 	r->text_we = NULL;
+	r->tex_x = 0;
+	r->tex_num = 0;
 	r->tx = 0;
 	r->ty = 0;
 	r->tpos = 0;
