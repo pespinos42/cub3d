@@ -45,12 +45,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp->next = new;
 	}
 }
-
-void	ft_lstprint(t_list *lst)
-{
-	if (lst)
-	{
-		while (lst)
-			lst = lst->next;
-	}
-}

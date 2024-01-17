@@ -12,19 +12,6 @@
 
 #include "cub3d.h"
 
-void	ft_print_matrix(char **matrix, t_data *d)
-{
-	int	x;
-
-	x = 0;
-	while (x < d->number_rows)
-	{
-		printf("%s\n", matrix[x]);
-		x++;
-	}
-	printf("\n");
-}
-
 void	ft_my_strjoin_operations(t_my_strjoin_data *d)
 {
 	while (d->s1[d->p])

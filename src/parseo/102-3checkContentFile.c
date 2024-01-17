@@ -84,7 +84,6 @@ void	ft_check_content_file(t_data *d)
 	d->all_content = ft_get_all_content(d);
 	d->all_content_n = ft_split(d->all_content, '\n');
 	ft_check_data_file(d);
-	ft_lstprint(d->row_list);
 	d->map = ft_create_map(d);
 	ft_check_characters(d);
 }

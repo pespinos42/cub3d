@@ -37,20 +37,6 @@ void	ft_flood_fill(int x, int y, t_data *d)
 	ft_flood_fill(x, y + 1, d);
 }
 
-void	ft_print_map(t_data *d)
-{
-	int	r;
-
-	printf("\n");
-	r = 0;
-	while (r < d->number_rows)
-	{
-		printf("%s\n", d->map_flood_fill[r]);
-		r++;
-	}
-	printf("\n");
-}
-
 void	ft_locate_player(t_data *d)
 {
 	int	x;
