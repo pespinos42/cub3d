@@ -162,5 +162,5 @@ typedef struct s_ray
 	float					step;
 	float					tpos;
 	uint32_t				color;
-	mlx_image_t				*texs[4];
+	mlx_texture_t			*texs[4];
 }							t_ray;

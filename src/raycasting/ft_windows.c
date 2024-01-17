@@ -2,10 +2,10 @@
 
 void	ft_window(t_map *m, t_ray *r)
 {
-	(void)r;
 	map_color_background(m);
 	player_orientation(r->m, r->p);
 	m->d->map[(int)r->p->px][(int)r->p->py] = '0';
+	load_textures(r);
 	raycasting(r);
 }
 

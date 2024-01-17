@@ -2,8 +2,8 @@ NO ./textures/NO/tex3.png
 SO ./textures/SO/tex1.png
 WE ./textures/WE/tex6.png
 EA ./textures/EA/tex5.png
-F 220,100,0
-C 225,30,0
+F 128,128,128
+C 0,200,255
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001

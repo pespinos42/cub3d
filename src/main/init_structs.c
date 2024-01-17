@@ -150,8 +150,8 @@ void	init_struct_player(t_map *m, t_player *p)
 	p->plane_y = 0;
 	p->old_plane_x = 0;
 	p->old_plane_y = 0;
-	p->move_speed = 0.3;
-	p->rot_speed = 0.05;
+	p->move_speed = MOVE_SPEED;
+	p->rot_speed = ROT_SPEED;
 	p->angle_rot = 0;
 	p->move = 0;
 	p->turn = 0;
