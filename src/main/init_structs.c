@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_structs.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 14:02:54 by rdelicad          #+#    #+#             */
+/*   Updated: 2024/01/17 14:06:13 by rdelicad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 /**
@@ -215,20 +227,8 @@ void	init_struct_ray(t_map *m, t_player *p, t_ray *r)
 	r->draw_start = 0;
 	r->draw_end = 0;
 	r->wall_x = 0;
-	r->img_ea = NULL;
-	r->img_no = NULL;
-	r->img_so = NULL;
-	r->img_we = NULL;
-	r->text_ea = NULL;
-	r->text_no = NULL;
-	r->text_so = NULL;
-	r->text_we = NULL;
-	r->tex_x = 0;
-	r->tex_num = 0;
 	r->tx = 0;
 	r->ty = 0;
 	r->tpos = 0;
 	r->step = 0;
-	r->side = 0;
-	r->color = 0;
 }

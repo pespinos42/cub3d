@@ -128,14 +128,6 @@ typedef struct s_ray
 	t_player				*p;
 	t_map					*m;
 	mlx_image_t				*wall;
-	mlx_texture_t			*img_no;
-	mlx_texture_t			*img_so;
-	mlx_texture_t			*img_we;
-	mlx_texture_t			*img_ea;
-	mlx_image_t				*text_no;
-	mlx_image_t				*text_so;
-	mlx_image_t				*text_we;
-	mlx_image_t				*text_ea;
 	float					camera_x;
 	float					ray_dir_x;
 	float					ray_dir_y;
@@ -145,7 +137,6 @@ typedef struct s_ray
 	float					delta_dist_y;
 	float					perp_wall_dist;
 	float					wall_x;
-	int						tex_num;
 	int						map_x;
 	int						map_y;
 	int						step_x;
@@ -156,11 +147,9 @@ typedef struct s_ray
 	int						draw_start;
 	int						draw_end;
 	int						columns;
-	int						tex_x;
 	int						tx;
 	int						ty;
 	float					step;
 	float					tpos;
-	uint32_t				color;
 	mlx_texture_t			*texs[4];
 }							t_ray;

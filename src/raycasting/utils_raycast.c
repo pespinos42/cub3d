@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_raycast.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 14:40:00 by rdelicad          #+#    #+#             */
+/*   Updated: 2024/01/17 14:44:43 by rdelicad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 /**
@@ -66,7 +78,13 @@ void	player_orientation(t_map *m, t_player *p)
 		p->plane_x = 0;
 		p->plane_y = -0.66;
 	}
-	else if (m->d->player_orientation == 'E')
+	else if (m->d->player_orientation == 'E' || m->d->player_orientation == 'W')
+		player_orientation2(m, p);
+}
+
+void	player_orientation2(t_map *m, t_player *p)
+{
+	if (m->d->player_orientation == 'E')
 	{
 		p->dir_x = 0;
 		p->dir_y = 1;

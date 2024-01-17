@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 14:03:39 by rdelicad          #+#    #+#             */
+/*   Updated: 2024/01/17 15:01:15 by rdelicad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int	main(int argc, char **argv)
@@ -5,7 +17,7 @@ int	main(int argc, char **argv)
 	t_data	d;
 	t_map	m;
 
-	// atexit(ft_leaks);
+	//atexit(ft_leaks);
 	d.argc = argc;
 	d.argv = argv;
 	if (ft_check_parameters(&d) != 1)
@@ -37,7 +49,7 @@ int32_t	start_game(t_map *m)
 
 void	exit_hook(void *param)
 {
-	t_map *m;
+	t_map	*m;
 
 	m = param;
 	if (mlx_is_key_down(m->mlx, MLX_KEY_ESCAPE))
