@@ -24,7 +24,8 @@ void	position_direcction_ray(t_ray *r, int x)
 }
 /**
 
-	* @brief Calcula la distancia que recorre el rayo desde una celda a la siguiente
+	* @brief Calcula la distancia que recorre el rayo desde una celda 
+	a la siguiente
  */
 
 void	delta_dist(t_ray *r)
@@ -41,7 +42,8 @@ void	delta_dist(t_ray *r)
 
 /**
 
-	* @brief Calcula la distancia que recorre el rayo desde una celda a la siguiente
+	* @brief Calcula la distancia que recorre el rayo desde una celda 
+	a la siguiente
  */
 
 void	side_dist(t_ray *r)
