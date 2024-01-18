@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:39:42 by rdelicad          #+#    #+#             */
-/*   Updated: 2024/01/18 09:15:18 by rdelicad         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:16:15 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	position_direcction_ray(t_ray *r, int x)
 }
 /**
 
-	* @brief Calcula la distancia que recorre el rayo desde una celda a la siguiente
+	* @brief 
  */
 
 void	delta_dist(t_ray *r)
