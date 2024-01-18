@@ -70,9 +70,12 @@ void	ft_check_init_row3(char *c_w_space, char *path, t_data *d)
 		rgb = ft_split(path, ',');
 		if (!rgb[0] || !rgb[1] || !rgb[2])
 			ft_error_messages(7);
-		d->f_r = ft_atoi(rgb[0]);
-		d->f_g = ft_atoi(rgb[1]);
-		d->f_b = ft_atoi(rgb[2]);
+		if (ft_o_num(rgb[0]) && ft_o_num(rgb[1]) && ft_o_num(rgb[2]))
+		{
+			d->f_r = ft_atoi(rgb[0]);
+			d->f_g = ft_atoi(rgb[1]);
+			d->f_b = ft_atoi(rgb[2]);
+		}
 		ft_free_matrix(rgb);
 		if (d->f_r < 0 || d->f_r > 255 || d->f_g < 0 || d->f_g > 255
 			|| d->f_b < 0 || d->f_b > 255)

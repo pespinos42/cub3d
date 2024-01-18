@@ -26,6 +26,7 @@ void	ft_duplicate_map(t_data *d);
 void	ft_flood_fill(int x, int y, t_data *d);
 void	ft_locate_player(t_data *d);
 int		ft_check_inner_walls(t_data *d);
+int	    ft_o_num(char *str);
 
 // 101-2CHECKLIMITS
 int		ft_check_around(t_data *d, int x, int y);

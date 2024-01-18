@@ -88,3 +88,18 @@ int	ft_check_inner_walls(t_data *d)
 	}
 	return (1);
 }
+
+//ft_only_numbers
+int	ft_o_num(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < 48 || str[i] > 57)
+			ft_error_messages(7);
+		i++;
+	}
+	return (1);
+}
