@@ -31,7 +31,6 @@ endif
 # --- Files ---
 
 SRCS	= 	utils_player.c move_player.c\
-			leaks.c \
 			main.c \
 			ft_windows.c raycast.c utils_raycast.c\
 			init_structs.c\

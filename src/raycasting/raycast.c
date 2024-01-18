@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:39:42 by rdelicad          #+#    #+#             */
-/*   Updated: 2024/01/18 08:48:39 by rdelicad         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:15:18 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	position_direcction_ray(t_ray *r, int x)
 	r->ray_dir_y = r->p->dir_y + r->p->plane_y * r->camera_x;
 }
 /**
-* @brief Calcula la distancia entre el rayo y la celda
+
+	* @brief Calcula la distancia que recorre el rayo desde una celda a la siguiente
  */
 
 void	delta_dist(t_ray *r)
@@ -39,7 +40,8 @@ void	delta_dist(t_ray *r)
 }
 
 /**
-* @brief Calcula hipotenusa desde el bloque del jugador
+
+	* @brief Calcula la distancia que recorre el rayo desde una celda a la siguiente
  */
 
 void	side_dist(t_ray *r)

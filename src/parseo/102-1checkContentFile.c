@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   102-1checkContentFile.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 16:57:57 by pespinos          #+#    #+#             */
+/*   Updated: 2024/01/17 16:57:58 by pespinos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
-
-void	ft_print_matrix(char **matrix, t_data *d)
-{
-	int	x;
-
-	x = 0;
-	while (x < d->number_rows)
-	{
-		printf("%s\n", matrix[x]);
-		x++;
-	}
-	printf("\n");
-}
 
 void	ft_my_strjoin_operations(t_my_strjoin_data *d)
 {

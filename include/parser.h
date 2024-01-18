@@ -24,7 +24,6 @@ int		ft_allow_chars(char *s, t_data *d);
 // 101-1CHECKLIMITS
 void	ft_duplicate_map(t_data *d);
 void	ft_flood_fill(int x, int y, t_data *d);
-void	ft_print_map(t_data *d);
 void	ft_locate_player(t_data *d);
 int		ft_check_inner_walls(t_data *d);
 
@@ -39,7 +38,6 @@ void	ft_fill_islands(t_data *d);
 void	ft_check_limits(t_data *d);
 
 // 102-1CHECKCONTENTFILE
-void	ft_print_matrix(char **matrix, t_data *d);
 void	ft_my_strjoin_operations(t_my_strjoin_data *d);
 char	*ft_my_strjoin(char **str1, char **str2);
 char	*ft_get_all_content(t_data *d);

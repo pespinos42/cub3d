@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   002lists.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 16:57:41 by pespinos          #+#    #+#             */
+/*   Updated: 2024/01/17 16:57:42 by pespinos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 t_list	*ft_lstnew(char *content)
@@ -31,14 +43,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		tmp = ft_lstlast(*lst);
 		tmp->next = new;
-	}
-}
-
-void	ft_lstprint(t_list *lst)
-{
-	if (lst)
-	{
-		while (lst)
-			lst = lst->next;
 	}
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   101-1checkLimits.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 16:57:47 by pespinos          #+#    #+#             */
+/*   Updated: 2024/01/17 16:57:48 by pespinos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	ft_duplicate_map(t_data *d)
@@ -23,20 +35,6 @@ void	ft_flood_fill(int x, int y, t_data *d)
 	ft_flood_fill(x + 1, y, d);
 	ft_flood_fill(x, y - 1, d);
 	ft_flood_fill(x, y + 1, d);
-}
-
-void	ft_print_map(t_data *d)
-{
-	int	r;
-
-	printf("\n");
-	r = 0;
-	while (r < d->number_rows)
-	{
-		printf("%s\n", d->map_flood_fill[r]);
-		r++;
-	}
-	printf("\n");
 }
 
 void	ft_locate_player(t_data *d)
