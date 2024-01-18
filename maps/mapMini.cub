@@ -1,7 +1,7 @@
-NO ./textures/NO/tex3.png
-SO ./textures/SO/tex1.png
-WE ./textures/WE/tex6.png
-EA ./textures/EA/tex5.png
+NO ./textures/NO/norte.png
+SO ./textures/SO/sur.png
+WE ./textures/WE/oeste.png
+EA ./textures/EA/este.png
 F 128,128,128
 C 0,200,255
  11

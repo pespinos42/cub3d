@@ -1,9 +1,9 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./textures/NO/norte.png
+SO ./textures/SO/sur.png
+WE ./textures/WE/oeste.png
+EA ./textures/EA/este.png er kjh kjh kjh
 F 255,100,0
-C 255,30,0
+C 255,30,20
 111111111111111111111111111111
 100000000000011100000000000001
 100000000000001000000000000001
