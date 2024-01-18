@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:40:00 by rdelicad          #+#    #+#             */
-/*   Updated: 2024/01/17 14:44:43 by rdelicad         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:05:39 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ void	verline(t_ray *r, int x)
 	init_position_texture(r);
 	print_lines(r, x);
 }
+
+/**
+ * @brief Calcular la posicion de la textura
+ * 1. Calcula la posicion vertical @param ty de la pared
+ * 2. Calcula el siguiente paso de la textura @param tpos para la pared
+ * 3. Obtiene el color de la textura @param p
+ * 4. Convierte el color de la textura a un color de 32 bits @param color
+ * 5. Dibuja la linea de pixeles
+ */
 
 void	print_lines(t_ray *r, int x)
 {

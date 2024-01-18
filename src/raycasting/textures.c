@@ -6,7 +6,7 @@
 /*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:39:50 by rdelicad          #+#    #+#             */
-/*   Updated: 2024/01/17 15:03:31 by rdelicad         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:17:25 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	load_textures(t_ray *r)
 {
-	r->texs[0] = mlx_load_png("./textures/NO/norte.png");
+	r->texs[0] = mlx_load_png(r->m->d->path_no);
 	if (!r->texs[0])
 	{
 		printf("Error\nNo se ha podido cargar la textura Norte\n");
 		exit(0);
 	}
-	r->texs[1] = mlx_load_png("./textures/SO/sur.png");
+	r->texs[1] = mlx_load_png(r->m->d->path_so);
 	if (!r->texs[1])
 	{
 		printf("Error\nNo se ha podido cargar la textura Sur\n");
 		exit(0);
 	}
-	r->texs[2] = mlx_load_png("./textures/WE/oeste.png");
+	r->texs[2] = mlx_load_png(r->m->d->path_we);
 	if (!r->texs[2])
 	{
 		printf("Error\nNo se ha podido cargar la textura Oeste\n");
 		exit(0);
 	}
-	r->texs[3] = mlx_load_png("./textures/EA/este.png");
+	r->texs[3] = mlx_load_png(r->m->d->path_ea);
 	if (!r->texs[3])
 	{
 		printf("Error\nNo se ha podido cargar la textura Este\n");

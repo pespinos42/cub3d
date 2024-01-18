@@ -21,8 +21,8 @@
 
 # define WIDTH 1280
 # define HEIGHT 720
-# define MOVE_SPEED 0.03
-# define ROT_SPEED 0.02
+# define MOVE_SPEED 0.09
+# define ROT_SPEED 0.06
 # define INFINITE 1e30
 
 #endif
