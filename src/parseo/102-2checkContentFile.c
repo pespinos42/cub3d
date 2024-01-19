@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   102-2checkContentFile.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
+/*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:57:59 by pespinos          #+#    #+#             */
-/*   Updated: 2024/01/19 16:07:17 by rdelicad         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:29:37 by pespinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	ft_check_init_row4(char *c_w_space, char *path, t_data *d)
 			ft_error_messages(7);
 		if (ft_o_num(rgb[0]) && ft_o_num(rgb[1]) && ft_o_num(rgb[2]))
 		{
-			d->f_r = ft_atoi(rgb[0]);
-			d->f_g = ft_atoi(rgb[1]);
-			d->f_b = ft_atoi(rgb[2]);
+			d->c_r = ft_atoi(rgb[0]);
+			d->c_g = ft_atoi(rgb[1]);
+			d->c_b = ft_atoi(rgb[2]);
 		}
 		ft_free_matrix(rgb);
 		if (d->c_r < 0 || d->c_r > 255 || d->c_g < 0 || d->c_g > 255

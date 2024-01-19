@@ -2,8 +2,8 @@ NO ./textures/NO/norte.png
 SO ./textures/SO/sur.png
 WE ./textures/WE/oeste.png
 EA ./textures/EA/este.png
-C 0,200,255
-F 128,128,128
+C 0,0,0
+F 255,255,255
 
         1111111111111111111111111
         1000000000110000000000001
