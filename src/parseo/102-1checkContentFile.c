@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   102-1checkContentFile.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:57:57 by pespinos          #+#    #+#             */
-/*   Updated: 2024/01/17 16:57:58 by pespinos         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:12:55 by rdelicad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ char	*ft_get_all_content(t_data *d)
 	int		r;
 
 	d->fd = open(d->argv[1], O_RDONLY);
+	if (d->fd == -1)
+	{
+		ft_error_messages(1);
+		exit(EXIT_FAILURE);
+	}
 	new_str = ft_get_next_line(d->fd);
 	r = 0;
 	while (new_str)
