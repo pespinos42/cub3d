@@ -6,7 +6,7 @@
 /*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:58:02 by pespinos          #+#    #+#             */
-/*   Updated: 2024/01/17 16:58:03 by pespinos         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:46:07 by pespinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_check_start_row(char *row_n_content, t_data *d)
 	if (!row_n_content)
 		ft_error_messages(7);
 	content_without_space = ft_split(row_n_content, ' ');
+	if (content_without_space[2])
+		ft_error_messages(7);
 	ft_check_init_row(content_without_space[0], content_without_space[1], d);
 	ft_free_matrix(content_without_space);
 }

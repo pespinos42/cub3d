@@ -6,7 +6,7 @@
 /*   By: pespinos <pespinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:57:59 by pespinos          #+#    #+#             */
-/*   Updated: 2024/01/19 16:29:37 by pespinos         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:42:03 by pespinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_check_init_row1(char *c_w_space, char *path, t_data *d)
 {
-	if (!ft_strncmp(c_w_space, "NO", 2) && d->found_no == 0)
+	if (!ft_strncmp(c_w_space, "NO", 2) && d->found_no == 0
+		&& ft_strlen(c_w_space) == 2)
 	{
 		d->found_no = 1;
 		if (path)
@@ -24,7 +25,8 @@ void	ft_check_init_row1(char *c_w_space, char *path, t_data *d)
 	}
 	else if (!ft_strncmp(c_w_space, "NO", 2))
 		ft_error_messages(7);
-	else if (!ft_strncmp(c_w_space, "SO", 2) && d->found_so == 0)
+	else if (!ft_strncmp(c_w_space, "SO", 2) && d->found_so == 0
+		&& ft_strlen(c_w_space) == 2)
 	{
 		d->found_so = 1;
 		if (path)
@@ -38,7 +40,8 @@ void	ft_check_init_row1(char *c_w_space, char *path, t_data *d)
 
 void	ft_check_init_row2(char *c_w_space, char *path, t_data *d)
 {
-	if (!ft_strncmp(c_w_space, "EA", 2) && d->found_ea == 0)
+	if (!ft_strncmp(c_w_space, "EA", 2) && d->found_ea == 0
+		&& ft_strlen(c_w_space) == 2)
 	{
 		d->found_ea = 1;
 		if (path)
@@ -48,7 +51,8 @@ void	ft_check_init_row2(char *c_w_space, char *path, t_data *d)
 	}
 	else if (!ft_strncmp(c_w_space, "EA", 2))
 		ft_error_messages(7);
-	else if (!ft_strncmp(c_w_space, "WE", 2) && d->found_we == 0)
+	else if (!ft_strncmp(c_w_space, "WE", 2) && d->found_we == 0
+		&& ft_strlen(c_w_space) == 2)
 	{
 		d->found_we = 1;
 		if (path)
