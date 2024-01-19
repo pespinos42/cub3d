@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdelicad <rdelicad@student.42.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/19 13:10:18 by rdelicad          #+#    #+#             */
+/*   Updated: 2024/01/19 13:11:04 by rdelicad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 // 000LIBFT1
@@ -26,7 +38,7 @@ void	ft_duplicate_map(t_data *d);
 void	ft_flood_fill(int x, int y, t_data *d);
 void	ft_locate_player(t_data *d);
 int		ft_check_inner_walls(t_data *d);
-int	    ft_o_num(char *str);
+int		ft_o_num(char *str);
 
 // 101-2CHECKLIMITS
 int		ft_check_around(t_data *d, int x, int y);

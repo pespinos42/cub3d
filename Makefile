@@ -49,7 +49,7 @@ all: libmlx $(NAME)
 create_dir:
 	@mkdir -p obj
 
-vpath %.c src src/minimap src/parseo src/main src/player src/raycasting
+vpath %.c src src/parseo src/main src/player src/raycasting
 
 libmlx:
 	@$(MAKE) -C $(LIBMLX)
@@ -83,4 +83,8 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all, clean, fclean, re, libmlx, bonus
+norma:
+	@echo "$(BLUE)$(BOLD)Checking norminette...$(RESET)"
+	@norminette src/* include/*
+
+.PHONY: all, clean, fclean, re, norma, libmlx, bonus
